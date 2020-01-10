@@ -22,10 +22,8 @@ category: math
   * [Methods of Optimization](https://heming-zhang.github.io/course/Methods_of_Optimization(2015).pdf)
 
 
-
-
 ## Similar Courses
-
+* [WashU ESE 415 Convex Optimization(2019 Spring)](https://cigroup.wustl.edu/teaching/ese415-2019/)
 
 
 

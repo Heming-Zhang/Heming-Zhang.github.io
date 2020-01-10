@@ -1,7 +1,7 @@
 ---
 layout: notes
 section-type: notes
-title: Calculus Reivew
+title: Calculus
 category: math
 ---
 
