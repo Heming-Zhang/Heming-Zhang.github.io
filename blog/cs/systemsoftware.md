@@ -1122,9 +1122,7 @@ SUMMARY:
 
 ## Slide 14
 
-
 ## Slide 15
-
 
 ## Slide 16
 
@@ -1157,8 +1155,6 @@ SUMMARY:
 
 
 ## Slide 17
-
-
 
 ### P11
 
