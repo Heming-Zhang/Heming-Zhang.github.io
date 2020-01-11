@@ -113,10 +113,10 @@ For example, the function $\lim_{x\rightarrow{+\infty}}{f(x)}=\lim_{x\rightarrow
 >
 > $$\lim_{n\rightarrow{\infty}}f(x_n)=\lim_{x\rightarrow{x_0}}f(x)$$
 
-> Proof of Property 4:
-> * Set $\lim_{x\rightarrow{x_0}}f(x)=L$, then $\forall\ {\epsilon>0}$, $\exists\ {\delta>0}$ and $0<|x-x_0|<\delta$ $\Rightarrow\ |f(x)-L|<\epsilon$
-> * Since $\{x_n\}$ is a sequence converges at $x_0$ ($x_n\neq{x_0}$), which equals $\lim_{n\rightarrow{\infty}}{x_n}=x_0$. It means that when $n>M$, $0<|x_n-x_0|<\delta$.
-> * As $x_n\neq{x_0}$, then if $n>M$ and $0<|x_n-x_0|<\delta$, then $|f(x_n)-L|<\epsilon$, meaning $\lim_{n\rightarrow{\infty}}f(x_n)=L$
+> Proof of Property 4:  
+> (1) Set $\lim_{x\rightarrow{x_0}}f(x)=L$, then $\forall\ {\epsilon>0}$, $\exists\ {\delta>0}$ and $0<|x-x_0|<\delta$ $\Rightarrow\ |f(x)-L|<\epsilon$  
+> (2) Since $\{x_n\}$ is a sequence converges at $x_0$ ($x_n\neq{x_0}$), which equals $\lim_{n\rightarrow{\infty}}{x_n}=x_0$. It means that when $n>M$, $0<|x_n-x_0|<\delta$.  
+> (3) As $x_n\neq{x_0}$, then if $n>M$ and $0<|x_n-x_0|<\delta$, then $|f(x_n)-L|<\epsilon$, meaning $\lim_{n\rightarrow{\infty}}f(x_n)=L$
 >
 > Self Understanding of Property 4:  
 > * If $x$ approaches $x_0$ in common way ($x\rightarrow{x_0}$), $f(x)\rightarrow{A}$
