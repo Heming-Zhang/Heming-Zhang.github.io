@@ -41,6 +41,7 @@ If you read this out loud, it should sound like "the limit, as $x$ goes to 2, of
 > if for every $\epsilon>0$ (no matter how small $\epsilon$ is), there exists $\delta>0$ such that for all $x$
 >
 > $$0<|x-x_0|<\delta\ \ \Rightarrow\   |f(x)-L|<\epsilon$$
+>
 <br>
 <center>
 <img class = "medium" src="./calculus_pictures/calculus_005.png" height="55%" width="55%">
@@ -106,9 +107,11 @@ For example, the function $\lim_{x\rightarrow{+\infty}}{f(x)}=\lim_{x\rightarrow
 > * Property 2 (Local Finiteness of Function Limit): If function $f$ has $\lim_{x\rightarrow{x_0}}{f(x)}=L$, then there exists $N>0$ and $\delta>0$ such that
 >
 > $$0<|x-x_0|<\delta\ \ \Rightarrow\ |f(x)|\leq{N}$$
+>
 > * Property 3 (Local Guarantee of Sign for Function Limit): If function $f$ has $\lim_{x\rightarrow{x_0}}{f(x)}=L$ and $L>0$ $[L<0]$, then there exists $N>0$ and $\delta>0$ such that
 >
 > $$0<|x-x_0|<\delta\ \ \Rightarrow\ f(x)>0\ [f(x)<0]$$
+>
 > * [Property 4]((https://www.bilibili.com/video/av59577023/)) (Relation Between Function and Sequence Limits): If limit $\lim_{x\rightarrow{x_0}}f(x)$ exists, $\{x_n\}$ is a sequence converges at $x_0$ ($x_n\neq{x_0}$), then corresponding function of sequence $\{f(x_n)\}$ must converge, and have
 >
 > $$\lim_{n\rightarrow{\infty}}f(x_n)=\lim_{x\rightarrow{x_0}}f(x)$$
