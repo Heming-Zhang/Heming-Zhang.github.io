@@ -13,7 +13,7 @@ category: math
 
 ## Part 1 Introduction to Limits
 ### 1.1 Limits: The Basic Use
-Let function $f$ have domain $\mathbb{R}\setminus\{2\}$, and set $f(x)=x-1$ on this domain. Formally, you might write:
+Let function $f$ have domain $\mathbb{R}\setminus$$\{2\}$, and set $f(x)=x-1$ on this domain. Formally, you might write:
 
 $$f(x) = x-1\ \ \text{when}\ x\neq{2}$$
 
@@ -30,7 +30,7 @@ $$f(x)\rightarrow{1}\ \ \text{as}\ x\rightarrow{2}$$
 If you read this out loud, it should sound like "the limit, as $x$ goes to 2, of $f(x)$ is equal to 1."
 
 <center>
-<img class = "medium" src="./calculus_pictures/calculus_001.png" height="55%" width="55%">
+<img class = "large" src="./calculus_pictures/calculus_001.png" height="75%" width="75%">
 </center>
 
 ### 1.2 Limits: Definition
@@ -72,13 +72,13 @@ If you read this out loud, it should sound like "the limit, as $x$ goes to 2, of
     * $f(x)=\frac{1}{x^2}$
     * $f(x)=\sin(\frac{1}{x})$
 <center>
-<img class = "medium" src="./calculus_pictures/calculus_002.png" height="55%" width="55%">
+<img class = "large" src="./calculus_pictures/calculus_002.png" height="75%" width="75%">
 </center>
 <center>
-<img class = "medium" src="./calculus_pictures/calculus_003.png" height="55%" width="55%">
+<img class = "large" src="./calculus_pictures/calculus_003.png" height="75%" width="75%">
 </center>
 <center>
-<img class = "medium" src="./calculus_pictures/calculus_004.png" height="55%" width="55%">
+<img class = "large" src="./calculus_pictures/calculus_004.png" height="75%" width="75%">
 </center>
 
 The above third graph is a real mess near $x=0$. It oscillates infinitely often between 1 and -1, faster and faster as you move from the right toward $x = 0$.
@@ -98,5 +98,8 @@ The above third graph is a real mess near $x=0$. It oscillates infinitely often 
 
 For example, the function $\lim_{x\rightarrow{+\infty}}{f(x)}=\lim_{x\rightarrow{+\infty}}\sin{(\frac{1}{x})}=0$
 <center>
-<img class = "medium" src="./calculus_pictures/calculus_006.png" height="55%" width="55%">
+<img class = "large" src="./calculus_pictures/calculus_006.png" height="75%" width="75%">
 </center>
+
+### 1.6 Properties of Limit
+
