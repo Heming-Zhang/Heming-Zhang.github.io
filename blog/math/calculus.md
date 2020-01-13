@@ -8,10 +8,13 @@ category: math
 * TOC
 {:toc}
 ---
+## Calculus Basic Knowledge
+* Calculus is about **differentiation** and **integration**.
+
 ## Related Materials
 * [The Calculus Lifesaver - All the tools you need to excel at calculus](https://heming-zhang.github.io/course/Princeton_Calculus.pdf)
 
-## Part 1 Introduction to Limits
+## 1 Introduction to Limits
 ### 1.1 Limits: The Basic Use
 Let function $f$ have domain $\mathbb{R}\setminus$$\{2\}$, and set $f(x)=x-1$ on this domain. Formally, you might write:
 
@@ -124,3 +127,76 @@ For example, the function $\lim_{x\rightarrow{+\infty}}{f(x)}=\lim_{x\rightarrow
 > Self Understanding of Property 4:  
 > * If $x$ approaches $x_0$ in common way ($x\rightarrow{x_0}$), $f(x)\rightarrow{A}$
 > * If $x$ approaches $x_0$ in special way ($x_n\rightarrow{x_0}$), $f(x_n)\rightarrow{A}$
+
+### 1.7 Infinite Small and Infinite Large: Definition
+> * Infinite Small: If function $f$ has $\lim_{x\rightarrow{x_0}}{f(x)=0}$, then we call function $f$ is **infinite small** when $x$ approaches $x_0$.
+> E.g. $\lim_{x\rightarrow{0}}{x^2}=0$, therefore, function $f$ is infinite small when $x\rightarrow{x_0}$
+
+> * Infinite Large: Let $f$ be a function defined on some open interval that contains the number $x_0$, except possibly at $x_0$ itself. For $\forall{\ M}$, no matter how large $M$ is, there $\exists\ \delta>0$ such that
+>
+> $$0<|x-x_0|<\delta\ \ \Rightarrow |f(x)|>M$$
+>
+
+### 1.8 Squeeze Principle (Sandwich Principle)
+> Let $g, h, f$ be functions defined on some open interval that contains the number $x_0$, except possibly at $x_0$ itself. If we have $g(x)\leq{f(x)}\leq{h(x)}$ with $0<|x-x_0|<r$, we will have relation such that
+>
+> $$\lim_{x\rightarrow{x_0}(x\rightarrow{\infty})}g(x)=A,\lim_{x\rightarrow{x_0}(x\rightarrow{\infty})}h(x)=A\\ \Rightarrow{\lim_{x\rightarrow{x_0}(x\rightarrow{\infty})}}=A$$
+<br>
+<center>
+<img class = "medium" src="./calculus_pictures/calculus_007.png" height="55%" width="55%">
+</center>
+
+### 1.9 An Important Limit
+> $$\lim_{x\rightarrow{\infty}}(1+\frac{1}{x})^{x}=e$$
+
+### 1.10 Comparativeness of Infinite Small
+* If $\alpha,\beta$ are infinite small from same variable, and $\lim{\frac{\alpha}{\beta}}=0$, then we call $\beta$ is **higher-order infinite small** to $\alpha$. And $\lim{\frac{\alpha}{\beta}}=\infty$ for **lower-order infinite small**.
+
+## 2 Continuity and Differentiability
+### 2.0 Some Concepts
+* Derivative 导数
+* Derivative Function 可导函数
+* Differentiable 可微 
+* Differential Function 可微函数
+* **Derivative** is the quotient of **Differentiation** for unary function(一元函数)： $f'(x)=\frac{dy}{dx}$
+
+<center>
+<img class = "medium" src="./calculus_pictures/calculus_008.png" height="55%" width="55%">
+</center>
+
+* In English environment, there is no difference on "可导" and "可微". Both of them are differentiable.  
+* And notation $d$ stands for $\Delta$, meaning two infinitesimal $dy$ and $dx$.
+
+### 2.1 Coninuity
+> Let $f$ be a function defined on some open interval that contains the number $x_0$, if we have $\lim_{x\rightarrow{x_0}}{f(x)}=f(x_0)$, we will declare that function $f$ is continous at point $x_0$.
+
+### 2.2 Differentiability
+> Let $f$ be a function define on some open interval that contains the number $x_0$, we will call function $f$ is differentiate if we have limit such that
+>
+> $$\lim_{\Delta{x}\rightarrow0}={\frac{f(x_0+\Delta{x})-f(x_0)}{\Delta{x}}}$$  
+> 
+> or
+>
+> $$\frac{df}{dx}\bigg\vert_{x=x_0},\frac{df(x)}{dx}\bigg\vert_{x=x_0},\ f'(x_0)$$
+
+Some examples for not differentiate  
+(1) $f(x)=|x|$ when $x=0$  
+(2) $f(x)=|x^2-2x|$ when $x=0, x=2$
+
+### 2.3 Relation Between Continuity and Differentiability
+> Principle: Let $f$ be a differentiable function at $x_0$, then we could assert that $f$ is continious at $x_0$. But converse proposition does not hold. 
+
+### 2.4 Second and Higher-Order Derivatives
+> * Notation: $\frac{d^n{f}}{dx^n}\big\vert_{x=x_0},\ \ f^{(n)}(x_0)$
+> * Inference: $\frac{d^n{f}}{dx^n}=\frac{d}{dx}{\frac{d^{n-1}f}{dx^{n-1}}}$
+
+  
+
+  
+
+
+Problems:  
+*  术语方面通读 chapter 6， chapter 11， 罗比达（14）
+*  积分（15，16，17，18，19）
+*  级数（22，23，24，25，26）
+*  微分方程（30）
