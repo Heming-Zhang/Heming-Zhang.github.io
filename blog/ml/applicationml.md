@@ -30,3 +30,6 @@ $ python3.6 (default python 3.6.8 with installation)
 $ alias python=python3.6 (make python command be python 3.6)
 $ alias python=python (to switch back python to be python 2.7.16)
 ```
+
+## Lecture 1
+

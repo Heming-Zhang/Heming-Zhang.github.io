@@ -70,7 +70,6 @@ a_{13}
 $$
 
 
-
 ### Matrix Sum
 
 * $A$ and $B$ must have the same dimensions
@@ -81,7 +80,7 @@ $$
 ### Matrix Product
 
 * $C_{n\times{p}}=A_{n\times{m}}B_{m\times{p}}$
-* In specific, $c_{ij}=\sum^{m}_{k=1}{a_{ik}b_{kj}}$
+* In specific, $c_{ij}={\sum^{m}_{k=1}{a_{ik}b_{kj}}}$
 
 ### Transpose of a Matrix
 
