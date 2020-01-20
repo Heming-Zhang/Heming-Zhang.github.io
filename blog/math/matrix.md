@@ -75,7 +75,9 @@ $$
 
 * $A$ and $B$ must have the same dimensions
 * $A_{m\times{n}} + B_{m\times{n}} = C_{m\times{n}}$
-* In specific, $c_{ij}=a_{ij}+b_{ij}$
+* In specific, 
+
+$$c_{ij}=a_{ij}+b_{ij}$$
 
 
 ### Matrix Product
@@ -111,8 +113,8 @@ $$
 
 * If A is a square matrix, the **inverse** of $A$, called $A^{-1}$, satisfies
 
-$$AA^{-1}=I$$
-$$ A^{-1}A=I$$
+$$AA^{-1}=I\\
+A^{-1}A=I$$
 
 Where $I$, the **indentity matrix**, is a diagonal matrix with all $1$' s on the diagonal, like the following matrix:
 
@@ -188,7 +190,11 @@ $$
 
 ### Other Terms
 
-* Trace of a matrix is $Tr(A)=\sum^{N}_{i=1}a_{ii}$(the sum of the diagonal entries)
+* Trace of a matrix is 
+
+$$Tr(A)=\sum^{N}_{i=1}a_{ii}$$
+
+which is the sum of the diagonal entries.
 
 * Matrix $A$ is orthonormal if
 
