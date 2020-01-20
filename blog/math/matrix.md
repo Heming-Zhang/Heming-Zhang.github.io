@@ -9,10 +9,10 @@ category: math
 {:toc}
 ---
 
-## Basics Review about Linear Algebra
 * [Matrix Cookbook](http://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf)
 
-### Determinat of a Matrix
+## 1.Basics Review about Linear Algebra
+### 1.1 Determinat of a Matrix
 
 * Determinat: must be square
 
@@ -34,7 +34,7 @@ det\left[
 a_{11}a_{22}-a_{21}a_{12}
 $$
 
-&NewLine;
+<br>
 
 $$
 det\left[
@@ -71,25 +71,24 @@ a_{13}
 $$
 
 
-### Matrix Sum
+### 1.2 Matrix Sum
 
-* $A$ and $B$ must have the same dimensions
-* $A_{m\times{n}} + B_{m\times{n}} = C_{m\times{n}}$
-* In specific, 
+>* $A$ and $B$ must have the same dimensions
+>* $A_{m\times{n}} + B_{m\times{n}} = C_{m\times{n}}$
+>* In specific, 
+>
+>$$c_{ij}=a_{ij}+b_{ij}$$
 
-$$c_{ij}=a_{ij}+b_{ij}$$
 
+### 1.3 Matrix Product
 
-### Matrix Product
+>* $C_{n\times{p}}=A_{n\times{m}}B_{m\times{p}}$
+>* In specific, $c_{ij}={\sum}^{m}_{k=1}{{a_{ik}}\times{b_{kj}}}$
 
-* $C_{n\times{p}}=A_{n\times{m}}B_{m\times{p}}$
-* In specific, $c_{ij}={\sum}^{m}_{k=1}{{a_{ik}}\times{b_{kj}}}$
-
-### Transpose of a Matrix
-
-* Matrix $A$ is an $m\times{n}$ element array
-
-$$
+### 1.4 Transpose of a Matrix
+>**Transpose** of matrix $A$(written $A^{T}$) is $a_{ji}$($A_{m\times{n}}$ with rows and columns flipped), where Matrix $A$ is an $m\times{n}$ element array
+>
+>$$
 A_{m\times{n}}=\left[
  \begin{matrix}
    a_{11} & a_{12} &\cdots & a_{1n} \\
@@ -102,23 +101,21 @@ A_{m\times{n}}=\left[
   \right]
 $$
 
-* **transpose** of matrix $A$(written $A^{T}$) is $a_{ji}$($A_{m\times{n}}$ with rows and columns flipped)
+Some arithmetic rules for this:
+>* $(A+B)^{T}=A^T+B^T$
+>* $(AB)^T = B^{T}A^{T}$ 
+>* If $A^T = A$, we say A is **symmertric**.
 
-* Some arithmetic rules for this:
-  * $(A+B)^{T}=A^T+B^T$
-  * $(AB)^T = B^{T}A^{T}$ 
-  * If $A^T = A$, we say A is **symmertric**.
+### 1.5 Inverse of a Matrix
 
-### Inverse of a Matrix
-
-* If A is a square matrix, the **inverse** of $A$, called $A^{-1}$, satisfies
-
-$$AA^{-1}=I\\
+> If A is a square matrix, the **inverse** of $A$, called $A^{-1}$, satisfies
+>
+>$$AA^{-1}=I\\
 A^{-1}A=I$$
-
-Where $I$, the **indentity matrix**, is a diagonal matrix with all $1$' s on the diagonal, like the following matrix:
-
-$$
+>
+> Where $I$, the **indentity matrix**, is a diagonal matrix with all $1$' s on the diagonal, like the following matrix:
+>
+>$$
 \left[
  \begin{matrix}
    1 & 0\\
@@ -129,9 +126,9 @@ $$
 
 * Inverse of a 2D Matrix
 
-For a 2D matrix, if
-
-$$A=
+>For a 2D matrix, if
+>
+>$$A=
 \left[
  \begin{matrix}
    a & b\\
@@ -139,10 +136,10 @@ $$A=
   \end{matrix}
 \right]
 $$
-
-then
-
-$$A^{-1}=\frac{\left[
+>
+>then
+>
+>$$A^{-1}=\frac{\left[
  \begin{matrix}
    d & -b\\
    -c & a\\
@@ -152,6 +149,35 @@ $$A^{-1}=\frac{\left[
 $$
 
 * Inverse of Matrix
+
+
+## 2 Linear Equation Set
+### 2.1 Elementary Change of Matrix("矩阵的初等变换")
+
+### 2.2 Rank of Matrix
+
+### 2.3 Elementary Matrix
+> Elementary Row Transformation Method for Finding Inverse Matrix:
+> * Construct a matrix $(A,E)$ with $n\times{2n}$
+> * Transform $(A,E)$ to $(E,A^{-1})$ with elementary row transformation
+
+> Elementary Row Transformation Method for Finding Solution of Matrix Equation $AX=B$:
+> * Construct a matrix $(A,B)$ with $n\times{(n+k)}$
+> * Transform $(A,B)$ to $(E,A^{-1}B)$ with elementary row transformation
+
+### 2.4 Solution for System of Linear Equation
+> Decision Therom for Judgment of Solution of Linear Equations
+
+> Method for Solving System of Linear Equation
+
+## 3 Linear Correlation of Groups of Vectors
+### 3.1 Vector and Its Operations
+### 3.2 Linear Correlation of Groups of Vectors
+> Let $A$ an group of vectors $A: \mathbf{\alpha_1, \alpha_2,\cdots,\alpha_m}$, and we will assert $A$ is **linear correlation**， if there is a set of numbers that are not all zero $k_1, k_2, \cdots, k_m$ such that
+>
+> $$k_1{\mathbf{\alpha_1}}+k_2{\mathbf{\alpha_2}}+\cdots+k_m{\mathbf{\alpha_m}}=\mathbf{0}$$
+
+### 3.3 Rank of Group Vectors
 
 
 ### Linear Dependant
