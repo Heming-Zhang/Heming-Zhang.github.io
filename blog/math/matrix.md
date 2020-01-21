@@ -10,6 +10,9 @@ category: math
 ---
 
 * [Matrix Cookbook](http://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf)
+* [Matrix Calculus 1](https://en.wikipedia.org/wiki/Matrix_calculus)
+* [Matrix Calculus 2](https://atmos.washington.edu/~dennis/MatrixCalculus.pdf)
+* [Matrix Calculus 3](https://explained.ai/matrix-calculus/)
 
 ## 1.Basics Review about Linear Algebra
 ### 1.1 Determinat of a Matrix
@@ -157,10 +160,12 @@ $$
 ### 2.2 Rank of Matrix
 
 ### 2.3 Elementary Matrix
+* Find Inverse Matrix
 > Elementary Row Transformation Method for Finding Inverse Matrix:
 > * Construct a matrix $(A,E)$ with $n\times{2n}$
 > * Transform $(A,E)$ to $(E,A^{-1})$ with elementary row transformation
 
+* Find Solution of Matrix Equation
 > Elementary Row Transformation Method for Finding Solution of Matrix Equation $AX=B$:
 > * Construct a matrix $(A,B)$ with $n\times{(n+k)}$
 > * Transform $(A,B)$ to $(E,A^{-1}B)$ with elementary row transformation
@@ -173,6 +178,7 @@ $$
 ## 3 Linear Correlation of Groups of Vectors
 ### 3.1 Vector and Its Operations
 ### 3.2 Linear Correlation of Groups of Vectors
+* Linear Correlation
 > Let $A$ an group of vectors $A: \mathbf{\alpha_1, \alpha_2,\cdots,\alpha_m}$, and we will assert $A$ is **linear correlation**， if there is a set of numbers that are not all zero $k_1, k_2, \cdots, k_m$ such that
 >
 > $$k_1{\mathbf{\alpha_1}}+k_2{\mathbf{\alpha_2}}+\cdots+k_m{\mathbf{\alpha_m}}=\mathbf{0}$$
@@ -228,14 +234,15 @@ $$
 > * The closure of number multiplication
 
 ## 4 Eigenvalue, Eigenvector, and Quadratic
-
-* Matrix $A$ is orthonormal if
-
-$$A^{T} = A^{-1}$$
-
-and in this case
-
-$$AA^{T} = I$$
+### 4.1 
+* Orthonornal Matrix
+> Matrix $A$ is orthonornal if
+>
+> $$A^{T} = A^{-1}$$
+>
+> and in this case
+>
+> $$AA^{T} = I$$
 
 * Matrix transformation
 
@@ -281,17 +288,18 @@ $$
 
 * Matrix Transformation: Scale
 
+### 4.2 Eigenvalue and Eigenvector
+
 * Eigenvalues and Eigenvector
-
-If Matrix $A$ is a $n$ dimension square matrix, and have a number $\lambda$ and non-zero vector $X=(x_1, x_2,\cdots, x_n)^{T}$, and 
-
-$$AX = \lambda{X} \  or (\lambda{I}-A)X=0$$
-
-we will name $\lambda$ as **eigenvalue**, and name $X$ as **eigenvecotr**  for Matrix $A$.
-
-Therefore, the formula $(\lambda{I}-A)X=0$ can be written as following linear equations:
-
-$$
+>If Matrix $A$ is a $n$ dimension square matrix, and have a number $\lambda$ and non-zero vector $X=(x_1, x_2,\cdots, x_n)^{T}$, and 
+>
+>$$AX = \lambda{X} \  or (\lambda{I}-A)X=0$$
+>
+>we will name $\lambda$ as **eigenvalue**, and name $X$ as **eigenvector**  for Matrix $A$.
+>
+>Therefore, the formula $(\lambda{I}-A)X=0$ can be written as following linear equations:
+>
+>$$
 \begin{cases}
 (\lambda-a_{11})x_1-a_{12}x_2-\cdots-a_{1n}x_{n}=0 \\
 -a_{21}x_1+(\lambda-a_{22})x_{2}-\cdots-a_{2n}x_{n}=0\\
@@ -303,9 +311,9 @@ $$
 $$
 
 * Eigenvalue and Eigenvector Solving Process  
-(1)Calculate Characteristic Polynomical $|A-\lambda{E}|$  
-(2)Calculate all the solutions for $|A-\lambda{E}|$  
-(3)For every eigenvalue $\lambda_0$, calculate the basic solution $\xi_1,\cdots,\xi_{t}$ for linear homogeneous equation $(A-\lambda_0{E})x = 0$  
+>(1)Calculate Characteristic Polynomical $|A-\lambda{E}|$  
+>(2)Calculate all the solutions for $|A-\lambda{E}|$  
+>(3)For every eigenvalue $\lambda_0$, calculate the basic solution $\xi_1,\cdots,\xi_{t}$ for linear homogeneous equation $(A-\lambda_0{E})x = 0$  
 
 ## 5 Other Terms
 
@@ -316,5 +324,37 @@ $$
 >
 >which is the sum of the diagonal entries.
 
+## 6 Matrix Calculus
 
+* [Matrix Calculus - Wikipedia](https://en.wikipedia.org/wiki/Matrix_calculus#Layout_conventions)
+### 6.1 Some General Rules
+* A General Circumstance(Denominator-layout notation)
+> If $\mathbf{y}\in\mathbb{R}^{m\times1}$ is an $m$-dimensions column vector, $\mathbf{x}\in\mathbb{R}^{n\times1}$ is an $n$-dimensions column vector, we have
+>
+> $$
+\frac{\partial{\mathbf{y}}}{\partial{\mathbf{x}}}=
+\left[
+ \begin{matrix}
+   \frac{y_1}{x_1} &\frac{y_2}{x_1} &\cdots  &\frac{y_m}{x_1}\\
+   \frac{y_1}{x_2}\\
+   .\\
+   .\\
+   .\\
+   \frac{y_1}{x_n} &\frac{y_2}{x_n} &\cdots  &\frac{y_m}{x_n}
+  \end{matrix}
+\right]_{m\times{n}}
+$$
+>
+> "纵向上分母维度相同，横向上分子维度相同"(Sorry for the chinese)
 
+* Scalar Take Derivative for Vector(Denominator-layout notation)
+> For $\mathbf{x}\in\mathbb{R}^{n\times1}$, $f(\mathbf{x})=y$, then we get
+>
+> $$\nabla_{\mathbf{x}}{f(\mathbf{x})}=\frac{\partial{f}}{\partial\mathbf{x}}=[\frac{\partial{f}}{x_1},\frac{\partial{f}}{x_2},\cdots,\frac{\partial{f}}{x_n}]^{\text{T}}$$
+
+* Vector Take Derivative for Scalar(Denominator-layout notation)
+> For $\mathbf{y}\in\mathbb{R}^{n\times1}$, $f(x)=\mathbf{y}$, then we get
+>
+> $$\nabla_{x}{f(x)}=\frac{\partial{f}}{\partial{x}}=[\frac{\partial{y_1}}{x},\frac{\partial{y_2}}{x},\cdots,\frac{\partial{y_n}}{x}]$$
+
+* Matrix derivative is always a matrix
