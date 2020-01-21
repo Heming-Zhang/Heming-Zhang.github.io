@@ -177,13 +177,10 @@ $$
 >
 > $$k_1{\mathbf{\alpha_1}}+k_2{\mathbf{\alpha_2}}+\cdots+k_m{\mathbf{\alpha_m}}=\mathbf{0}$$
 
-### 3.3 Rank of Group Vectors
+* Linear Dependant  
+>A set of vectors is **linear dependant** if one of the vectors can be expressed as a linear combination of the other vectors.
 
-
-### Linear Dependant
 These [**video1**](https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces/linear-independence/v/linear-algebra-introduction-to-linear-independence), [**video2**](https://www.youtube.com/watch?v=yLi8RxqfowA) may explain this clearly.
-
-* A set of vectors is **linear dependant** if one of the vectors can be expressed as a linear combination of the other vectors.
 
 Example:
 
@@ -213,14 +210,24 @@ $$
 \right]
 $$
 
+### 3.3 Rank of Group Vectors
 
-### Other Terms
+### 3.4 Structure of Solutions of Linear Equations
+<center>
+<img class = "large" src="./matrix_pictures/matrix_001.png" height="75%" width="75%">
+</center>
 
-* Trace of a matrix is 
+### 3.5 Vectors Space
+> Let $V$ be a set of $n$-dimensions vectors, and $V$ is not empty. $V$ will be a vector space if for any vectors ${\mathbf{\alpha,\beta}}\in{V}$ and $k\in{\mathbb{R}}$ which satisfy
+>
+> $$\mathbf{\alpha+\beta}\in{V}$$
+> $$k\mathbf{\alpha}\in{V}$$
+>
+> Those two rules are 
+> * The closure of addition operation
+> * The closure of number multiplication
 
-$$Tr(A)=\sum^{N}_{i=1}a_{ii}$$
-
-which is the sum of the diagonal entries.
+## 4 Eigenvalue, Eigenvector, and Quadratic
 
 * Matrix $A$ is orthonormal if
 
@@ -300,7 +307,14 @@ $$
 (2)Calculate all the solutions for $|A-\lambda{E}|$  
 (3)For every eigenvalue $\lambda_0$, calculate the basic solution $\xi_1,\cdots,\xi_{t}$ for linear homogeneous equation $(A-\lambda_0{E})x = 0$  
 
+## 5 Other Terms
 
+### 5.1 Trace
+> Trace of a matrix is 
+>
+> $$Tr(A)=\sum^{N}_{i=1}a_{ii}$$
+>
+>which is the sum of the diagonal entries.
 
 
 
