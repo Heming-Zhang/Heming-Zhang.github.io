@@ -623,10 +623,13 @@ $$\mathbf{a}\cdot\mathbf{b}=-|\mathbf{a}|\cdot|\mathbf{b}|$$
 
 * The explanation for second line here(Gradient):
     * Knowing that $\mathbf{x,\ w}\in{\mathbb{R}^{d+1}}$, and means that $\mathbf{x,\ w}$ has d+1 dimensions.
-    * Thus, $\nabla{E}_{in}(\mathbf{w})=(\frac{\partial{E_{in}(\mathbf{w})}}{\partial{w}_0},\cdots,\frac{\partial{E_{in}(\mathbf{w})}}{\partial{w}_d})^{\mathbf{T}}$
+    * Thus, 
+    
+    $$\nabla{E}_{in}(\mathbf{w})=(\frac{\partial{E_{in}(\mathbf{w})}}{\partial{w}_0},\cdots,\frac{\partial{E_{in}(\mathbf{w})}}{\partial{w}_d})^{\mathbf{T}}$$
+    
     * And $\mathbf{v}$ is a vector with same dimensions as $\mathbf{w}$
     * **First Order Taylor Expansion**: 
-    
+
     $$\nabla{E}_{in}(\mathbf{w+v})={E}_{in}(\mathbf{w})+\nabla{E}_{in}(\mathbf{w})^{\mathbf{T}}{\mathbf{v}}+o(\|\mathbf{h}\|)$$
 
 
