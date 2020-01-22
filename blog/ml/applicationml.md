@@ -100,3 +100,26 @@ If $y=+1$ and the more $h(\mathbf{x})$ agree with $y$, the smaller loss is. (CSE
 ## Optimization for Machine Learning
 ### 1 Recap
 * For **Linear Regression**, we can get unique global minimum.
+
+ ### 2 Gradient Descent
+ Get detail about it in [Convex Optimization](https://heming-zhang.github.io/blog/math/convexoptimization.html).  
+ Assuming that $l(\mathbf{w})$ is convex, continuous, and differentiate(once or twice), there exists a **global minimum**.  
+ With Taylor approximation:
+
+ $$l(\mathbf{w+s})=l(\mathbf{w})+\nabla{l(\mathbf{w})}^{\text{T}}\mathbf{s}+\frac{1}{2}{\mathbf{s}^{\text{T}}\mathbf{H(w)s}}+o(\|\mathbf{s}\|)$$
+
+ ### 3 Newton Method
+Can see detail in Note: [Convex Optimization](https://heming-zhang.github.io/blog/math/convexoptimization.html).
+ #### 3.1 Avoid Divergence of Newton's Method
+
+ #### 3.2 Quasi-Newton Methods
+ * Note that computing $\mathbf{H}(\mathbf{x})^{-1}$ is expensive $O(d^3)$
+
+ ### 4 Best Practice
+
+ #### 4.1 Momentum Method
+ * Local Momentum + Previous Momentum
+ #### 4.2 Stochastic Gradient Method
+ * Use one training point at a time
+ * Use mini-batches
+ #### 4.3 Note: Random Restarts for Non-Convex Functions
