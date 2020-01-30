@@ -20,6 +20,7 @@ category: math
 * Self-Recommended Books
   * [Convex Optimization(Boyd)](https://heming-zhang.github.io/course/ConvexOptimization(CN).pdf)
   * [Methods of Optimization](https://heming-zhang.github.io/course/Methods_of_Optimization(2015).pdf)
+  * [Numerical Method for Solving Systems of Nonlinear Equations](https://www.lakeheadu.ca/sites/default/files/uploads/77/docs/RemaniFinal.pdf)
 
 
 ## Similar Courses
