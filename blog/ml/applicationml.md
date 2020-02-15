@@ -33,8 +33,8 @@ $ alias python=python (to switch back python to be python 2.7.16)
 ## Lecture 1 Structural Risk Minimization
 ### 1 Introduction
 #### 1.1 Machine Learning Problem
-* Minimize expected risk
-* Use emprical risk instead
+(1) Minimize expected risk  
+(2) Use emprical risk instead
 
 #### 1.2 Structural Risk Minimization
 The goal of structural risk minimization is to balance **fitting the training data** against **model complexity**. Training means then to learn the model parameters by solving the following optimization problem:
@@ -45,27 +45,19 @@ The first part is loss function and the second part is regularizer.
 
 ### 2 Loss Functions
 #### 2.1 Commonly Used Binary Classification Loss Functions
->* Zero-One Loss
->
->* Hinge-Loss: for SVM ($p=1$)
->
->$$\max{[1-f_{\mathbf{w}}(\mathbf{x}_i)y_i, 0]^{p}}$$
->
->* Log-Loss: logistic regression
->
->$$\log(1+e^{-f_{\mathbf{w}}(\mathbf{x}_i)y_i})$$
+(1) Zero-One Loss  
+(2) Hinge-Loss: for SVM ($p=1$) $\max{[1-f_{\mathbf{w}}(\mathbf{x}_i)y_i, 0]^{p}}$  
+(3) Log-Loss: logistic regression
+
+$$\log(1+e^{-f_{\mathbf{w}}(\mathbf{x}_i)y_i})$$
 
 And from CSE 417T course, we know that cross-entropy loss is 
 
 $$E_{in}(\mathbf{w})=\frac{1}{n}{\ln(1+e^{-y_i{\mathbf{w}^{\text{T}}}\mathbf{x}_i})}$$
 
-And its hypothesis function is 
+And its hypothesis function is $h(\mathbf{x})=\theta(\mathbf{w}^{\text{T}}\mathbf{x})=\frac{1}{1+e^{-\mathbf{w}^{\text{T}}\mathbf{x}}}\in[0,1]$
 
-$$h(\mathbf{x})=\theta(\mathbf{w}^{\text{T}}\mathbf{x})=\frac{1}{1+e^{-\mathbf{w}^{\text{T}}\mathbf{x}}}\in[0,1]$$
-
->* Exponential Loss:
->
->$$e^{-f_{\mathbf{w}}(\mathbf{x}_i)y_i}$$
+(4) Exponential Loss:  $e^{-f_{\mathbf{w}}(\mathbf{x}_i)y_i}$
 
 Since we know that AdaBoost will get the aggregated hypothesis which is 
 
@@ -74,31 +66,28 @@ $$g_{T}(\mathbf{x})=\text{sign}(H_{T}(\mathbf{x}))=\text{sign}\big(\sum_{t=1}^{T
 If $y=+1$ and the more $h(\mathbf{x})$ agree with $y$, the smaller loss is. (CSE 417T Lecture 16 Slide25)
 
 #### 2.2 Commonly Used Regression Loss Function
-> * Squared Loss
-> * Absollute loss
-> * Huber Loss
-> * Log-Cosh Loss
-> * $\epsilon$-Insensitive Loss
+(1) Squared Loss  
+(2) Absollute loss  
+(3) Huber Loss  
+(4) Log-Cosh Loss  
+(5) $\epsilon$-Insensitive Loss  
 
 ### 3 Regularizers
-* $l_2$-regularizer: $r(\mathbf{w})=\mathbf{w}^{\text{T}}\mathbf{w}$
-
-* $l_1$-regularizer: $r(\mathbf{w})=\|\mathbf{w}\|_{1}$
-
-* $l_p$-Norm, often $0<p<1$: $\|\mathbf{w}\|_{p}=\big(\sum_{i=1}^{d}{|\mathbf{w}|^{p}}\big)^{\frac{1}{p}}$
-
-* Elastic Net
+(1) $l_2$-regularizer: $r(\mathbf{w})=\mathbf{w}^{\text{T}}\mathbf{w}$  
+(2) $l_1$-regularizer: $r(\mathbf{w})=\|\mathbf{w}\|_{1}$  
+(3) $l_p$-Norm, often $0<p<1$: $\|\mathbf{w}\|_{p}=\big(\sum_{i=1}^{d}{|\mathbf{w}|^{p}}\big)^{\frac{1}{p}}$  
+(4) Elastic Net
 
 ### 4 Famous SRM Models
-* Ordinary Least Squares
-* Ridge Regression: $\min_{\mathbf{w}}{\frac{1}{n}}\sum_{i=1}^{n}{(\mathbf{w}^{\text{T}}\mathbf{x}_i-y_i)^2}\ +\ \lambda\ \|\mathbf{w}\|_{2}^{2}$
-* Lasso: $\min_{\mathbf{w}}\ {\frac{1}{n}}\sum_{i=1}^{n}{(\mathbf{w}^{\text{T}}\mathbf{x}_i-y_i)^2}\ +\ \lambda\|\mathbf{w}\|_1$
-* Logistic Regression: $\log(1+e^{-y_i(\mathbf{w}^{\text{T}}\mathbf{x}_i)})$
-* SVM 
+(1) Ordinary Least Squares  
+(2) Ridge Regression: $\min_{\mathbf{w}}{\frac{1}{n}}\sum_{i=1}^{n}{(\mathbf{w}^{\text{T}}\mathbf{x}_i-y_i)^2}\ +\ \lambda\ \|\mathbf{w}\|_{2}^{2}$  
+(3) Lasso: $\min_{\mathbf{w}}\ {\frac{1}{n}}\sum_{i=1}^{n}{(\mathbf{w}^{\text{T}}\mathbf{x}_i-y_i)^2}\ +\ \lambda\|\mathbf{w}\|_1$  
+(4) Logistic Regression: $\log(1+e^{-y_i(\mathbf{w}^{\text{T}}\mathbf{x}_i)})$  
+(5) SVM 
 
 ## Lecture2 Optimization for Machine Learning
 ### 1 Recap
-* For **Linear Regression**, we can get unique global minimum.
+For **Linear Regression**, we can get unique global minimum.
 
  ### 2 Gradient Descent
  Get detail about it in [Convex Optimization](https://heming-zhang.github.io/blog/math/convexoptimization.html).  
@@ -112,15 +101,15 @@ Can see detail in Note: [Convex Optimization](https://heming-zhang.github.io/blo
  #### 3.1 Avoid Divergence of Newton's Method
 
  #### 3.2 Quasi-Newton Methods
- * Note that computing $\mathbf{H}(\mathbf{x})^{-1}$ is expensive $O(d^3)$
+Note that computing $\mathbf{H}(\mathbf{x})^{-1}$ is expensive $O(d^3)$
 
  ### 4 Best Practice
 
  #### 4.1 Momentum Method
- * Local Momentum + Previous Momentum
+Local Momentum + Previous Momentum
  #### 4.2 Stochastic Gradient Method
- * Use one training point at a time
- * Use mini-batches
+(1) Use one training point at a time  
+(2) Use mini-batches
  #### 4.3 Note: Random Restarts for Non-Convex Functions
 
 ## Lecture 3 Estimating Probabilities from Data
@@ -129,13 +118,13 @@ Can see detail in Note: [Convex Optimization](https://heming-zhang.github.io/blo
 #### 1.2 Basic Problem: Tossing a Coin
 
 ### 2 Maximum Likelihood Estimation
-* Let $p(y=H)=\theta$, where $\theta$ is the unknown parameter, and all we have is $D$. So, the goal is to choose $\theta$ such taht observed data $D$ is most like likely.
-* Formally(MLE principle), Find $\hat{\theta}$ that maximizes the likelihood of the data $p(D|\theta)$.
-* **Goal**
+(1) Let $p(y=H)=\theta$, where $\theta$ is the unknown parameter, and all we have is $D$. So, the goal is to choose $\theta$ such taht observed data $D$ is most like likely.  
+(2) Formally(MLE principle), Find $\hat{\theta}$ that maximizes the likelihood of the data $p(D|\theta)$.  
+(3) **Goal:**
 
 $$\hat{\theta}_{MLE}=\arg{\max_{\theta}} {P(D|\theta)}$$
 
-* Example: Coin Flipping
+Example: Coin Flipping
 
 $$
 \begin{aligned}
@@ -153,11 +142,11 @@ $$\hat{\theta}_{MLE}=\frac{n_{H}}{n}$$
 
 
 ### 3 Baysian Way and Maximum a-posterior Estimation
-* To avoid the randomness of data, you may want to use baysian way to estimate $\theta$.
-* Baysian Way - Maximum A Posterior(MAP) 
-    * Model $\theta$ as a random variable
-    * Where $\theta$ is a drown from a distribution
-    * New, we look at $p(\theta|D)$
+(1) To avoid the randomness of data, you may want to use baysian way to estimate $\theta$.
+(2) Baysian Way - Maximum A Posterior(MAP) 
+    (1) Model $\theta$ as a random variable
+    (2) Where $\theta$ is a drown from a distribution
+    (3) New, we look at $p(\theta|D)$
 
 $$P(\theta|D) = \frac{P(D|\theta)P(\theta)}{P(D)}{\propto}{P(D|\theta)P(\theta)}$$
 
