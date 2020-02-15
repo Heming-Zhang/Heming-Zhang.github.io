@@ -74,14 +74,14 @@ If $y=+1$ and the more $h(\mathbf{x})$ agree with $y$, the smaller loss is. (CSE
 
 ### 1.3 Regularizers
 (1) $l_2$-regularizer: $r(\mathbf{w})=\mathbf{w}^{\text{T}}\mathbf{w}$  
-(2) $l_1$-regularizer: $r(\mathbf{w})=\|\mathbf{w}\|_{1}$  
-(3) $l_p$-Norm, often $0<p<1$: $\|\mathbf{w}\|_{p}=\big(\sum_{i=1}^{d}{|\mathbf{w}|^{p}}\big)^{\frac{1}{p}}$  
+(2) $l_1$-regularizer: $r(\mathbf{w})=|\mathbf{w}|_{1}$  
+(3) $l_p$-Norm, often $0<p<1$: $|\mathbf{w}|_{p}=\big(\sum_{i=1}^{d}{|\mathbf{w}|^{p}}\big)^{\frac{1}{p}}$  
 (4) Elastic Net
 
 ### 1.4 Famous SRM Models
 (1) Ordinary Least Squares  
-(2) Ridge Regression: $\min_{\mathbf{w}}{\frac{1}{n}}\sum_{i=1}^{n}{(\mathbf{w}^{\text{T}}\mathbf{x}_i-y_i)^2}\ +\ \lambda\ \|\mathbf{w}\|_{2}^{2}$  
-(3) Lasso: $\min_{\mathbf{w}}\ {\frac{1}{n}}\sum_{i=1}^{n}{(\mathbf{w}^{\text{T}}\mathbf{x}_i-y_i)^2}\ +\ \lambda\|\mathbf{w}\|_1$  
+(2) Ridge Regression: $\min_{\mathbf{w}}{\frac{1}{n}}\sum_{i=1}^{n}{(\mathbf{w}^{\text{T}}\mathbf{x}_i-y_i)^2}\ +\ \lambda\ |\mathbf{w}|_{2}^{2}$  
+(3) Lasso: $\min_{\mathbf{w}}\ {\frac{1}{n}}\sum_{i=1}^{n}{(\mathbf{w}^{\text{T}}\mathbf{x}_i-y_i)^2}\ +\ \lambda|\mathbf{w}|_1$  
 (4) Logistic Regression: $\log(1+e^{-y_i(\mathbf{w}^{\text{T}}\mathbf{x}_i)})$  
 (5) SVM 
 
@@ -153,18 +153,18 @@ $$\hat{\theta}_{MLE}=\frac{n_{H}}{n}$$
 
 $$P(\theta|D) = \frac{P(D|\theta)P(\theta)}{P(D)}{\propto}{P(D|\theta)P(\theta)}$$
 
-* Tips for notation:  
+(2) Tips for notation:  
 $P(D|\theta)$ : **likelihood** of the data given the parameters $\theta$  
 $P(\theta)$ : **prior** distribution over the parameters $\theta$  
 $P(\theta|D)$ : **posterior** distribution over the parameters $\theta$
 
-* A useful prior distribution  
+(3) A useful prior distribution  
 Beta distribution: $P(\theta)=Beta{(\theta|\alpha, \beta) }= \frac{\theta^{\alpha-1}(1-\theta)^{\beta-1}}{b(\alpha, \beta)}$, where $b(\alpha, \beta)=\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}$, and note that  
 
 $$P(\theta|D)=Beta(n_{H}+\alpha, n_{T}+\beta)$$  
 
 
-* **Goal**: Maximize the posterior distribution $P(\theta|D)$
+**Goal**: Maximize the posterior distribution $P(\theta|D)$
 
 $$
 \begin{aligned}
@@ -174,7 +174,7 @@ $$
 \end{aligned}
 $$
 
-* Example: Coin Flipping
+Example: Coin Flipping  
 Since we know that $P(D|\theta)$ is Binomial Distribution, and we have prior distribution for $P(\theta)$
 
 $$
