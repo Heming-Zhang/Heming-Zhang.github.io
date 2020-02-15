@@ -26,7 +26,6 @@ $ python3 --version
 $ python
 $ python3 (default python 3.7.3 in macbook)
 $ python3.6 (default python 3.6.8 with installation)
-
 $ alias python=python3.6 (make python command be python 3.6)
 $ alias python=python (to switch back python to be python 2.7.16)
 ```
@@ -207,16 +206,104 @@ $$\hat{\theta}_{MAP}=\frac{n_{H}+\alpha-1}{n+\alpha+\beta-2}$$
     * Also we have to choose a reasonable prior
 
 
-
 ### 4 "True" Bayesian Approach
+Note that MAP is only one way to get an estimator for $\theta$. There is much more information in $P(\theta|D)$.
 
-## Lecture 4
+#### 4.1 Posterior Mean
+So, instead of the maximum as we did with MAP, we can use the posterior mean (and even its variance).
+
+$$\hat{\theta}_{\text{MEAN}}=E[\theta, D]=\int_{\theta}\theta{p(\theta|D)}d\theta$$
+
+#### 4.2 Posterior Predictive
+So far, we talked about modeling and estimating parameters. But in machine learning, we actually interested in predictions. To directly estimate label $y$ from the given data, we can use the posterior predictive distribution. 
+
+In our coin tossing example, this is given by: (since we know that $p(y=H|\theta,D)=\theta$ in the coin flipping)
+
+$$
+\begin{aligned}
+p(y=H|D)&=\int_{\theta}p(y=H, \theta |D)d\theta\\
+&=\int_{\theta}p(y=H|\theta,D)p(\theta|D)d\theta\\
+&=\int_{\theta}\theta{p(\theta|D)}d\theta
+\end{aligned}
+$$
+
+In general, the posterior predictive distribution is ($\mathbf{x}$ is test input, and $\theta$ means the $\mathbf{w}$ or the parameters in model)
+
+$$
+\begin{aligned}
+p(y|D,\mathbf{x})&=\int_{\theta}p(y,\theta|D,\mathbf{x})d\theta\\
+&=\int_{\theta}p(y|D, \mathbf{x}, \theta)\cdot{p(\theta|D,\mathbf{x})}d\theta\\
+&=\int_{\theta}p(y|D, \mathbf{x}, \theta)\cdot{p(\theta|D)}d\theta
+\end{aligned}
+$$
 
 
+## Lecture 4 MLE and MAP for discrimitive supervised learning
+### 1 Introduction
+Usually, there are two assumptions in discrimitive supervised learning:  
+(1) $\mathbf{x}_i$ are known, => $\mathbf{x}_i$ independant of the model parameters $\mathbf{w}$, hence $p(X|\mathbf{w})=p(X)$ and $p(\mathbf{w}|X)=p(\mathbf{w})$  
+(2) $y_i$ are independent ghven the input features $\mathbf{x}_i$ and $\mathbf{w}$  
+ **Goal:** Estimate $\mathbf{w}$ directly from $D=\{(\mathbf{x}, y_i)\}^{n}_{i=1}$ using the joint conditional likelihood $p(\mathbf{y}|X,\mathbf{w})$
+
+#### 1.1 Maximum Likelihood Estimation
+ Choose $\mathbf{w}$ to maximize the conditional likelihood. (use two assumptions above)
+
+ $$
+ \begin{aligned}
+ \hat{\mathbf{w}}_{\text{MLE}}&=\arg \max_{\mathbf{w}} {p(D|\mathbf{w})}\\
+&= \arg \max_{\mathbf{w}} {p(\mathbf{y}|X,\mathbf{w})}\\
+&= \arg \max_{\mathbf{w}} {\prod_{i=1}^{n}p(y_i|\mathbf{x}_i, \mathbf{w})}\\
+&= \arg \max_{\mathbf{w}} {\sum_{i=1}^{n} \log{p(y_i|\mathbf{x}_i, \mathbf{w})}  }
+ \end{aligned}
+ $$
+
+#### 1.2 Bayesian way to Maximum-a-posterior Estimation
+Model $\mathbf{w}$ as a random variable from $p(\mathbf{w})$ and use $p(\mathbf{w}|D)$. Choose $\mathbf{w}$ to maximize the posterior $p(\mathbf{w}|X,\mathbf{y})$ over $\mathbf{w}$.
+
+$$
+\begin{aligned}
+\hat{\mathbf{w}}_{\text{MAP}}&=\arg \max_{\mathbf{w}} {p(\mathbf{w}|X, \mathbf{y})}\\
+&=\arg \max_{\mathbf{w}} {p( X,\mathbf{y}|\mathbf{w})\cdot{p(\mathbf{w})}}\\
+&= \arg \max_{\mathbf{w}} {p(\mathbf{y}|X,\mathbf{w})\cdot{p(\mathbf{w})}}\\
+&= \arg \max_{\mathbf{w}} {\prod_{i=1}^{n}p(y_i|\mathbf{x}_i, \mathbf{w})\cdot{p(\mathbf{w})}}\\
+&= \arg \max_{\mathbf{w}} {\sum_{i=1}^{n} \log{p(y_i|\mathbf{x}_i, \mathbf{w})} + \log{p(\mathbf{w})} }
+\end{aligned}
+$$
+
+### 2 Example: Linear Regression
+Model Assumption: $y_i = \mathbf{w}^{\text{T}}\mathbf{x}_i+\epsilon_i \in \mathbb{R}$, where we use the Gussian distribution to model the noise $\epsilon_i \sim N(0,\sigma^2)$
+
+$$p(y_i|\mathbf{x}_i, \mathbf{w})=\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(\mathbf{w}^{\text{T}}\mathbf{x}-y_i)^2}{2\sigma^2}}$$
+
+MLE: it is like OLS/squared loss  
+
+MAP: Additional Model Assumption, prior distribution (ensure for yourself that the following is a conjuate prior to our likelihood). Then it is like l2-regularization
 
 
-## Lecture 6
+## Lecture 6 Naive Bayes Classifier
+### 1 Introduction
+**Thought**: Can we model $p(y|\mathbf{x})$ without model assumptions, e.g. Gussian/Bernoulli distribution etc.?
 
+**Idea**: Estimate $p(y|\mathbf{x})$ from the data directly, then use the Bayes classifier.
+
+Let $y$ be discrete,
+
+$$p(y|\mathbf{x})=\frac{\sum_{i=1}^{n}I(\mathbf{x}_i=\mathbf{x}\cap{y_i=y})}{\sum_{i=1}^{n}(\mathbf{x}_i=\mathbf{x})}$$
+
+Using MLE estimate is only good if there are many training vectors with the **same identical** features as $\mathbf{x}$. This never happens for high-dimensional or continuous feature spaces.
+
+**Solution:** Bayes Rule.
+
+$$p(y|\mathbf{x})=\frac{p(\mathbf{x}|y)p(y)}{p(\mathbf{x})}$$
+
+In this way, let's estimate $p(\mathbf{x}|y)$ and $p(y)$ instead.
+
+### 2 Naive Bayes
+We have a discrete lable space $C$ that can either be binary $\{-1,+1\}$ or multi-class $\{1,...,K\}$
+
+#### 2.1 Estimate $p(y)$
+
+#### 2.2 Estimate $p(\mathbf{x}|y)$
 
 
 ## Lecture 7 Performance Evaluation for ML Methods
