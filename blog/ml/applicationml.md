@@ -233,9 +233,9 @@ $$
 ## Lecture 4 MLE and MAP for discrimitive supervised learning
 ### 4.1 Introduction
 Usually, there are two assumptions in discrimitive supervised learning:  
-(1) $\mathbf{x}_i$ are known, => $\mathbf{x}_i$ independant of the model parameters $\mathbf{w}$, hence $p(X|\mathbf{w})=p(X)$ and $p(\mathbf{w}|X)=p(\mathbf{w})$  
-(2) $y_i$ are independent ghven the input features $\mathbf{x}_i$ and $\mathbf{w}$  
- **Goal:** Estimate $\mathbf{w}$ directly from $D=\{(\mathbf{x}, y_i)\}^{n}_{i=1}$ using the joint conditional likelihood $p(\mathbf{y}|X,\mathbf{w})$
+>(1) $\mathbf{x}_i$ are known, => $\mathbf{x}_i$ independant of the model parameters $\mathbf{w}$, hence $p(X|\mathbf{w})=p(X)$ and $p(\mathbf{w}|X)=p(\mathbf{w})$  
+> (2) $y_i$ are independent ghven the input features $\mathbf{x}_i$ and $\mathbf{w}$  
+ > **Goal:** Estimate $\mathbf{w}$ directly from $D=\{(\mathbf{x}, y_i)\}^{n}_{i=1}$ using the joint conditional likelihood $p(\mathbf{y}|X,\mathbf{w})$
 
 #### 4.1.1 Maximum Likelihood Estimation
  Choose $\mathbf{w}$ to maximize the conditional likelihood. (use two assumptions above)
