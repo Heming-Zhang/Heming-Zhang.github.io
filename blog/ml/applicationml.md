@@ -318,3 +318,39 @@ And estimating $p([\mathbf{x}]_{\alpha}|y)$ is relatively easy since we only nee
 
 #### 7.3.2 Non-parametric Tests
 * degree of freedom (review on stastics book)
+
+## Lecture 8 Radial Basis Function Networks
+### 8.1 Introduction
+
+### 8.2 Model using Radial Basis Functions
+* Use RBF to quantify the contribution of each training data point with respect to **its distance to the test point**
+
+#### 8.2.1 A Prediction Model: Kernel Regression
+* Two Interpratation: (LFD Chapter6-26)
+    * sum of $y_n$ with respect to $\alpha_n$
+    * sum of bumps, on each $x_n$, with weight $w_n(\mathbf{x})$
+* Depend on test input $\mathbf{x}_n$
+
+#### 8.2.2 A Simplified Prediction Model
+* The weight vector $\mathbf{w}$ here are unknown constants
+
+#### 8.2.3 Radial Basis Function Networks
+* Choose $k<<n$ weights/bumps 
+* Training the RBF-Network
+* Strategy:  
+    * 1 
+    * 2 
+    * 3 
+
+## Lecture 9 Kerneal Methods
+### 9.1 Introduction
+
+
+
+### 9.2 Kernel Tricks
+
+
+
+
+
+
