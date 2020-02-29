@@ -34,7 +34,7 @@ $ alias python=python (to switch back python to be python 2.7.16)
 ### 1.1 Introduction
 #### 1.1.1 Machine Learning Problem
 (1) Minimize expected risk  
-(2) Use emprical risk instead
+(2) Use emprical risk instead: However, this tends to overfit to the training data, and typically a simpler model is preferred (Occam's Razor).
 
 #### 1.1.2 Structural Risk Minimization
 The goal of structural risk minimization is to balance **fitting the training data** against **model complexity**. Training means then to learn the model parameters by solving the following optimization problem:
@@ -45,6 +45,8 @@ The first part is loss function and the second part is regularizer.
 
 ### 1.2 Loss Functions
 #### 1.2.1 Commonly Used Binary Classification Loss Functions
+For binary classification we naturally want to minimize the zero-one loss $l(h_{\mathbf{w}}(\mathbf{x}), y)$ also called true classification error. However, due to its non-continuity it is impractical to optimize and we resort to using various surrogate loss functions $l(f_{\mathbf{w}}(\mathbf{x}),y)$. 
+
 (1) Zero-One Loss  
 (2) Hinge-Loss: for SVM ($p=1$) $\max{[1-f_{\mathbf{w}}(\mathbf{x}_i)y_i, 0]^{p}}$  
 (3) Log-Loss: logistic regression
@@ -63,11 +65,11 @@ Since we know that AdaBoost will get the aggregated hypothesis which is
 
 $$g_{T}(\mathbf{x})=\text{sign}(H_{T}(\mathbf{x}))=\text{sign}\big(\sum_{t=1}^{T}\alpha_th_{t}(\mathbf{x})\big)$$
 
-If $y=+1$ and the more $h(\mathbf{x})$ agree with $y$, the smaller loss is. (CSE 417T Lecture 16 Slide25)
+If $y=+1$ and the more $h(\mathbf{x})$ agree with $y$, the smaller loss is. (CSE 417T Lecture 16 Slide25). Therefore, the exponential loss is very aggressive and thus sensitive to label noise.
 
 #### 1.2.2 Commonly Used Regression Loss Function
-(1) Squared Loss  
-(2) Absollute loss  
+(1) Squared Loss: $(f_{\mathbf{w}}(\mathbf{x_i})-y_i)^2$  
+(2) Absollute loss:  $\text{abs.}(f_{\mathbf{w}}(\mathbf{x_i})-y_i)$  
 (3) Huber Loss  
 (4) Log-Cosh Loss  
 (5) $\epsilon$-Insensitive Loss  
@@ -79,7 +81,7 @@ If $y=+1$ and the more $h(\mathbf{x})$ agree with $y$, the smaller loss is. (CSE
 (4) Elastic Net
 
 ### 1.4 Famous SRM Models
-(1) Ordinary Least Squares  
+(1) Ordinary Least Squares (OLS)  
 (2) Ridge Regression: $\min_{\mathbf{w}}{\frac{1}{n}}\sum_{i=1}^{n}{(\mathbf{w}^{\text{T}}\mathbf{x}_i-y_i)^2}\ +\ \lambda\ |\mathbf{w}|_{2}^{2}$  
 (3) Lasso: $\min_{\mathbf{w}}\ {\frac{1}{n}}\sum_{i=1}^{n}{(\mathbf{w}^{\text{T}}\mathbf{x}_i-y_i)^2}\ +\ \lambda|\mathbf{w}|_1$  
 (4) Logistic Regression: $\log(1+e^{-y_i(\mathbf{w}^{\text{T}}\mathbf{x}_i)})$  
@@ -94,7 +96,10 @@ For **Linear Regression**, we can get unique global minimum.
  Assuming that $l(\mathbf{w})$ is convex, continuous, and differentiate(once or twice), there exists a **global minimum**.  
  With Taylor approximation:
 
- $$l(\mathbf{w+s})=l(\mathbf{w})+\nabla{l(\mathbf{w})}^{\text{T}}\mathbf{s}+\frac{1}{2}{\mathbf{s}^{\text{T}}\mathbf{H(w)s}}+o(\|\mathbf{s}\|)$$
+ $$l(\mathbf{w+s})=l(\mathbf{w})+\nabla{l(\mathbf{w})}^{\text{T}}\mathbf{s}+\frac{1}{2}{\mathbf{s}^{\text{T}}\mathbf{H(w)s}}+o(\|\mathbf{s}\|)$$  
+
+ 
+
 
  ### 2.3 Newton Method
 Can see detail in Note: [Convex Optimization](https://heming-zhang.github.io/blog/math/convexoptimization.html).
