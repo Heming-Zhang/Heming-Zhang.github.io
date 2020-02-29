@@ -131,3 +131,55 @@ category: ml
 
 * Hence, we can analyse the similarity of those nodes in space, and we have many approaches to measure the distance like Eucliden Distance, Cos Vector etc. In this way, we can just use the 
 
+### 7.4 Random Walk Approaches to Node Embeddings
+* $z_u^{T}z_v$ probability that $v$ and $u$ co-occur on a random walk over the network
+
+### 7.5 Unsupervised Feature Learning
+<center>
+<img class = "large" src=".//graph/005.png" height="65%" width="85%">
+</center>
+
+<center>
+<img class = "large" src=".//graph/006.png" height="65%" width="85%">
+</center>
+
+## 8th Graph Neural Network
+### 8.1 Nodes Embeddings
+<center>
+<img class = "large" src=".//graph/007.png" height="65%" width="85%">
+</center>
+
+* Two Key Components:
+    * Encoder
+    * Similarity Function
+
+### 8.2 Basics of Deep Learning for Graphs
+* Idea: Neighbourhood Aggregation
+<center>
+<img class = "large" src=".//graph/008.png" height="65%" width="85%">
+</center>
+
+* Train the Model
+
+* Inductive Capability
+
+### 8.3 GraphSAGE Graph Neural Network Architecture
+* Concatenate neighbour embedding and self embedding
+<center>
+<img class = "large" src=".//graph/009.png" height="65%" width="85%">
+</center>
+
+* Aggregation Variants
+<center>
+<img class = "large" src=".//graph/010.png" height="65%" width="85%">
+</center>
+Hints: we can apply different pooling startegies
+
+### 8.4 Implementation
+<center>
+<img class = "large" src=".//graph/011.png" height="65%" width="85%">
+</center>
+
+* $D$ is degree matrix
+* $A$ is adjeacent matrix
+* $H^{k-1}$ is message matrix from previous layer
