@@ -91,20 +91,20 @@ If $y=+1$ and the more $h(\mathbf{x})$ agree with $y$, the smaller loss is. (CSE
 ### 2.1 Recap
 For **Linear Regression**, we can get unique global minimum.
 
- ### 2.2 Gradient Descent
- Get detail about it in [Convex Optimization](https://heming-zhang.github.io/blog/math/convexoptimization.html).  
- Assuming that $l(\mathbf{w})$ is convex, continuous, and differentiate(once or twice), there exists a **global minimum**.  
- With Taylor approximation:
+### 2.2 Gradient Descent
+Get detail about it in [Convex Optimization](https://heming-zhang.github.io/blog/math/convexoptimization.html).  
+Assuming that $l(\mathbf{w})$ is convex, continuous, and differentiate(once or twice), there exists a **global minimum**.  
+With Taylor approximation:
 
- $$l(\mathbf{w+s})=l(\mathbf{w})+\nabla{l(\mathbf{w})}^{\text{T}}\mathbf{s}+\frac{1}{2}{\mathbf{s}^{\text{T}}\mathbf{H(w)s}}+o(\|\mathbf{s}\|)$$  
+$$l(\mathbf{w+s})=l(\mathbf{w})+\nabla{l(\mathbf{w})}^{\text{T}}\mathbf{s}+\frac{1}{2}{\mathbf{s}^{\text{T}}\mathbf{H(w)s}}+o(\|\mathbf{s}\|)$$  
  
- where the $\nabla{l(\mathbf{w})}^{\text{T}}$ is the first order approximation and $\nabla^{2}{l(\mathbf{w})}$ is the second order
- approximation. And the Gradient descent use the first order approxximation.
+where the $\nabla{l(\mathbf{w})}^{\text{T}}$ is the first order approximation and $\nabla^{2}{l(\mathbf{w})}$ is the second order
+approximation. And the Gradient descent use the first order approxximation.
 
- * Some choices of the learning rate $\alpha$
-    * A safe choice: $\alpha_t = \frac{1}{t}$
-    * Linear Search
-    * Heuristic/ ad-hoc choice:
+* Some choices of the learning rate $\alpha$
+* A safe choice: $\alpha_t = \frac{1}{t}$
+* Linear Search
+* Heuristic/ ad-hoc choice:
 
 $$\alpha_{t+1} = 
 \begin{cases}
@@ -115,24 +115,24 @@ $$
 
 
 
- ### 2.3 Newton Method
+### 2.3 Newton Method
 Can see detail in Note: [Convex Optimization](https://heming-zhang.github.io/blog/math/convexoptimization.html).
 
- #### 2.3.1 Avoid Divergence of Newton's Method
+#### 2.3.1 Avoid Divergence of Newton's Method
 
- #### 2.3.2 Quasi-Newton Methods
+#### 2.3.2 Quasi-Newton Methods
 Note that computing $\mathbf{H}(\mathbf{x})^{-1}$ is expensive $O(d^3)$
 
- ### 2.4 Best Practice
+### 2.4 Best Practice
 
- #### 2.4.1 Momentum Method
+#### 2.4.1 Momentum Method
 Local Momentum + Previous Momentum
 
- #### 2.4.2 Stochastic Gradient Method
+#### 2.4.2 Stochastic Gradient Method
 (1) Use one training point at a time  
 (2) Use mini-batches
 
- #### 4.3 Note: Random Restarts for Non-Convex Functions
+#### 4.3 Note: Random Restarts for Non-Convex Functions
 
 ## Lecture 3 Estimating Probabilities from Data
 ### 3.1 Introduction
