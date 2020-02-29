@@ -68,22 +68,22 @@ $$g_{T}(\mathbf{x})=\text{sign}(H_{T}(\mathbf{x}))=\text{sign}\big(\sum_{t=1}^{T
 If $y=+1$ and the more $h(\mathbf{x})$ agree with $y$, the smaller loss is. (CSE 417T Lecture 16 Slide25). Therefore, the exponential loss is very aggressive and thus sensitive to label noise.
 
 #### 1.2.2 Commonly Used Regression Loss Function
-(1) Squared Loss: $(f_{\mathbf{w}}(\mathbf{x_i})-y_i)^2$  
-(2) Absollute loss:  $\text{abs.}(f_{\mathbf{w}}(\mathbf{x_i})-y_i)$  
+(1) Squared Loss: $(f_{\mathbf{w}}(\mathbf{x}_i)-y_i)^2$  
+(2) Absollute loss:  $\text{abs.}(f_{\mathbf{w}}(\mathbf{x}_i)-y_i)$  
 (3) Huber Loss  
 (4) Log-Cosh Loss  
 (5) $\epsilon$-Insensitive Loss  
 
 ### 1.3 Regularizers
 (1) $l_2$-regularizer: $r(\mathbf{w})=\mathbf{w}^{\text{T}}\mathbf{w}$  
-(2) $l_1$-regularizer: $r(\mathbf{w})=|\mathbf{w}|_{1}$  
-(3) $l_p$-Norm, often $0<p<1$: $|\mathbf{w}|_{p}=\big(\sum_{i=1}^{d}{|\mathbf{w}|^{p}}\big)^{\frac{1}{p}}$  
+(2) $l_1$-regularizer   
+(3) $l_p$-Norm, often $0<p<1$   
 (4) Elastic Net
 
 ### 1.4 Famous SRM Models
 (1) Ordinary Least Squares (OLS)  
-(2) Ridge Regression: $\min_{\mathbf{w}}{\frac{1}{n}}\sum_{i=1}^{n}{(\mathbf{w}^{\text{T}}\mathbf{x}_i-y_i)^2}\ +\ \lambda\ |\mathbf{w}|_{2}^{2}$  
-(3) Lasso: $\min_{\mathbf{w}}\ {\frac{1}{n}}\sum_{i=1}^{n}{(\mathbf{w}^{\text{T}}\mathbf{x}_i-y_i)^2}\ +\ \lambda|\mathbf{w}|_1$  
+(2) Ridge Regression: $\min_{\mathbf{w}}{\frac{1}{n}}\sum_{i=1}^{n}{(\mathbf{w}^{\text{T}}\mathbf{x}_i-y_i)^2}\ +\ \lambda\ \mathbf{w}^{\text{T}}\mathbf{w}$  
+(3) Lasso  
 (4) Logistic Regression: $\log(1+e^{-y_i(\mathbf{w}^{\text{T}}\mathbf{x}_i)})$  
 (5) SVM 
 
@@ -97,8 +97,22 @@ For **Linear Regression**, we can get unique global minimum.
  With Taylor approximation:
 
  $$l(\mathbf{w+s})=l(\mathbf{w})+\nabla{l(\mathbf{w})}^{\text{T}}\mathbf{s}+\frac{1}{2}{\mathbf{s}^{\text{T}}\mathbf{H(w)s}}+o(\|\mathbf{s}\|)$$  
-
  
+ where the $\nabla{l(\mathbf{w})}^{\text{T}}$ is the first order approximation and $\nabla^{2}{l(\mathbf{w})}$ is the second order
+ approximation. And the Gradient descent use the first order approxximation.
+
+ * Some choices of the learning rate $\alpha$
+    * A safe choice: $\alpha_t = \frac{1}{t}$
+    * Linear Search
+    * Heuristic/ ad-hoc choice:
+
+$$\alpha_{t+1} = 
+\begin{cases}
+1.01\alpha_t,\ \text{if}\ \ l(\mathbf{w}_{t+1})\leq{l(\mathbf{w}_{t})}\\
+0.5\alpha_t,\ \text{if}\ \ l(\mathbf{w}_{t+1})>{l(\mathbf{w}_{t})}
+\end{cases}
+$$
+
 
 
  ### 2.3 Newton Method
