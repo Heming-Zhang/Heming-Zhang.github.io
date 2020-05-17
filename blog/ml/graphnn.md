@@ -90,7 +90,7 @@ category: ml
 * Can we have high clustering while also having short paths?
 
 <center>
-<img class = "mid" src=".//graph/002.png" height="65%" width="85%">
+<img class = "large" src=".//graph/002.png" height="65%" width="65%">
 </center>
 
 ### 2.6 Kronecker Graph Model
@@ -126,7 +126,7 @@ category: ml
 
 ### 7.3 Embedding Nodes Task
 <center>
-<img class = "mid" src=".//graph/004.png" height="65%" width="85%">
+<img class = "large" src=".//graph/004.png" height="65%" width="65%">
 </center>
 
 * Hence, we can analyse the similarity of those nodes in space, and we have many approaches to measure the distance like Eucliden Distance, Cos Vector etc. In this way, we can just use the 
@@ -136,17 +136,17 @@ category: ml
 
 ### 7.5 Unsupervised Feature Learning
 <center>
-<img class = "mid" src=".//graph/005.png" height="65%" width="85%">
+<img class = "large" src=".//graph/005.png" height="65%" width="85%">
 </center>
 
 <center>
-<img class = "mid" src=".//graph/006.png" height="65%" width="85%">
+<img class = "large" src=".//graph/006.png" height="65%" width="65%">
 </center>
 
 ## 8th Graph Neural Network
 ### 8.1 Nodes Embeddings
 <center>
-<img class = "mid" src=".//graph/007.png" height="65%" width="85%">
+<img class = "large" src=".//graph/007.png" height="65%" width="65%">
 </center>
 
 * Two Key Components:
@@ -156,7 +156,7 @@ category: ml
 ### 8.2 Basics of Deep Learning for Graphs
 * Idea: Neighbourhood Aggregation
 <center>
-<img class = "mid" src=".//graph/008.png" height="65%" width="85%">
+<img class = "large" src=".//graph/008.png" height="65%" width="65%">
 </center>
 
 * Train the Model
@@ -166,7 +166,7 @@ category: ml
 ### 8.3 GraphSAGE Graph Neural Network Architecture
 * Concatenate neighbour embedding and self embedding
 <center>
-<img class = "mid" src=".//graph/009.png" height="65%" width="85%">
+<img class = "large" src=".//graph/009.png" height="65%" width="65%">
 </center>
 
 * Aggregation Variants
@@ -175,13 +175,13 @@ category: ml
     * Pool
     * LSTM
 <center>
-<img class = "mid" src=".//graph/010.png" height="65%" width="85%">
+<img class = "large" src=".//graph/010.png" height="65%" width="65%">
 </center>
 Hints: we can apply different pooling startegies
 
 ### 8.4 Implementation
 <center>
-<img class = "mid" src=".//graph/011.png" height="65%" width="85%">
+<img class = "large" src=".//graph/011.png" height="65%" width="65%">
 </center>
 
 * $D$ is degree matrix
