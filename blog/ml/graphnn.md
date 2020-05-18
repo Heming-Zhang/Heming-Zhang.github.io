@@ -19,6 +19,7 @@ category: ml
 
 * Course Material
     * Course [CS 224w: Machine Learning with Graphs](http://web.stanford.edu/class/cs224w/)
+    * Course [Video Link](https://www.youtube.com/watch?v=0eNQnc0eOB4&list=PL1OaWjIc3zJ4xhom40qFY5jkZfyO5EDOZ)
 
 
 ## 1st Lecture Introduction and Structure of Graphs 
@@ -136,7 +137,7 @@ category: ml
 
 ### 7.5 Unsupervised Feature Learning
 <center>
-<img class = "large" src=".//graph/005.png" height="65%" width="85%">
+<img class = "large" src=".//graph/005.png" height="65%" width="65%">
 </center>
 
 <center>
@@ -144,6 +145,7 @@ category: ml
 </center>
 
 ## 8th Graph Neural Network
+### [Lecture 8 video](https://www.youtube.com/watch?v=7JELX6DiUxQ)
 ### 8.1 Nodes Embeddings
 <center>
 <img class = "large" src=".//graph/007.png" height="65%" width="65%">
@@ -159,12 +161,21 @@ category: ml
 <img class = "large" src=".//graph/008.png" height="65%" width="65%">
 </center>
 
+* Final layer $h^{K}_{v}$ is embedding of $\mathbf{z}_{v}$
 * Train the Model
-
+    * $\mathbf{W}_{k}$
+    * $\mathbf{B}_{k}$
 * Inductive Capability
+* So far, the GraphNN aggregate the neighbour messages by taking their(weighted) average 
 
 ### 8.3 GraphSAGE Graph Neural Network Architecture
-* Concatenate neighbour embedding and self embedding
+* Concatenece:
+    * Concatenate neighbour embedding and self embedding
+    * Unlike Graph Convolution with adding itself, we just concatenate itself features then activate with non-linearity function
+* Aggregation:
+    * Use generalized aggregation function
+    * Unlike Graph Convolution with just average
+
 <center>
 <img class = "large" src=".//graph/009.png" height="65%" width="65%">
 </center>
@@ -172,8 +183,8 @@ category: ml
 * Aggregation Variants
     * Generally, there are several ways to implement aggregate
     * Mean
-    * Pool
-    * LSTM
+    * Pool (mean or max across a coordinate)
+    * LSTM (make model much deeper with LSTM)
 <center>
 <img class = "large" src=".//graph/010.png" height="65%" width="65%">
 </center>
@@ -184,6 +195,29 @@ Hints: we can apply different pooling startegies
 <img class = "large" src=".//graph/011.png" height="65%" width="65%">
 </center>
 
-* $D$ is degree matrix
-* $A$ is adjeacent matrix
-* $H^{k-1}$ is message matrix from previous layer
+* Notation:
+    * $D$ is degree matrix
+    * $A$ is adjeacent matrix
+    * $H^{k-1}$ is message matrix from previous layer
+
+* $D^{-1}$ matrix acts as a mean function in this formula.
+* $AH^{k-1}$ is aimed to sum all neighbour features
+
+### 8.5 Graph Attention Network (GAT)
+* Simple Neighbourhood Aggregation in Graph Convolution
+    * Use coefficient of ${\alpha}_{vu}$
+    * All neighbour $u \in {N}(v)$ are equally important to node $v$
+<center>
+<img class = "large" src=".//graph/012.png" height="65%" width="65%">
+</center>
+
+* Attention Mechanism
+    * Use $e_{vu}$ as coefficient
+    * Mechanism $a$ may achieve in different ways including Simple Single-Layer Neural Network
+<center>
+<img class = "large" src=".//graph/013.png" height="65%" width="65%">
+</center>
+
+<center>
+<img class = "large" src=".//graph/014.png" height="65%" width="65%">
+</center>
