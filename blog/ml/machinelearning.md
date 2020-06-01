@@ -1530,3 +1530,87 @@ $$d(x'', h)=|\frac{\mathbf{w^{T}(\mathbf{x''}-\mathbf{x'})}}{\|\mathbf{w}\|}|=|\
 <center>
 <img class="center large" src=".//ml_pictures/ml098.png" height="50%" width="70%">
 </center>
+
+
+## Lecture 22: Neural Networks
+* Combining Perceptrons
+
+<center>
+<img class="center large" src=".//ml_pictures/ml099.png" height="50%" width="80%">
+</center>
+
+* Multi-Layer Perceptron(MLP)
+
+<center>
+<img class="center large" src=".//ml_pictures/ml100.png" height="50%" width="100%">
+</center>
+
+* Architecture
+The architecture of an MLP is the vector $\vec{d}=[d^{(0)}, d^{(1)},\cdots, d^{(L)}]$
+
+<center>
+<img class="center large" src=".//ml_pictures/ml101.png" height="50%" width="100%">
+</center>
+
+* Weights
+The weights between layer $l-1$ and layer $l$ are a matrix: $W^{(l)} \in {\mathbb{R}^{(d^{(l-1)}+1)\times{d^{(l)}}}}$
+
+* Signal and Outputs
+
+<center>
+<img class="center large" src=".//ml_pictures/ml102.png" height="50%" width="80%">
+</center>
+
+<center>
+<img class="center large" src=".//ml_pictures/ml103.png" height="50%" width="80%">
+</center>
+
+## Lecture 23: Backpropagation
+* Computing Gradients
+
+<center>
+<img class="center large" src=".//ml_pictures/ml104.png" height="50%" width="80%">
+</center>
+
+* Computing Partial Derivatives With Chain Rule
+
+<center>
+<img class="center large" src=".//ml_pictures/ml105.png" height="50%" width="80%">
+</center>
+
+<center>
+<img class="center large" src=".//ml_pictures/ml106.png" height="50%" width="80%">
+</center>
+
+* Back Propagation
+
+<center>
+<img class="center large" src=".//ml_pictures/ml107.png" height="50%" width="90%">
+</center>
+
+* Computing Gradients with Feed Forward and Back Propagation
+
+<center>
+<img class="center large" src=".//ml_pictures/ml108.png" height="50%" width="90%">
+</center>
+
+* Mini-batch Gradient Descent
+<center>
+<img class="center large" src=".//ml_pictures/ml109.png" height="50%" width="90%">
+</center>
+
+
+* Regulation
+<center>
+<img class="center large" src=".//ml_pictures/ml110.png" height="50%" width="70%">
+</center>
+
+* Dropout Regulation
+<center>
+<img class="center large" src=".//ml_pictures/ml111.png" height="50%" width="70%">
+</center>
+
+* MLP as Universal Approximators
+<center>
+<img class="center large" src=".//ml_pictures/ml112.png" height="50%" width="70%">
+</center>

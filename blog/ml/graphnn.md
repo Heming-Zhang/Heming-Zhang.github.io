@@ -8,12 +8,6 @@ category: ml
 * TOC
 {:toc}
 ---
-
-## CNN
-
-## RNN
-
-## GNN
 * History Papers
     * A new model earning in graph domains
 
