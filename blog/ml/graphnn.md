@@ -215,3 +215,14 @@ Hints: we can apply different pooling startegies
 <center>
 <img class = "large" src=".//graph/014.png" height="65%" width="65%">
 </center>
+
+### 8.6 More on Graph Neural Networks
+* Tutoiral and Overviews
+
+    * [Relational inductive biases and graph networks (Battaglia et al., 2018)](https://arxiv.org/pdf/1806.01261.pdf)
+
+    * [Representation learning on graphs: Methods and applications ](https://arxiv.org/pdf/1709.05584.pdf)
+
+* Attention-based neighborhood aggregation
+
+    
