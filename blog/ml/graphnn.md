@@ -224,5 +224,7 @@ Hints: we can apply different pooling startegies
     * [Representation learning on graphs: Methods and applications ](https://arxiv.org/pdf/1709.05584.pdf)
 
 * Attention-based neighborhood aggregation
-
+    * [VAIN: Attentional Multi-agent Predictive Modeling](https://papers.nips.cc/paper/6863-vain-attentional-multi-agent-predictive-modeling.pdf)
+    * [Graph Attention Networks](https://arxiv.org/pdf/1710.10903.pdf)
+    * 
     
