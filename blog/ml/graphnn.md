@@ -221,10 +221,29 @@ Hints: we can apply different pooling startegies
 
     * [Relational inductive biases and graph networks (Battaglia et al., 2018)](https://arxiv.org/pdf/1806.01261.pdf)
 
-    * [Representation learning on graphs: Methods and applications ](https://arxiv.org/pdf/1709.05584.pdf)
+    * [Representation learning on graphs: Methods and applications (Hamilton et al., 2017)](https://arxiv.org/pdf/1709.05584.pdf)
 
 * Attention-based neighborhood aggregation
-    * [VAIN: Attentional Multi-agent Predictive Modeling](https://papers.nips.cc/paper/6863-vain-attentional-multi-agent-predictive-modeling.pdf)
-    * [Graph Attention Networks](https://arxiv.org/pdf/1710.10903.pdf)
-    * 
+    * [VAIN: Attentional Multi-agent Predictive Modeling (Hoshen, 2017)](https://papers.nips.cc/paper/6863-vain-attentional-multi-agent-predictive-modeling.pdf)
+    * [Graph Attention Networks (Velickovic et al., 2018)](https://arxiv.org/pdf/1710.10903.pdf)
+    * [Jointly Multiple Events Extraction via Attention-based Graph Information Aggregation (Liu et al., 2018)](https://arxiv.org/pdf/1809.09078.pdf)
+
+* Embedding entire graphs
+    * [Hierarchical Graph Representation Learning withDifferentiable Pooling(Ying et al., 2018)](http://papers.nips.cc/paper/7729-hierarchical-graph-representation-learning-with-differentiable-pooling.pdf)
+    * [GraphRNN: Generating Realistic Graphs with Deep Auto-regressive Models(You et al., 2018)](https://arxiv.org/pdf/1802.08773.pdf)
+    * [Neural Relational Inference for Interacting Systems(Kipfet al., 2018)](https://arxiv.org/pdf/1802.04687.pdf)
+    * [How powerful are graph neural networks (Xu et al., 2017)](https://arxiv.org/pdf/1810.00826.pdf)
+
+* Embedding nodes:
+    * [Representation Learning on Graphs with Jumping Knowledge Networks (Xu et al., 2018)](https://arxiv.org/pdf/1806.03536.pdf)
+    * [Position-aware GNN (You et al. 2019)](https://arxiv.org/pdf/1906.04817.pdf)
+
+* Spectral approaches to graph neural networks:
+    * [Deep Convolutional Networks on Graph-Structured Data (Bruna et al. 2015)](https://arxiv.org/pdf/1506.05163.pdf)
+    * [Convolutional Neural Networks on Graphswith Fast Localized Spectral Filtering (Defferrard et al., 2016)](http://papers.nips.cc/paper/6081-convolutional-neural-networks-on-graphs-with-fast-localized-spectral-filtering.pdf)
+    * [Geometric deep learning:going beyond Euclidean data (Bronstein et al., 2017)](https://arxiv.org/pdf/1611.08097.pdf)
+    * [Geometric deep learning on graphs and manifolds using mixture model CNNs (Monti et al., 2017)](http://openaccess.thecvf.com/content_cvpr_2017/papers/Monti_Geometric_Deep_Learning_CVPR_2017_paper.pdf)
     
+* Other GNN Techniques
+    * [Pre-Training Graph Neural Networks for Generic Structural Feature Extraction (Hu et al., 2019)](https://arxiv.org/pdf/1905.12265.pdf)
+    * [GNNExplainer: Generating Explanationsfor Graph Neural Networks (Ying et al., 2019)](http://papers.nips.cc/paper/9123-gnnexplainer-generating-explanations-for-graph-neural-networks.pdf)
