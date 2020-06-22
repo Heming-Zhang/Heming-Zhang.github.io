@@ -220,7 +220,6 @@ Hints: we can apply different pooling startegies
 * Tutoiral and Overviews
 
     * [Relational inductive biases and graph networks (Battaglia et al., 2018)](https://arxiv.org/pdf/1806.01261.pdf)
-
     * [Representation learning on graphs: Methods and applications (Hamilton et al., 2017)](https://arxiv.org/pdf/1709.05584.pdf)
 
 * Attention-based neighborhood aggregation
