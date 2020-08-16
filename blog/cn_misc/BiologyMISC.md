@@ -33,11 +33,9 @@ category: ml
 Figure 1
 </center>
 
-
-
 ## DNA 和 RNA 的碱基区别
 <center>
-<img src="./pictures/018.png">
+<img class = "medium" src="./pictures/018.png">
 Figure 2
 </center>
 

@@ -68,7 +68,7 @@
 
         <div class="main">
             <div id="content">
-                <p class="title"> {{ page.title | downcase }} </p>
+                <p class="title"> {{ page.title | uppercase }} </p>
                 <a style="float:left" href="https://github.com/heming-zhang/heming-zhang.github.io">view on github<i class="fa fa-github fa-fw"></i></a>
                 {{ page.content | markdownify }}
             </div>
@@ -115,6 +115,7 @@
 
 .main {
     margin-left: 25%; /* Same as the width of the sidenav */
+    margin-right: 10%;
     padding-top: 80px;
 }
 
@@ -131,7 +132,7 @@ img {
     background:none;
     border:none;
     box-shadow:none;
-    /* width: 40%; */
+    width: 40%;
     width:auto;
 }
 </style>
@@ -140,14 +141,14 @@ img {
 <!--js-->
 <!--MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } });-->
 
-<script type="text/x-mathjax-config">
+<!-- <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
     tex2jax: {
      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
      processEscapes: true
     }
     });
-</script>
+</script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
 <!-- jQuery -->
@@ -191,7 +192,6 @@ $(document).ready(function() {
 
     // init highlight.js
     hljs.initHighlightingOnLoad();
-
 
     $('#toc').toc();
     $('#toc').css('font-size', '14px');
