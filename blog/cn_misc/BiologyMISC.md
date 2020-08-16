@@ -29,7 +29,7 @@ category: ml
 * 核苷酸 = 含氮碱基 + 五碳糖 + 一个或多个磷酸基团
 
 <center>
-<img src="./pictures/019.png">
+<img class = "medium" src="./pictures/019.png">
 Figure 1
 </center>
 
