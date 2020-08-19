@@ -180,22 +180,124 @@ either through somatic mutation or germline mutation.
 * The cell is the smallest functional unit of life that replicates independently
 * This replication is called mitosis
 
-### 3.2 Celluar Hallmark of Cancer Cells No.1: Replicative Immortality
+### 3.2 Hallmark No.1: Replicative Immortality
 * Normal human cells have a finite ablility to underggo mitosus due to the end replication problem
 * This is largely due in part to ends of chromosomes(telomeres) shortening after each mitotic division
 * Once normal human cells reach the Hayflick's limit, cells can go into celluar senescene
 * Cancer cells are very different - they can greatly exceed "Hayfilck's limit" and continue to undergo mitosis
 * Cancer cells are able to do this because they can elongate their telomeres using an enzyme called **telomerase**
 
-### 3.3 Celluar Hallmark of Cancer Cells No.2: Genome Instability
+### 3.3 Hallmark No.2: Genome Instability
 * If a mutation is detected in a noraml cell undergoing DNA synthesis, the cycle will arrest and the mutation repaired before re-entering the cell cycle
 * This is regulated by genes known as tumor suppressors
 * Cancer cells are different and have an abnormal amount of chromosomes per cell and can bear mutations in their DNA with the ability to still undergo mitosis!
 * Genes are mutated or lost are tumor suppressor genes(TSGs)
 * Genes that get over-expressed are known as oncogenes, which cause cells to proliferate uncontrollably
+* Notable gene alternations observeed in cancer are point mutations, the deletion of regions of chromosomes, loss of heterozygosity(LOH), and several others.
+
+### 3.4 Hallmark No.3: Evasion of Growth Suppressor Signals
+* Mitosis in normal cells is a tightly controlled process where in the pro- and anti- proliferation signals coordinate cell activities at the cell cycle level
+* However, due to Hallmark No.2(genomic instability), most cancer cells circumvent normal growth suppressor siganls in the G1 checkpoint in order to continue proliferating
+
+<center>
+<img class = "medium" src=".//cancer/cancer004.png" height="65%" width="50%">
+</center>
+
+* A TSG called retinoblastoma(Rb) inhibits the normal cell's passage through the restriction point in the G1 cell cycle phase
+* Another TSG, p53, functions as a central regulator of cell death because it arrests the cell cycle upon detection of DNA damage
+
+### 3.5 Hallmark No.4 Resistance to Cell Death
+* Normal cells can initiate apoptosis(cell death) in response to abundant DNA damage and other celluar stresses
+* In contrast, cancer cells are generally less sensitive to DNA damage, growth factor deprivation, treatments, and similar streesses, and so they tend to avoid apoptosis
+
+<center>
+<img class = "medium" src=".//cancer/cancer005.png" height="65%" width="50%">
+</center>
+
+* Resisting Cell Death by High Pro-Survival Proteins, Bcl-2
+* In many cancer types, we see Bcl-XL and Bcl-2 family members particularly over expressed.
+
+### 3.6 Hallmark No.5 Sustained Proliferation
+* Within normal cells, growth factor siganling is also tightly controlled to allow for cellular and tissue homeostasis
+* Cancer cells have the ability to prliferate due to the aforemetioned Hallmarks 1-4 as well as to over-active oncogenes such as RAS
+* Cancer cells can also stimulate normal cells in the microenvironment to provide growth factors
+* Epidermal Growth Factor(EGF)
+
+<center>
+<img class = "medium" src=".//cancer/cancer006.png" height="65%" width="50%">
+</center>
+
+### 3.7 Hallmark No.6 Altered Metabolism
+* Normal cells break glucose down(glycolysis) to pyruvate which provides energy adenosine triphosphate(ATP) for the cell
+* Cancer cells are very different - these cells can convert glucose to lactate irrespective of oxygen
+* This allows the cancer cell to divert metabolites for useful anabolic processes such mitosis
+
+### 3.8 Hallmark No.7 Avoid Immune Destruction
+* Cells of the immune system that engulf and destroy foreign particles are B cells, T lymphocytes or T cells, macrophages and natural killer cells. 
+* Cancer cells can protect themselves by inhibiting T cells that would noramlly attack these cancer cells
+
+<center>
+<img class = "medium" src=".//cancer/cancer007.png" height="65%" width="50%">
+</center>
 
 
+### 3.9 Hallmark No.8 Tumor-Promoting Inflammation
+* Immune cells provide the tumor cells with essential factors that allow them to survive, move, proliferate, and undergo epithelial-to-mesenchymal transition(EMT) and invade
 
+
+### 3.10 Hallmark No.9 Induction of Angiogenesis
+* Pro-angiogenesis factors such as vascular endothelial growth factor(VEGF) become activated in tumor cells and signal endothelial cell proliferation and growth of blood vessels
+* Immune infiltrating cells can also induce this
+
+### 3.11 Hallmark No.10 Activation of Invasion and Metastasis
+* Cell-cell and cell-extracellular matrix interactions are altered
+* Changes in or loss of structrual proteins(e.g., intergins)
+* Loss of genes known as metastasis suppressor genes(KAI1/CD82,NDRG1)
+* Recruitment of immune cells
+* Epithelial-to-mesenchymal transition(EMT)
+
+## Lecture 4 Metastasis
+### 4.1 Introduction to Metastasis
+### 4.2 The Mestastic Process
+
+## Lecture 5 Imaging in Oncology
+### 5.1 Introduction to Imaging
+### 5.2 Types of Imaging
+### 5.3 Imaging in Clinical Oncology
+
+## Lecture 6 Treatment
+* Overall includes:
+    * surgery
+    * radiation
+    * hormonal therapy
+    * chemotherapy
+    * targeted therapy
+    * immunotherapy
+
+### 6.1 Surgery and Radiation
+* Surgery removes the tumor
+* Radiation can be given as external beam radiation or by implanting radioactive seeds into the tumor
+* Killing dividing cells through DNA damage which leads to cell death.
+
+### 6.2 Hormones
+### 6.3 Chemotherapy
+* Almost all chemotherapy drugs have been designed to keep cells from dividing.Cancer cells tend to divide more rapidly than normal cells, and therefore, they are more likely to die from chemotherapy treatment.
+* Inhibiting replication of DNA
+* Inhibiting cell division
+* Inhibiting microtubules
+
+<center>
+<img class = "large" src=".//cancer/cancer008.png" height="65%" width="65%">
+</center>
+
+<center>
+<img class = "large" src=".//cancer/cancer009.png" height="65%" width="65%">
+</center>
+
+### 6.4 Immunotherapy
+<center>
+<img class = "large" src=".//cancer/cancer010.png" height="65%" width="65%">
+</center>
 
 
 
