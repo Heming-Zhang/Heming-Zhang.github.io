@@ -120,6 +120,7 @@ $$\mathbb{P}[|v-\mu|<\epsilon]\leq{2e^{-2\epsilon^2n}},\  \mathbf{for\ any\ \eps
 ### 1.7 Connection to Machine Learning
 
 > **Probability Rescue**
+>
 > $$E_{out}(h)=\mathbb{P}[|h(\mathbf{x})\neq{f(\mathbf{x})}|]=\mu$$
 > 
 > $$E_{in}(h)=\frac{1}{n}\sum_{i=1}^{n}[|h(\mathbf{x_i})\neq{f(\mathbf{x_i})}|]=v$$
@@ -170,11 +171,11 @@ $$
 <img class = "medium" src=".//ml_pictures/ml008.png" height="55%" width="55%">
 </center>
 
-* For coupon, we can consider false positive is small error.
-* For unlock important files, we will think false negative is small error. (For safety, ourselves may not able to open it everytime.)
-
-* For noise, target function is not determinstic. It is **stocastic**.
-* Instead of get a target function, we will have a target distribution
+> * For coupon, we can consider false positive is small error.
+> * For unlock important files, we will think false negative is small error. (For safety, ourselves may not able to open it everytime.)
+> 
+> * For noise, target function is not determinstic. It is **stocastic**.
+>* Instead of get a target function, we will have a target distribution
 
 > Instead of 
 >
@@ -214,23 +215,18 @@ $$
 > At here, we can say that 
 > 
 > $$E_{out}(g)\leq{E_{in}(g)+\epsilon},\ \mathbf{with\ the\ probability\ of\ {1-\delta}}$$
-
-
-* The Union Bound is Bad
-    * Therefore, can we group our hypothesis in kind os that to avoid similar result to make bound bad?
+>
+> **The Union Bound is Bad**
+>    * Therefore, can we group our hypothesis in kind os that to avoid similar result to make bound bad?
 
 ### 2.2 Effective Number of Hypothesis
 
-* Here we will introduce growth function, which will replace $m$ in formula.
-
-* How many kinds of lines for Inputs?
-
-* If we get 5 points, and the dichotomies generated can be only 22.
-    * we can count it by calculate the circumstances of points aside.
-    * 0 point: 1*2 (Also 5 Points)
-    * 1 point: 5*2 (Also 4 Points)
-    * 2 points: 5*2 (Also 3 Points)
-    * Add them up is: 22 which is less than $2^5=32$
+> * If we get 5 points, and the dichotomies generated can be only 22.
+>    * we can count it by calculate the circumstances of points aside.
+>    * 0 point: 1*2 (Also 5 Points)
+>    * 1 point: 5*2 (Also 4 Points)
+>    * 2 points: 5*2 (Also 3 Points)
+>    * Add them up is: 22 which is less than $2^5=32$
 
 
 > We may replace $m$ in the formula with effective$(n)$， therefore we will have
@@ -278,22 +274,6 @@ $$
 > **CONCLUSION:** If there is a break point here, we know that $m_{\mathcal{H}}(n)=O(n^{k-1})$, $k$ is the break point number, which demonstrates that $m_{\mathcal{H}}(n)$ is a polynomial instead of exponential.
 
 
-### 2.3 Bounding the Growth Function
-<center>
-<img class = "large" src=".//ml_pictures/ml013.png" height="75%" width="70%">
-</center>
-
-$$B(n,k)\leq{B(n-1,k)+B(n-1,k-1)}$$
-$$B(n,k)\leq{\sum_{i}^{n}C^{i}_{n}}$$
-
-
-* [A Video to Prove This](https://www.youtube.com/watch?v=6jtWUmaBqFU&list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf&index=24)
-
-> The VC Dimension: Mentioned [break point](#jump) before
->
-> Here, we use the feature $m_{\mathcal{H}}(n)=O(n^{k-1})$, and make $d_{VC}=k-1$, means $d_{VC}$ equals value of break point - 1
-
-
 ### 2.4 The VC Generalization Bound
 
 > The Vapornik-Chervonenkis(VC)-Bound
@@ -304,7 +284,7 @@ $$B(n,k)\leq{\sum_{i}^{n}C^{i}_{n}}$$
 >
 > $$E_{in}(g)-\sqrt{\frac{8}{n}\log{\frac{4m_{\mathcal{H}}(2n)}{\delta}}}\leq{E_{out}(g)}\leq{E_{in}(g)+\sqrt{\frac{8}{n}\log{\frac{4m_{\mathcal{H}}(2n)}{\delta}}}}$$
 >
->But we only care about what happened in RHS, which could tell us worst situation
+> But we only care about what happened in RHS, which could tell us worst situation
 >
 >
 > $$E_{out}(g)\leq{E_{in}(g)+\sqrt{\frac{8}{n}\log{\frac{4m_{\mathcal{H}}(2n)}{\delta}}}},\ \mathbf{with\ the\ probability\ of\ }{1-\delta}$$
@@ -312,11 +292,11 @@ $$B(n,k)\leq{\sum_{i}^{n}C^{i}_{n}}$$
 > From the break point section, we have one more theorem that, if $k^{*}$ is the smallest break point for $\mathcal{H}$. Then
 > 
 > $$m_{\mathcal{H}}(n)\leq{n^{k^{*}-1}+1}$$  
+>
+> * $d_{VC}(\mathcal{H})=k^{*}-1$
+> * $m_{\mathcal{H}}(n)\leq{n^{k^{*}-1}+1}=n^{d_{VC}}+1$
 
-* $d_{VC}(\mathcal{H})=k^{*}-1$
-* $m_{\mathcal{H}}(n)\leq{n^{k^{*}-1}+1}=n^{d_{VC}}+1$
-
-> Then we will have following derivative:
+> **Then we will have following derivative**:
 >
 > $$E_{out}(g)\leq{E_{in}(g)+\sqrt{\frac{8}{n}\log{\frac{4m_{\mathcal{H}}(2n)}{\delta}}}}$$
 >
@@ -333,23 +313,23 @@ $$B(n,k)\leq{\sum_{i}^{n}C^{i}_{n}}$$
 > And if $n\rightarrow{\infty}$, then $\sqrt{\frac{8}{n}\log{\frac{4m_{\mathcal{H}}(2n)}{\delta}}}\rightarrow{0}$, ( since $\lim_{n\rightarrow{\infty}}{\frac{\log{n}}{n}}=0$)
 > Therefore, $E_{out}(g)\rightarrow{E_{in}(g)}$, as $n\rightarrow{\infty}$, with the probability of $1-\delta$
 
-### Sample Complexity
-* How many samples do we need in out training data to say that the generalization error is less than $\epsilon$ with the probability of $1-\delta$
+### 2.5 Sample Complexity
+> * How many samples do we need in out training data to say that the generalization error is less than $\epsilon$ with the probability of $1-\delta$
+> 
+> * Set $\sqrt{\frac{8}{n}\log{\frac{4+4(2)^{d_{VC}}\cdot{n^{d_{VC}}}}{\delta}}}\leq{\epsilon}$
+>
+> * We can conclude that we need $n\geq{\frac{8}{\epsilon^2}\log({\frac{4[(2n)^{d_{VC}}+1]}{\delta}}) }$
+>
+> * Practical Rule of Thumb: $n\geq{10d_{VC}}$
 
-* Set $\sqrt{\frac{8}{n}\log{\frac{4+4(2)^{d_{VC}}\cdot{n^{d_{VC}}}}{\delta}}}\leq{\epsilon}$
+### 2.6 Approximation Generalization Tradeoff
 
-* We can conclude that we need $n\geq{\frac{8}{\epsilon^2}\log({\frac{4[(2n)^{d_{VC}}+1]}{\delta}}) }$
-
-* Practical Rule of Thumb: $n\geq{10d_{VC}}$
-
-### Approximation Generalization Tradeoff
-
-* When you select your hypothesis set, you should balance these two conflicting goals:
-    * (1) To have some hypothesis $\mathcal{H}$ that can approximate $f$
-    * (2) To enable the data to zoom in on the right hypothesis
+> When you select your hypothesis set, you should balance these two conflicting goals:
+>    * (1) To have some hypothesis $\mathcal{H}$ that can approximate $f$
+>    * (2) To enable the data to zoom in on the right hypothesis
 
 <span id="jump1"></span>
-* VC Analysis
+* **VC Analysis**
 <center>
 <img class = "large" src=".//ml_pictures/ml014.png" height="55%" width="70%">
 </center>
@@ -358,15 +338,15 @@ $$B(n,k)\leq{\sum_{i}^{n}C^{i}_{n}}$$
 <img class = "large" src=".//ml_pictures/ml015.png" height="55%" width="70%">
 </center>
 
-### Bias-Variance Tradeoff
+### 2.7 Bias-Variance Tradeoff
 
-* We can use some squared-error measures to decompose it to bias-variance.
-
-$$E_{out}(g_{\mathcal{D}})=\mathbb{E}_{\mathbf{x}\sim\mathcal{P}}[(g_{\mathcal{D}}(\mathbf{x})-f(\mathbf{x}))^2]$$
-
-* To deal with composition, we have:
-
-$$
+> * We can use some squared-error measures to decompose it to bias-variance.
+>
+>$$E_{out}(g_{\mathcal{D}})=\mathbb{E}_{\mathbf{x}\sim\mathcal{P}}[(g_{\mathcal{D}}(\mathbf{x})-f(\mathbf{x}))^2]$$
+>
+>* To deal with composition, we have:
+>
+>$$
 \begin{aligned}
 \mathbb{E}_{\mathcal{D}}  [E_{out}(g_{\mathcal{D}})]
 &=\mathbb{E_{\mathcal{D}}}\Big[\mathbb{E}_{\mathbf{x}}[( g_{\mathcal{D}}(\mathbf{x})-f(\mathbf{x}))^2]\Big] \\
@@ -375,10 +355,10 @@ $$
 &=\mathbb{E_{\mathbf{x}}}\Big[\mathbb{E}_{\mathcal{D}}[ g_{\mathcal{D}}(\mathbf{x})^2]-2\bar{g}(\mathbf{x})f(\mathbf{x})+f(\mathbf{x})^2\Big]
 \end{aligned}
 $$
-
-$$\mathbf{where\ \ }\mathbb{E}_{\mathcal{D}}[g_{\mathcal{D}}(\mathbf{x})]=\bar{g}(\mathbf{x})\approx{\frac{1}{k}}{\sum_{i=1}^{k}}g_{\mathcal{D_i}}(\mathbf{x})$$
-
-$$
+>
+>$$\mathbf{where\ \ }\mathbb{E}_{\mathcal{D}}[g_{\mathcal{D}}(\mathbf{x})]=\bar{g}(\mathbf{x})\approx{\frac{1}{k}}{\sum_{i=1}^{k}}g_{\mathcal{D_i}}(\mathbf{x})$$
+>
+>$$
 \begin{aligned}
 \mathbb{E}_{\mathcal{D}}  [E_{out}(g_{\mathcal{D}})]
 &=\mathbb{E_{\mathbf{x}}}\Big[\mathbb{E}_{\mathcal{D}}[ g_{\mathcal{D}}(\mathbf{x})^2]-2\bar{g}(\mathbf{x})f(\mathbf{x})+f(\mathbf{x})^2\Big]\\
@@ -389,7 +369,7 @@ $$
 $$
 
 <span id="jump2"></span>
-* CONCLUSION(Bias-Variance Analysis):
+* CONCLUSION (Bias-Variance Analysis):
 <center>
 <img class = "large" src=".//ml_pictures/ml016.png" height="55%" width="70%">
 </center>
@@ -397,11 +377,11 @@ $$
 <img class = "large" src=".//ml_pictures/ml017.png" height="55%" width="70%">
 </center>
 
-* When hypothesis sets grows from 2 to 5, the bias will not change but the variance will decrease for the more complex hypothesis set
-
-* At here, we form 2 important analysis approaches
-    * [VC Analysis](#jump1)
-    * [Bias-Variance Analysis](#jump2)
+> When hypothesis sets grows from 2 to 5, the bias will not change but the variance will decrease for the more complex hypothesis set
+>
+> At here, we form 2 important analysis approaches
+>    * [VC Analysis](#jump1)
+>    * [Bias-Variance Analysis](#jump2)
 
 
 <center>
@@ -409,15 +389,15 @@ $$
 </center>
 
 
-### Test Sets
-* Instead of bounding $E_{out}(g)$ using $E_{in}(g)$, estimate $E_{out}(g)$ using the error on some test dataset $\mathcal{D'}$
-    * $E_{test}(g)$= error on the test dataset
+### 2.8 Test Sets
+> Instead of bounding $E_{out}(g)$ using $E_{in}(g)$, estimate $E_{out}(g)$ using the error on some test dataset $\mathcal{D'}$
+>    * $E_{test}(g)$= error on the test dataset
 
 <center>
 <img class = "large" src=".//ml_pictures/ml019.png" height="55%" width="55%">
 </center>
 
-* Test Sets will occupy some resources of training data, therefore, basically, we will choose 70-80% training and 20-30% testing
+> Test Sets will occupy some resources of training data, therefore, basically, we will choose 70-80% training and 20-30% testing
 
 ## Chapter 3 Linear Model
 
