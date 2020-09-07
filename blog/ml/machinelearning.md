@@ -23,7 +23,7 @@ category: ml
 
 
 ## Chapter 1 The Learning Problem
-### Formal Setup
+### 1.1 Formal Setup
 * unknown target function$f:\mathcal{X}\rightarrow\mathcal{Y}$
 * training data $\mathcal{D}$
 * hypothesis set $\mathcal{H}$
@@ -32,7 +32,7 @@ category: ml
 
 $\mathcal{H,A}$ will be called as learning model, this is what we can control.
 
-### Perceptron
+### 1.2 Perceptron
 * Input $\mathcal{X}\in\mathbb{R}^n$ ($\mathbb{R}^{n}$ is the $n$-dimensional Euclidean space)
 * Output $\mathcal{Y}\in \{+1,-1\}$
 * Give a sign function 
@@ -45,13 +45,13 @@ h(\mathbf{x})=
 \end{cases}
 $$
 
-this can also be expressed in this way:
+* This can also be expressed in this way:
 
 $$
 h(\mathbf{x})=sign((\sum_{i=1}^{n}w_{i}x_{i})+b)
 $$
 
-To simplify the noation of the perceptron formula, we will treat the bias $b$ as a weight $w_0=b$ and merge it with the other weights into one vector $\mathbf{w}=[w_0,w_1,\cdots,w_n]^{T}$,where $^{T}$ denotes the transpose of a vector, so $\mathbf{w}$ is a column vector. We also treat $\mathbf{x}$ as a column vector and modify it to become $\mathbf{x}=[x_0,x_1,\cdots,x_n]^T(where\ x_0=1)$, therefore $\mathbf{x}=(x_1, x_2,\cdots,x_n)\in\mathbb{R}^{n}$
+> To simplify the noation of the perceptron formula, we will treat the bias $b$ as a weight $w_0=b$ and merge it with the other weights into one vector $\mathbf{w}=[w_0,w_1,\cdots,w_n]^{T}$,where $^{T}$ denotes the transpose of a vector, so $\mathbf{w}$ is a column vector. We also treat $\mathbf{x}$ as a column vector and modify it to become $\mathbf{x}=[x_0,x_1,\cdots,x_n]^T(where\ x_0=1)$, therefore $\mathbf{x}=(x_1, x_2,\cdots,x_n)\in\mathbb{R}^{n}$
 
 * With such convention, we will have 
 
@@ -77,10 +77,12 @@ $$
 
 * **Finally, we will get** 
 
-$$h(\mathbf{x})=sign(\mathbf{w}^T\mathbf{x})\tag{1}$$
+$$h(\mathbf{x})=sign(\mathbf{w}^T\mathbf{x})$$
 
 <span id = "jump3"></span>
-### Perceptron Learning Algorithm(PLA)
+
+### 1.3 Perceptron Learning Algorithm(PLA)
+
 * This algorithm will determine what $\mathbf{w}$ should be
 * Assume data set is linearly separable, which means that there is a vector $w$ that makes formula$(1)$ achienve the correct decision $h(\mathbf{x}_n)=y_n$ on all the traing examples.
 * We will use iterative method to find $\mathbf{w}$. At iteration $t$, where $t=0,1,2,\cdots$, there is a current value of the weight vector, call it $\mathbf{w}(t)$. Then the algorithm will pick one of misclassified examples, called $(\mathbf{x}(t),y(t))$, and uses it to update $\mathbf{w}(t)$. And the update rule is
@@ -102,23 +104,23 @@ $$\mathbf{w}(t+1)=\mathbf{w}(t)+y(t)\mathbf{x}(t)$$
 
 * [PLA extension reading](https://www.csie.ntu.edu.tw/~htlin/course/ml13fall/doc/02_handout.pdf)
 
-### Is learning feasible?
+### 1.5 Is learning feasible?
 
 * A random sample is picked from bin of orange and green marbles. $\mu$ represents the probability of orange marbles in the bin, and $v$ represents the fraction of orange marbles in the sample. 
 
 <center>
-<img class = "large" src=".//ml_pictures/ml001.png" height="65%" width="65%">
+<img class = "medium" src=".//ml_pictures/ml001.png" height="50%" width="50%">
 </center>
 
-### **Hoeffding Inequality**
+### 1.6 **Hoeffding Inequality**
 
 $$\mathbb{P}[|v-\mu|<\epsilon]\leq{2e^{-2\epsilon^2n}},\  \mathbf{for\ any\ \epsilon>0}$$
 
-Here, the training sample play the role of a sample from the bin. If the inputs $\mathbf{x}_1, \cdots, \mathbf{x}_n$ in $\mathcal{D}$ are picked from independently according to $P$, we will get a random sample of red $(h(\mathbf{x})\neq{f(\mathbf{x})})$ and $(h(\mathbf{x}) = {f(\mathbf{x})})$ points. 
+> Here, the training sample play the role of a sample from the bin. If the inputs $\mathbf{x}_1, \cdots, \mathbf{x}_n$ in $\mathcal{D}$ are picked from independently according to $P$, we will get a random sample of red $(h(\mathbf{x})\neq{f(\mathbf{x})})$ and $(h(\mathbf{x}) = {f(\mathbf{x})})$ points. 
 
-Each point will be red with probability $\mu$ and green with probability $1-\mu$. The color of each point will be known to us since both $h(\mathbf{x}_i)$ and $f(\mathbf{x}_i)$ are known to us for $i=1,2,\cdots,n$.
+> Each point will be red with probability $\mu$ and green with probability $1-\mu$. The color of each point will be known to us since both $h(\mathbf{x}_i)$ and $f(\mathbf{x}_i)$ are known to us for $i=1,2,\cdots,n$.
 
-* Connection to Machine Learning
+### 1.7 Connection to Machine Learning
 <center>
 <img class = "large" src=".//ml_pictures/ml003.png" height="65%" width="65%">
 </center>
@@ -146,15 +148,15 @@ $$\mathbb{P}[|E_{in}(h)-E_{out}(h)|>\epsilon]\leq{2e^{-2\epsilon^2n}}$$
 <img class = "large" src=".//ml_pictures/ml006.png" height="65%" width="65%">
 </center>
 
-* On above picture, 
-
-$$\mathbb{P}_{\mathcal{D}}[\mathbf{BAD}\ \mathcal{D}\ for\ h]$$ 
-
-means 
-
-$$|E_{in}(h)-E_{out}(h)|>\epsilon$$
-
-where $\epsilon$ is very large, which is quite impossible to happen to collect a bad training data set.
+> On above picture, 
+>
+> $$\mathbb{P}_{\mathcal{D}}[\mathbf{BAD}\ \mathcal{D}\ for\ h]$$ 
+>
+> means 
+>
+> $$|E_{in}(h)-E_{out}(h)|>\epsilon$$
+>
+>where $\epsilon$ is very large, which is quite impossible to happen to collect a bad training data set.
 
 * [Probability Puzzle](https://piazza.com/class/jyyt9xb4lfm2pk?cid=32)
 
@@ -162,7 +164,6 @@ where $\epsilon$ is very large, which is quite impossible to happen to collect a
 
 $$\sum_{i=1}^n{P(B_i)P(A|B_i)}$$
 
-we can get:
 
 $$\mathbb{P}_{\mathcal{D}}[\mathbf{BAD}\ \mathcal{D}] = \sum_{All\ Possible\ \mathcal{D_i \in D}}\mathbb{P}(\mathcal{D_i})\cdot\mathbb{P}_{\mathcal{D_i}}[\mathbf{BAD}\ \mathcal{D_i}]$$
 
@@ -183,10 +184,10 @@ $$
 * Tips: Normal Distribution = Gussian Distribition
 
 
-### Error and Noise
+### 1.8 Error and Noise
 
 <center>
-<img class = "large" src=".//ml_pictures/ml008.png" height="55%" width="70%">
+<img class = "medium" src=".//ml_pictures/ml008.png" height="55%" width="55%">
 </center>
 
 * For coupon, we can consider false positive is small error.
@@ -194,50 +195,51 @@ $$
 
 * For noise, target function is not determinstic. It is **stocastic**.
 * Instead of get a target function, we will have a target distribution
-* Instead of 
 
-$$y=f(x),P\{y|\mathbf{x}\}$$
-
-we will have
-
-$$y=f(\mathbf{x})+\epsilon\ ,where\ \epsilon\in{N(0,\delta^2)}$$
+> Instead of 
+>
+> $$y=f(x),P\{y|\mathbf{x}\}$$
+> 
+> we will have
+>
+> $$y=f(\mathbf{x})+\epsilon\ ,where\ \epsilon\in{N(0,\delta^2)}$$
 
 
 ## Chapter2 Training Versus Testing
 
-### Theory of Generalization
+### 2.1 Theory of Generalization
 
 <center>
 <img class = "large" src=".//ml_pictures/ml009.png" height="65%" width="65%">
 </center>
 
 
-$$\delta = 2me^{-2\epsilon^2n}$$
-
-$$\mathbb{P}[|E_{in}(g)-E_{out}(g)|\geq\epsilon]\ \leq{\delta}$$
-
-$$\mathbb{P}[|E_{in}(g)-E_{out}(g)|\leq\epsilon]\ \geq1-{\delta}\tag{*}$$
-
-$$\mathbb{P}[E_{in}(g)-E_{out}(g)\leq\epsilon\cap{E_{out}(g)-E_{in}(g)\leq\epsilon}]\ \geq1-{\delta}\tag{**}$$
-
-Since we have:
-
-$$P(A\cap{B})\leq{P(A)}\\
-\leq{P(B)}$$
-
-Therefore, continue on (**), we have
-
-$$\mathbb{P}[E_{out}(g)\leq{E_{in}(g)+\epsilon}]\geq1-{\delta}$$
-
-At here, we can say that 
-
-$$E_{out}(g)\leq{E_{in}(g)+\epsilon},\ \mathbf{with\ the\ probability\ of\ {1-\delta}}$$
+> $$\delta = 2me^{-2\epsilon^2n}$$
+>
+> $$\mathbb{P}[|E_{in}(g)-E_{out}(g)|\geq\epsilon]\ \leq{\delta}$$
+>
+> $$\mathbb{P}[|E_{in}(g)-E_{out}(g)|\leq\epsilon]\ \geq1-{\delta}\tag{*}$$
+> 
+> $$\mathbb{P}[E_{in}(g)-E_{out}(g)\leq\epsilon\cap{E_{out}(g)-E_{in}(g)\leq\epsilon}]\ \geq1-{\delta}\tag{**}$$
+>
+> Since we have:
+> 
+> $$P(A\cap{B})\leq{P(A)}\\
+> \leq{P(B)}$$
+> 
+> Therefore, continue on (**), we have
+> 
+> $$\mathbb{P}[E_{out}(g)\leq{E_{in}(g)+\epsilon}]\geq1-{\delta}$$
+> 
+> At here, we can say that 
+> 
+> $$E_{out}(g)\leq{E_{in}(g)+\epsilon},\ \mathbf{with\ the\ probability\ of\ {1-\delta}}$$
 
 
 * The Union Bound is Bad
     * Therefore, can we group our hypothesis in kind os that to avoid similar result to make bound bad?
 
-### Effective Number of Hypothesis
+### 2.2 Effective Number of Hypothesis
 
 * Here we will introduce growth function, which will replace $m$ in formula.
 
@@ -251,54 +253,52 @@ $$E_{out}(g)\leq{E_{in}(g)+\epsilon},\ \mathbf{with\ the\ probability\ of\ {1-\d
     * Add them up is: 22 which is less than $2^5=32$
 
 
-* We may replace $m$ in the formula with effective$(n)$， therefore we will have
-
-$$\mathbb{P}[|E_{in}(g)-E_{out}(g)|<\epsilon]\leq{2\cdot{effective(n)}\cdot{e^{-2\epsilon^2n}}}$$
-
-* At here, $effective(N)<<2^n$
-
-* Let $\mathbf{x_1,x_2,\cdots,x_n}\in\mathcal{X}$. The **dichotomies** generated by $\mathcal{H}$ on these points are defined by
-
-$$\mathcal{H}(\mathbf{x_1,\cdots,x_n})=\{(h(\mathbf{x_1}),\cdots,h(\mathbf{x_n}))| h\in\mathcal{H} \}$$
-
-* And we know $h(\mathbf{x_1}),\cdots,h(\mathbf{x_n})\in \{+1,-1\}^{n}$ 
-* And we also know dichotomies $\mathcal{H}(\mathbf{x_1,\cdots,x_n})$ is also a set of **hypothesis** just like hypothesis $\mathcal{H}$. The difference here is: One has upper bound, and one is possibly infinite.
+> We may replace $m$ in the formula with effective$(n)$， therefore we will have
+>
+> $$\mathbb{P}[|E_{in}(g)-E_{out}(g)|<\epsilon]\leq{2\cdot{effective(n)}\cdot{e^{-2\epsilon^2n}}}$$
+>
+> At here, $effective(N)<<2^n$
+>
+> Let $\mathbf{x_1,x_2,\cdots,x_n}\in\mathcal{X}$. The **dichotomies** generated by $\mathcal{H}$ on these points are defined by
+>
+> $$\mathcal{H}(\mathbf{x_1,\cdots,x_n})=\{(h(\mathbf{x_1}),\cdots,h(\mathbf{x_n}))| h\in\mathcal{H} \}$$
+>
+> And we know $h(\mathbf{x_1}),\cdots,h(\mathbf{x_n})\in \{+1,-1\}^{n}$ 
+> And we also know dichotomies $\mathcal{H}(\mathbf{x_1,\cdots,x_n})$ is also a set of **hypothesis** just like hypothesis $\mathcal{H}$. The difference here is: One has upper bound, and one is possibly infinite.
 
 <center>
 <img class = "large" src=".//ml_pictures/ml010.png" height="67%" width="67%">
 </center>
 
-* The Growth Function can be defined for a hypothesis set $\mathcal{H}$ by
-
-$$m_{\mathcal{H}}(n)=\max_{\mathbf{x_1,\cdots,x_n}\in\mathcal{X}}{|\mathcal{H}(\mathbf{x_1,\cdots,x_n})|}$$
-
-* In words, the $m_{\mathcal{H}}(n)$ is the maximum number of dichotomies that can be generated by $\mathcal{H}$ on any $n$ points.
-
-* Therefore, if $\mathcal{X}$ is a Euclidean plane, and $\mathcal{H}$ is a two-dimensional perceptron, what are $m_{\mathcal{H}}(3)$ and $m_{\mathcal{H}}(4)$?
+> The Growth Function can be defined for a hypothesis set $\mathcal{H}$ by
+>
+>$$m_{\mathcal{H}}(n)=\max_{\mathbf{x_1,\cdots,x_n}\in\mathcal{X}}{|\mathcal{H}(\mathbf{x_1,\cdots,x_n})|}$$
+>
+> In words, the $m_{\mathcal{H}}(n)$ is the maximum number of dichotomies that can be generated by $\mathcal{H}$ on any $n$ points.
+>
+> Therefore, if $\mathcal{X}$ is a Euclidean plane, and $\mathcal{H}$ is a two-dimensional perceptron, what are $m_{\mathcal{H}}(3)$ and $m_{\mathcal{H}}(4)$?
     * $m_{\mathcal{H}}(3)=8$
     * $m_{\mathcal{H}}(4)=14$
-
-* For following cases:
+>
+> For following cases:
     * Positive Rays: $m_{\mathcal{H}}(n)=n+1$
     * Positive Intervals: $m_{\mathcal{H}}(n)=C_{n+1}^{2}$
     * Convex Set: $m_{\mathcal{H}}(n)=2^{n}$  
-
-* **Break Point**: If no data set of size $k$ can be shattered by $\mathcal{H}$, then $k$ is said to be a break point for $\mathcal{H}$.
-    * Thus we will have $m_{\mathcal{H}}(k)=2^k$
+>
+> **Break Point**: If no data set of size $k$ can be shattered by $\mathcal{H}$, then $k$ is said to be a break point for $\mathcal{H}$.
+>
+> Thus we will have $m_{\mathcal{H}}(k)=2^k$
 
 <center>
 <img class = "large" src=".//ml_pictures/ml011.png" height="65%" width="65%">
 </center>
 
 <span id="jump"></span>
-<center>
-<img src=".//ml_pictures/ml012.png" height="75%" width="55%">
-</center>
 
-* **CONCLUSION:** If there is a break point here, we know that $m_{\mathcal{H}}(n)=O(n^{k-1})$, $k$ is the break point number, which demonstrates that $m_{\mathcal{H}}(n)$ is a polynomial instead of exponential.
+> **CONCLUSION:** If there is a break point here, we know that $m_{\mathcal{H}}(n)=O(n^{k-1})$, $k$ is the break point number, which demonstrates that $m_{\mathcal{H}}(n)$ is a polynomial instead of exponential.
 
 
-### Bounding the Growth Function
+### 2.3 Bounding the Growth Function
 <center>
 <img class = "large" src=".//ml_pictures/ml013.png" height="75%" width="70%">
 </center>
@@ -309,50 +309,49 @@ $$B(n,k)\leq{\sum_{i}^{n}C^{i}_{n}}$$
 
 * [A Video to Prove This](https://www.youtube.com/watch?v=6jtWUmaBqFU&list=PLXVfgk9fNX2I7tB6oIINGBmW50rrmFTqf&index=24)
 
-### The VC dimension
-
-* Mentioned [break point](#jump) before
-* Here, we use the feature $m_{\mathcal{H}}(n)=O(n^{k-1})$, and make $d_{VC}=k-1$, means $d_{VC}$ equals value of break point - 1
-
-
-### The VC Generalization Bound
-
-* The Vapornik-Chervonenkis(VC)-Bound
-
-$$\mathbb{P}\{|E_{in}(g)-E_{out}(g)|>\epsilon\}\leq{4m_{\mathcal{H}}(2n)e^{-\frac{1}{8}\epsilon^2{n}}}$$
-
-which is also 
-
-$$E_{in}(g)-\sqrt{\frac{8}{n}\log{\frac{4m_{\mathcal{H}}(2n)}{\delta}}}\leq{E_{out}(g)}\leq{E_{in}(g)+\sqrt{\frac{8}{n}\log{\frac{4m_{\mathcal{H}}(2n)}{\delta}}}}$$
-
-But we only care about what happened in RHS, which could tell us worst situation
+> The VC Dimension: Mentioned [break point](#jump) before
+>
+> Here, we use the feature $m_{\mathcal{H}}(n)=O(n^{k-1})$, and make $d_{VC}=k-1$, means $d_{VC}$ equals value of break point - 1
 
 
-$$E_{out}(g)\leq{E_{in}(g)+\sqrt{\frac{8}{n}\log{\frac{4m_{\mathcal{H}}(2n)}{\delta}}}},\ \mathbf{with\ the\ probability\ of\ }{1-\delta}$$
+### 2.4 The VC Generalization Bound
 
-From the break point section, we have one more theorem that, if $k^{*}$ is the smallest break point for $\mathcal{H}$. Then
-
-$$m_{\mathcal{H}}(n)\leq{n^{k^{*}-1}+1}$$  
+> The Vapornik-Chervonenkis(VC)-Bound
+>
+> $$\mathbb{P}\{|E_{in}(g)-E_{out}(g)|>\epsilon\}\leq{4m_{\mathcal{H}}(2n)e^{-\frac{1}{8}\epsilon^2{n}}}$$
+>
+> which is also 
+>
+> $$E_{in}(g)-\sqrt{\frac{8}{n}\log{\frac{4m_{\mathcal{H}}(2n)}{\delta}}}\leq{E_{out}(g)}\leq{E_{in}(g)+\sqrt{\frac{8}{n}\log{\frac{4m_{\mathcal{H}}(2n)}{\delta}}}}$$
+>
+>But we only care about what happened in RHS, which could tell us worst situation
+>
+>
+> $$E_{out}(g)\leq{E_{in}(g)+\sqrt{\frac{8}{n}\log{\frac{4m_{\mathcal{H}}(2n)}{\delta}}}},\ \mathbf{with\ the\ probability\ of\ }{1-\delta}$$
+>
+> From the break point section, we have one more theorem that, if $k^{*}$ is the smallest break point for $\mathcal{H}$. Then
+> 
+> $$m_{\mathcal{H}}(n)\leq{n^{k^{*}-1}+1}$$  
 
 * $d_{VC}(\mathcal{H})=k^{*}-1$
 * $m_{\mathcal{H}}(n)\leq{n^{k^{*}-1}+1}=n^{d_{VC}}+1$
 
-Then we will have following derivative:
-
-$$E_{out}(g)\leq{E_{in}(g)+\sqrt{\frac{8}{n}\log{\frac{4m_{\mathcal{H}}(2n)}{\delta}}}}$$
-
-$$=E_{in}(g)+\sqrt{\frac{8}{n}\log{\frac{4[(2n)^{d_{VC}}+1]}{\delta}}}$$
-
-$$=E_{in}(g)+\sqrt{\frac{8}{n}\log{\frac{4+4(2)^{d_{VC}}\cdot{n^{d_{VC}}}}{\delta}}}$$
-
-$$=E_{in}(g)+O(\sqrt{\frac{8}{n}\log{\frac{4+4(2)^{d_{VC}}\cdot{n^{d_{VC}}}}{\delta}}})$$
-
-$$=E_{in}(g)+O(\sqrt{\frac{1}{n}\log{\frac{n^{d_{VC}}}{\delta}}})$$
-
-$$=E_{in}(g)+O(\sqrt{\frac{d_{VC}\log{n}}{n}})$$
-
-* And if $n\rightarrow{\infty}$, then $\sqrt{\frac{8}{n}\log{\frac{4m_{\mathcal{H}}(2n)}{\delta}}}\rightarrow{0}$, ( since $\lim_{n\rightarrow{\infty}}{\frac{\log{n}}{n}}=0$)
-* Therefore, $E_{out}(g)\rightarrow{E_{in}(g)}$, as $n\rightarrow{\infty}$, with the probability of $1-\delta$
+> Then we will have following derivative:
+>
+> $$E_{out}(g)\leq{E_{in}(g)+\sqrt{\frac{8}{n}\log{\frac{4m_{\mathcal{H}}(2n)}{\delta}}}}$$
+>
+> $$=E_{in}(g)+\sqrt{\frac{8}{n}\log{\frac{4[(2n)^{d_{VC}}+1]}{\delta}}}$$
+> 
+> $$=E_{in}(g)+\sqrt{\frac{8}{n}\log{\frac{4+4(2)^{d_{VC}}\cdot{n^{d_{VC}}}}{\delta}}}$$
+> 
+> $$=E_{in}(g)+O(\sqrt{\frac{8}{n}\log{\frac{4+4(2)^{d_{VC}}\cdot{n^{d_{VC}}}}{\delta}}})$$
+> 
+> $$=E_{in}(g)+O(\sqrt{\frac{1}{n}\log{\frac{n^{d_{VC}}}{\delta}}})$$
+> 
+> $$=E_{in}(g)+O(\sqrt{\frac{d_{VC}\log{n}}{n}})$$
+>
+> And if $n\rightarrow{\infty}$, then $\sqrt{\frac{8}{n}\log{\frac{4m_{\mathcal{H}}(2n)}{\delta}}}\rightarrow{0}$, ( since $\lim_{n\rightarrow{\infty}}{\frac{\log{n}}{n}}=0$)
+> Therefore, $E_{out}(g)\rightarrow{E_{in}(g)}$, as $n\rightarrow{\infty}$, with the probability of $1-\delta$
 
 ### Sample Complexity
 * How many samples do we need in out training data to say that the generalization error is less than $\epsilon$ with the probability of $1-\delta$
