@@ -24,42 +24,42 @@ category: ml
 
 ## Chapter 1 The Learning Problem
 ### 1.1 Formal Setup
-* unknown target function$f:\mathcal{X}\rightarrow\mathcal{Y}$
-* training data $\mathcal{D}$
-* hypothesis set $\mathcal{H}$
-* learning algorithm $\mathcal{A}$
-* learned hypothesis $\mathcal{H}$, and $\mathcal{H}\ni g\approx{f}$
-
-$\mathcal{H,A}$ will be called as learning model, this is what we can control.
+> * unknown target function$f:\mathcal{X}\rightarrow\mathcal{Y}$
+> * training data $\mathcal{D}$
+> * hypothesis set $\mathcal{H}$
+> * learning algorithm $\mathcal{A}$
+> * learned hypothesis $\mathcal{H}$, and $\mathcal{H}\ni g\approx{f}$
+>
+> $\mathcal{H,A}$ will be called as learning model, this is what we can control.
 
 ### 1.2 Perceptron
-* Input $\mathcal{X}\in\mathbb{R}^n$ ($\mathbb{R}^{n}$ is the $n$-dimensional Euclidean space)
-* Output $\mathcal{Y}\in \{+1,-1\}$
-* Give a sign function 
-
-$$
+> * Input $\mathcal{X}\in\mathbb{R}^n$ ($\mathbb{R}^{n}$ is the $n$-dimensional Euclidean space)
+> * Output $\mathcal{Y}\in \{+1,-1\}$
+> * Give a sign function 
+> 
+> $$
 h(\mathbf{x})=
 \begin{cases}
     +1\ \ if\sum_{i=1}^{2}w_{i}x_{i}-b>0 \\
     -1\ \ otherwise
 \end{cases}
 $$
-
-* This can also be expressed in this way:
-
-$$
+>
+> * This can also be expressed in this way:
+>
+> $$
 h(\mathbf{x})=sign((\sum_{i=1}^{n}w_{i}x_{i})+b)
 $$
-
+>
 > To simplify the noation of the perceptron formula, we will treat the bias $b$ as a weight $w_0=b$ and merge it with the other weights into one vector $\mathbf{w}=[w_0,w_1,\cdots,w_n]^{T}$,where $^{T}$ denotes the transpose of a vector, so $\mathbf{w}$ is a column vector. We also treat $\mathbf{x}$ as a column vector and modify it to become $\mathbf{x}=[x_0,x_1,\cdots,x_n]^T(where\ x_0=1)$, therefore $\mathbf{x}=(x_1, x_2,\cdots,x_n)\in\mathbb{R}^{n}$
 
-* With such convention, we will have 
-
-$$\mathbf{w}^{T}\mathbf{x}=\sum_{i=0}^{d}w_ix_i$$
-
-* Tips: 
-
-$$
+> * With such convention, we will have 
+>
+> $$\mathbf{w}^{T}\mathbf{x}=\sum_{i=0}^{d}w_ix_i$$
+>
+> * Tips: 
+>
+> $$
 \mathbf{w}^T\mathbf{x}=[w_0,w_1,\cdots,w_n]
 \left[
  \begin{matrix}
@@ -74,43 +74,40 @@ $$
 =
 w_0x_0+w_1x_1+\cdots+w_nx_n=\sum_{i=0}^{n}w_ix_i
 $$
-
-* **Finally, we will get** 
-
-$$h(\mathbf{x})=sign(\mathbf{w}^T\mathbf{x})$$
+>
+> * **Finally, we will get** 
+>
+> $$h(\mathbf{x})=sign(\mathbf{w}^T\mathbf{x})$$
 
 <span id = "jump3"></span>
 
 ### 1.3 Perceptron Learning Algorithm(PLA)
 
-* This algorithm will determine what $\mathbf{w}$ should be
-* Assume data set is linearly separable, which means that there is a vector $w$ that makes formula$(1)$ achienve the correct decision $h(\mathbf{x}_n)=y_n$ on all the traing examples.
-* We will use iterative method to find $\mathbf{w}$. At iteration $t$, where $t=0,1,2,\cdots$, there is a current value of the weight vector, call it $\mathbf{w}(t)$. Then the algorithm will pick one of misclassified examples, called $(\mathbf{x}(t),y(t))$, and uses it to update $\mathbf{w}(t)$. And the update rule is
-
-$$\mathbf{w}(t+1)=\mathbf{w}(t)+y(t)\mathbf{x}(t)$$
-
-* Tip1: $y(t)$ and $\mathbf{x}(t)$ are actully $y_{n(t)}$, $\mathbf{x}_{n(t)}$ in short.
-
-* Tip2: $y(t)$ and $\mathbf{x}(t)$ is a point from training data set $\mathcal{D}=\{(\mathbf{x_1}, y_1), (\mathbf{x_2}, y_2),\cdots,(\mathbf{x_i}, y_i),\cdots,(\mathbf{x_n}, y_n)\}$
-
-
-* Intution
-    * Suppose $(\mathbf{x},y)\in\mathcal{D}$ is a misclassified training example and $y=+1$
-        * $\mathbf{w}^T\mathbf{x}$ is negative
-        * After updating $\mathbf{w}'=\mathbf{w}+y\mathbf{x}$
-        * $\mathbf{w}'^T\mathbf{x}=(\mathbf{w}+y\mathbf{x})^T\mathbf{x}=\mathbf{w}^T\mathbf{x}+y\mathbf{x}^T\mathbf{x}$ is less negative that $\mathbf{w}^T\mathbf{x}$
-    * A similar arguments holds if $y=-1$
-    * This will make $\mathbf{w}^T\mathbf{x}$ closer to 0.
+> * This algorithm will determine what $\mathbf{w}$ should be
+> * Assume data set is linearly separable, which means that there is a vector $w$ that makes formula$(1)$ achienve the correct decision $h(\mathbf{x}_n)=y_n$ on all the traing examples.
+> * We will use iterative method to find $\mathbf{w}$. At iteration $t$, where $t=0,1,2,\cdots$, there is a current value of the weight vector, call it $\mathbf{w}(t)$. Then the algorithm will pick one of misclassified examples, called $(\mathbf{x}(t),y(t))$, and uses it to update $\mathbf{w}(t)$. And the update rule is
+> 
+> $$\mathbf{w}(t+1)=\mathbf{w}(t)+y(t)\mathbf{x}(t)$$
+>
+> * Tip1: $y(t)$ and $\mathbf{x}(t)$ are actully $y_{n(t)}$, $\mathbf{x}_{n(t)}$ in short.
+> 
+> * Tip2: $y(t)$ and $\mathbf{x}(t)$ is a point from training data set $\mathcal{D}=\{(\mathbf{x_1}, y_1), (\mathbf{x_2}, y_2),\cdots,(\mathbf{x_i}, y_i),\cdots,(\mathbf{x_n}, y_n)\}$
+>
+> * Intution
+>    * Suppose $(\mathbf{x},y)\in\mathcal{D}$ is a misclassified training example and $y=+1$
+>        * $\mathbf{w}^T\mathbf{x}$ is negative
+>        * After updating $\mathbf{w}'=\mathbf{w}+y\mathbf{x}$
+>        * $\mathbf{w}'^T\mathbf{x}=(\mathbf{w}+y\mathbf{x})^T\mathbf{x}=\mathbf{w}^T\mathbf{x}+y\mathbf{x}^T\mathbf{x}$ is less negative that $\mathbf{w}^T\mathbf{x}$
+>    * A similar arguments holds if $y=-1$
+>    * This will make $\mathbf{w}^T\mathbf{x}$ closer to 0.
 
 * [PLA extension reading](https://www.csie.ntu.edu.tw/~htlin/course/ml13fall/doc/02_handout.pdf)
 
 ### 1.5 Is learning feasible?
 
-* A random sample is picked from bin of orange and green marbles. $\mu$ represents the probability of orange marbles in the bin, and $v$ represents the fraction of orange marbles in the sample. 
+> * A random sample is picked from bin of orange and green marbles. $\mu$ represents the probability of orange marbles in the bin, and $v$ represents the fraction of orange marbles in the sample. 
 
-<center>
-<img class = "medium" src=".//ml_pictures/ml001.png" height="50%" width="50%">
-</center>
+
 
 ### 1.6 **Hoeffding Inequality**
 
@@ -121,34 +118,19 @@ $$\mathbb{P}[|v-\mu|<\epsilon]\leq{2e^{-2\epsilon^2n}},\  \mathbf{for\ any\ \eps
 > Each point will be red with probability $\mu$ and green with probability $1-\mu$. The color of each point will be known to us since both $h(\mathbf{x}_i)$ and $f(\mathbf{x}_i)$ are known to us for $i=1,2,\cdots,n$.
 
 ### 1.7 Connection to Machine Learning
-<center>
-<img class = "large" src=".//ml_pictures/ml003.png" height="65%" width="65%">
-</center>
 
-
-<center>
-<img class = "large" src=".//ml_pictures/ml004.png" height="65%" width="65%">
-</center>
-
-$$E_{out}(h)=\mathbb{P}[|h(\mathbf{x})\neq{f(\mathbf{x})}|]=\mu$$
-
-$$E_{in}(h)=\frac{1}{n}\sum_{i=1}^{n}[|h(\mathbf{x_i})\neq{f(\mathbf{x_i})}|]=v$$
-
-* Using Hoeffding Inequality
-
-$$\mathbb{P}[|E_{in}(h)-E_{out}(h)|>\epsilon]\leq{2e^{-2\epsilon^2n}}$$
-
-* Therefore, if we can have enough data $n$, we may get close to $E_{in}(h)\approx{E_{out}(h)}$
-
-<center>
-<img class = "large" src=".//ml_pictures/ml005.png" height="65%" width="65%">
-</center>
-
-<center>
-<img class = "large" src=".//ml_pictures/ml006.png" height="65%" width="65%">
-</center>
-
-> On above picture, 
+> **Probability Rescue**
+> $$E_{out}(h)=\mathbb{P}[|h(\mathbf{x})\neq{f(\mathbf{x})}|]=\mu$$
+> 
+> $$E_{in}(h)=\frac{1}{n}\sum_{i=1}^{n}[|h(\mathbf{x_i})\neq{f(\mathbf{x_i})}|]=v$$
+>
+> **Using Hoeffding Inequality**
+>
+> $$\mathbb{P}[|E_{in}(h)-E_{out}(h)|>\epsilon]\leq{2e^{-2\epsilon^2n}}$$
+>
+> Therefore, if we can have enough data $n$, we may get close to $E_{in}(h)\approx{E_{out}(h)}$
+>
+> Hence, 
 >
 > $$\mathbb{P}_{\mathcal{D}}[\mathbf{BAD}\ \mathcal{D}\ for\ h]$$ 
 >
@@ -158,18 +140,16 @@ $$\mathbb{P}[|E_{in}(h)-E_{out}(h)|>\epsilon]\leq{2e^{-2\epsilon^2n}}$$
 >
 >where $\epsilon$ is very large, which is quite impossible to happen to collect a bad training data set.
 
-* [Probability Puzzle](https://piazza.com/class/jyyt9xb4lfm2pk?cid=32)
 
-* Using union probability formula:
-
-$$\sum_{i=1}^n{P(B_i)P(A|B_i)}$$
-
-
-$$\mathbb{P}_{\mathcal{D}}[\mathbf{BAD}\ \mathcal{D}] = \sum_{All\ Possible\ \mathcal{D_i \in D}}\mathbb{P}(\mathcal{D_i})\cdot\mathbb{P}_{\mathcal{D_i}}[\mathbf{BAD}\ \mathcal{D_i}]$$
-
-* That is the situation for one $h\in\mathcal{H}$. Say we get many $h_i\in\mathcal{H}$, and we get the final hypothesis $g$. We can try to bound this by:
-
-$$
+> **Using union probability formula**:
+>
+> $$\sum_{i=1}^n{P(B_i)P(A|B_i)}$$
+>
+> $$\mathbb{P}_{\mathcal{D}}[\mathbf{BAD}\ \mathcal{D}] = \sum_{All\ Possible\ \mathcal{D_i \in D}}\mathbb{P}(\mathcal{D_i})\cdot\mathbb{P}_{\mathcal{D_i}}[\mathbf{BAD}\ \mathcal{D_i}]$$
+>
+> That is the situation for one $h\in\mathcal{H}$. Say we get many $h_i\in\mathcal{H}$, and we get the final hypothesis $g$. We can try to bound this by:
+>
+> $$
 \begin{aligned}
 \mathbb{P}[|E_{in}(g)-E_{out}(g)|\geq\epsilon]\ \leq\ \mathbb{P}[|E_{in}(h_1)-E_{out}(h_1)|\\
 \mathbf{or}|E_{in}(h_2)-E_{out}(h_2)|\\
