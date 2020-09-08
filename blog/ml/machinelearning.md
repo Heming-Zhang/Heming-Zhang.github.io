@@ -331,11 +331,11 @@ $$
 <span id="jump1"></span>
 * **VC Analysis**
 <center>
-<img class = "medium" src=".//ml_pictures/ml014.png" height="55%" width="70%">
+<img class = "large" src=".//ml_pictures/ml014.png" height="55%" width="70%">
 </center>
 
 <center>
-<img class = "medium" src=".//ml_pictures/ml015.png" height="55%" width="70%">
+<img class = "large" src=".//ml_pictures/ml015.png" height="55%" width="70%">
 </center>
 
 ### 2.7 Bias-Variance Tradeoff
@@ -385,7 +385,7 @@ $$
 
 
 <center>
-<img class ="large" src=".//ml_pictures/ml018.png" height="50%" width="70%">
+<img class ="medium" src=".//ml_pictures/ml018.png" height="50%" width="50%">
 </center>
 
 
