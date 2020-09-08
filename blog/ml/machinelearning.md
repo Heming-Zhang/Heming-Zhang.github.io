@@ -422,10 +422,10 @@ min_{\mathbf{w}\in{\mathbb{R^{d+1}}}}{\frac{1}{n}
 ### 3.2 Linear Regression
 
 * Linear Models
-
-$$h(\mathbf{x})= \mathbf{some\ function\ of\ w^{T}x}$$
-
-$$
+>
+> $$h(\mathbf{x})= \mathbf{some\ function\ of\ w^{T}x}$$
+>
+> $$
 \mathbf{x}=
 \left[
 \begin{matrix}
@@ -437,11 +437,11 @@ x_d
 \end{matrix}
 \right]
 $$
-
-* $\mathcal{X}=\mathbb{R}^d$ and y=$\mathbb{R}$    
-* For linear models, we use squared error
-
-$$
+>
+>* $\mathcal{X}=\mathbb{R}^d$ and y=$\mathbb{R}$    
+>* For linear models, we use squared error
+>
+>$$
 \begin{aligned}
 E_{in}(h)&={\frac{1}{n}\sum_{i=1}^{n}(h(\mathbf{x}_i)-y_i)^2 }\\
 &={\frac{1}{n}\sum_{i=1}^{n}(h(\mathbf{x}_i)-y_i)^2 }\\
@@ -450,69 +450,70 @@ E_{in}(h)&={\frac{1}{n}\sum_{i=1}^{n}(h(\mathbf{x}_i)-y_i)^2 }\\
 \end{aligned}
 $$
 
+>
 * To Minimize the Error
-    * Find the gradient
-    * Set it equal to zero
-    * Solve
-    * Check that the solution is a minimum
-
-$$
+>    * Find the gradient
+>    * Set it equal to zero
+>    * Solve
+>    * Check that the solution is a minimum
+>
+>$$
 \begin{aligned}
 E_{in}(\mathbf{w})&= \frac{1}{n}(\mathbf{Xw-y})^T(\mathbf{Xw-y})\\
 &=\frac{1}{n}((\mathbf{Xw})^T-\mathbf{y}^T)(\mathbf{Xw-y})\\
 &=\frac{1}{n}(\mathbf{w^T{X^T}Xw-2w^TX^Ty+y^Ty            })
 \end{aligned}
 $$
-
-* Therefore, the gradient will be
-
-$$\nabla_{\mathbf{w}}E_{in}(\mathbf{w})=\frac{1}{n}(2\mathbf{X^TXw}-2\mathbf{X^Ty})$$
-
-* The Optimized $\mathbf{w^{*}}$
-
-$$\nabla_{\mathbf{w}}E_{in}(\mathbf{w^{*}})=\frac{1}{n}(2\mathbf{X^TXw^{*}}-2\mathbf{X^Ty})=0$$
-
-* The formula above equals to 0
-
-$$
+>
+>Therefore, the gradient will be
+>
+>$$\nabla_{\mathbf{w}}E_{in}(\mathbf{w})=\frac{1}{n}(2\mathbf{X^TXw}-2\mathbf{X^Ty})$$
+> 
+> The Optimized $\mathbf{w^{*}}$
+> 
+> $$\nabla_{\mathbf{w}}E_{in}(\mathbf{w^{*}})=\frac{1}{n}(2\mathbf{X^TXw^{*}}-2\mathbf{X^Ty})=0$$
+> 
+> The formula above equals to 0
+> 
+> $$
 \begin{aligned}
 2\mathbf{X^TXw^{*}}-2\mathbf{X^Ty}&=0\\
 \mathbf{X^TXw^{*}}&=\mathbf{X^Ty}\\
 \mathbf{w^{*}}&=\mathbf{(X^TX)^{-1}X^Ty}
 \end{aligned}
 $$
+> 
+> Another thing we need do is to check the second derivative of $\mathbf{w}$
+> 
+> $$H_{\mathbf{w}}E_{in}(\mathbf{w})=\frac{1}{n}(2\mathbf{X^TX})$$
+> 
+> Here, $H_{\mathbf{w}}E_{in}(\mathbf{w})$ is semidefinite.
 
-* Another thing we need do is to check the second derivative of $\mathbf{w}$
-
-$$H_{\mathbf{w}}E_{in}(\mathbf{w})=\frac{1}{n}(2\mathbf{X^TX})$$
-
-Here, $H_{\mathbf{w}}E_{in}(\mathbf{w})$ is semidefinite.
-
-### Linear Regression Algorithm
+### 3.3 Linear Regression Algorithm
 
 <center>
-<img class = "large" src=".//ml_pictures/ml022.png" height="60%" width="70%">
+<img class = "medium" src=".//ml_pictures/ml022.png" height="50%" width="50%">
 </center>
 
-### Logistic Regression
+### 3.4 Logistic Regression
 
-* We will use new sigmoid function
-
-$$h(\mathbf{x})=\theta(\mathbf{w^Tx})$$
-
-* $\theta$ is a function which show the probability with range [0,1]
+> * We will use new sigmoid function
+> 
+> $$h(\mathbf{x})=\theta(\mathbf{w^Tx})$$
+> 
+> * $\theta$ is a function which show the probability with range [0,1]
 <center>
 <img class = "large" src=".//ml_pictures/ml023.png" height="60%" width="70%">
 </center>
 
-* Predicting Probabilities
-    * Training data does not consist of probabilities
-    * Observation are still **binary**: $y_i=\pm1$
-    * Our Goal is to learn $f(\mathbf{x})=P(y=+1\|\mathbf{x})$ (This means that we need to give a probability of $\mathbf{x}$ being $+1$)
-
-* Therefore, we can rewrite the target goal $f(\mathbf{x})=P(y=+1\|\mathbf{x})$ as
-
-$$
+> * Predicting Probabilities
+>     * Training data does not consist of probabilities
+>     * Observation are still **binary**: $y_i=\pm1$
+>     * Our Goal is to learn $f(\mathbf{x})=P(y=+1\|\mathbf{x})$ (This means that we need to give a probability of $\mathbf{x}$ being $+1$)
+> 
+> * Therefore, we can rewrite the target goal $f(\mathbf{x})=P(y=+1\|\mathbf{x})$ as
+>
+> $$
 P(y|\mathbf{x})=   
 \begin{cases}
 f(\mathbf{x}), & for\ y=+1\\
@@ -520,24 +521,23 @@ f(\mathbf{x}), & for\ y=+1\\
 \end{cases}
 $$
 
-### Error Measure
+### 3.5 Error Measure
 
-* APPROACH 1(In Textbook)
-
-* APPROACH 2(In Lecture)
-
-    * Some hypothesis is good if
-        * $h(\mathbf{x_i})=\theta(\mathbf{w^Tx_i})\approx{1}$, when $y_i=+1$
-        * $h(\mathbf{x_i})=\theta(\mathbf{w^Tx_i})\approx{0}$, when $y_i=-1$
-
-        * $E_{in}(\mathbf{w})=\frac{1}{n}(\theta(\mathbf{w^Tx})-\frac{1}{2}(1+y_i))^2$
-
-    * Some hypothesis is good if
-        * The probability of the training data $\mathcal{D}$ given by $h$ is high(which measures how our function give probability to )
-
-        * Cross Entropy
-    
-        * $E_{in}(\mathbf{w})=\frac{1}{n}{\sum_{i=1}^{n}\ln{(1+e^{-y_i\mathbf{w^Tx_i}})}  }$
+> * APPROACH 1(In Textbook)
+> 
+> * APPROACH 2(In Lecture)
+>     * Some hypothesis is good if
+>         * $h(\mathbf{x_i})=\theta(\mathbf{w^Tx_i})\approx{1}$, when $y_i=+1$
+>        * $h(\mathbf{x_i})=\theta(\mathbf{w^Tx_i})\approx{0}$, when $y_i=-1$
+>
+>        * $E_{in}(\mathbf{w})=\frac{1}{n}(\theta(\mathbf{w^Tx})-\frac{1}{2}(1+y_i))^2$
+>
+>    * Some hypothesis is good if
+>        * The probability of the training data $\mathcal{D}$ given by $h$ is high(which measures how our function give probability to )
+>
+>        * Cross Entropy
+>    
+>        * $E_{in}(\mathbf{w})=\frac{1}{n}{\sum_{i=1}^{n}\ln{(1+e^{-y_i\mathbf{w^Tx_i}})}  }$
 
 <center>
 <img class = "large" src=".//ml_pictures/ml024.png" height="60%" width="70%">
