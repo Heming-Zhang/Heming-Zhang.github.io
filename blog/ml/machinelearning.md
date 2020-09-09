@@ -205,8 +205,9 @@ $$
 >
 > Since we have:
 > 
-> $$P(A\cap{B})\leq{P(A)}\\
-> \leq{P(B)}$$
+> $$P(A\cap{B})\leq{P(A)}$$
+>
+> $$P(A\cap{B})\leq{P(B)}$$
 > 
 > Therefore, continue on (**), we have
 > 
@@ -797,13 +798,15 @@ $$
 
 ### 4.5 Regularization
 
-Idea: 'Step Back' from $\mathcal{H}_{10}$ to $\mathcal{H}_{2}$
+> Idea: 'Step Back' from 
+> $$\mathcal{H}_{10}\ to\ \mathcal{H}_{2}$$
 
 <center>
 <img class="large" src=".//ml_pictures/ml059.png" height="50%" width="50%">
 </center>
 
-Example: $\mathcal{H}_{2}$ is just $\mathcal{H}_{10}$ with certain constraint.
+> Example
+> $$\mathcal{H}_{2}\ \text{is}\ \mathcal{H}_{10} \text{with certain constraint.}$$
 
 * 10-th Polynomials
 <center>
@@ -959,8 +962,6 @@ $$\mathbb{E}_{\mathbf{x}_i}[e(h(\mathbf{x}_i),y_i)]=\mathbb{E}_{\mathbf{x}}[e(h(
 <img class="center medium" src=".//ml_pictures/ml077.png" height="50%" width="50%">
 </center>
 
-> From the statement above, we know that in validation part, we use $\mathcal{D}_{val}$ to pick a best hypothesis $g^{-}_{m^{*}}$, which corresponds to a Hypothesis set $\mathcal{H}_{m^{*}}$. Then we will learn a hypothesis $g_{m^{*}}$ from whole data set $\mathcal{D}$.
->
 > Tips: At here, $\mathcal{H}_{val}$ are formed up from many signle hypothesis from multiple hypothesis sets, and we are going to pick a best hypothesis set.
 
 <center>
@@ -973,19 +974,19 @@ $$\mathbb{E}_{\mathbf{x}_i}[e(h(\mathbf{x}_i),y_i)]=\mathbb{E}_{\mathbf{x}}[e(h(
 <img class="center large" src=".//ml_pictures/ml070.png" height="50%" width="70%">
 </center>
 
-### 4.13 Picking $\lambda_{C}$ (for regularization)
+* Picking $\lambda_{C}$ (for regularization)
 
 <center>
 <img class="center large" src=".//ml_pictures/ml071.png" height="50%" width="70%">
 </center>
 
-### 4.14 Picking k
-
-$$E_{out}(g_{m^{*}})\leq{ E_{out}(g^{-}_{m^{*}})}\leq{ E_{val}(g^{-}_{m^{*}})}+O(\sqrt{\frac{\ln(m)}{k}})$$
-
-* On above inequality, the validation tells about right two, and left two is just a valid explaination.
-
-* And we have 
+> Picking k
+>
+> $$E_{out}(g_{m^{*}})\leq{ E_{out}(g^{-}_{m^{*}})}\leq{ E_{val}(g^{-}_{m^{*}})}+O(\sqrt{\frac{\ln(m)}{k}})$$
+>
+> On above inequality, the validation tells about right two, and left two is just a valid explaination.
+>
+> And we have 
 
 <center>
 <img class="center medium" src=".//ml_pictures/ml072.png" height="50%" width="50%">
@@ -995,7 +996,7 @@ $$E_{out}(g_{m^{*}})\leq{ E_{out}(g^{-}_{m^{*}})}\leq{ E_{val}(g^{-}_{m^{*}})}+O
 
 * Since using validation data set will reduce the size of training data set, we will introduce a new way to do validation——Cross Validation.
 
-### 4.15 Leave-one-out cross validation(LOOCV)
+### 4.13 Leave-one-out cross validation(LOOCV)
 
 * Cross here means that this data point can be training data and validation data.
 
@@ -1006,8 +1007,6 @@ $$E_{out}(g_{m^{*}})\leq{ E_{out}(g^{-}_{m^{*}})}\leq{ E_{val}(g^{-}_{m^{*}})}+O
 <center>
 <img class="center large" src=".//ml_pictures/ml078.png" height="50%" width="70%">
 </center>
-
-* $E_{cv}$ is an unbiased estimator of $\bar{E}_{out}(n-1)$, which is also ${E}_{out}(g^{-})$
 
 * $E_{cv}$ is almost an unbiased estimator of $E_{out}(g)$
 
@@ -1026,38 +1025,36 @@ $$E_{out}(g_{m^{*}})\leq{ E_{out}(g^{-}_{m^{*}})}\leq{ E_{val}(g^{-}_{m^{*}})}+O
 <img class="center large" src=".//ml_pictures/ml075.png" height="50%" width="70%">
 </center>
 
-### K-fold cross validation
+### 4.14 K-fold cross validation
 
 <center>
 <img class="center large" src=".//ml_pictures/ml076.png" height="50%" width="70%">
 </center>
 
-### Cross Validation for Model Selection
+### 4.15 Cross Validation for Model Selection
 
 * Instead of using validation data set to select model, we will use cross validation to select the model with smallest $E_{cv}$
 
 
 ## Chapter 5 Three Learning Principles
 
-### Occam 's Razor
-* An explanation of the data should be made as simple as possible, but no simpler. ——Albert Einstein
-
-* Entities must not be multiplied beyond necessity. ——William of Occam
-
-* Occam's Razor for learning 
-    * The simplest model that fits the data is also the plausible.
+### 5.1 Occam 's Razor
+> An explanation of the data should be made as simple as possible, but no simpler. ——Albert Einstein
+>
+> Entities must not be multiplied beyond necessity. ——William of Occam
+>
+> Occam's Razor for learning: The simplest model that fits the data is also the plausible.
 
 <center>
 <img class="center large" src=".//ml_pictures/ml079.png" height="50%" width="70%">
 </center>
 
-* Simple Models
-    * Simple Hypothesis$h$: Few parameters
-    * Simple Model$\mathcal{H}$: contain small number of hypotheses(slow growth function)
-
-    * Connection: If we only have $2^{l}$ hypotheses, i.e. $|\mathcal{H}|=2^{l}$, then we only need $l$ bits to represent each model.
-    * Example: constrain with weight be smaller than 2 for 2-dimensions positive integer, then we have at most 4 hypotheses with 2 parameters.
-    * Therefore, $small\ \Omega(\mathcal{H})\rightarrow{small\ Omega(h)}$
+### 5.2 Simple Models
+> * Simple Hypothesis$h$: Few parameters
+> * Simple Model$\mathcal{H}$: contain small number of hypotheses(slow growth function)
+> * Connection: If we only have $2^{l}$ hypotheses, then we only need $l$ bits to represent each model.
+> * Example: constrain with weight be smaller than 2 for 2-dimensions positive integer, then we have at most 4 hypotheses with 2 parameters.
+> * Therefore, $small\ \Omega(\mathcal{H})\rightarrow{small\ Omega(h)}$
 
 * Case Study #1
     * Suppose I tell you that I have found a $10^{th}$-order polynomial that perfectly fits my dataset of 10 points.
@@ -1072,7 +1069,7 @@ $$E_{out}(g_{m^{*}})\leq{ E_{out}(g^{-}_{m^{*}})}\leq{ E_{val}(g^{-}_{m^{*}})}+O
     * "A man can have as many diseases as he damn well pleases."
     * Data Snooping: with other target functions $f_1,\ f_2$
 
-### Sampling Bias
+### 5.3 Sampling Bias
 * Case Study #2
     * Presidential Story: 1948 US President election => Truman versus Dewey
 
@@ -1082,7 +1079,7 @@ $$E_{out}(g_{m^{*}})\leq{ E_{out}(g^{-}_{m^{*}})}\leq{ E_{val}(g^{-}_{m^{*}})}+O
 * Data and Testing both iid from $\mathcal{P}$
     * If not from the same distribution, we will have **VC Fails**
 
-### Data Snooping
+### 5.4 Data Snooping
 * Visualize data => careful about your brain's model complexity.
 
 <center>
@@ -1103,7 +1100,7 @@ $$E_{out}(g_{m^{*}})\leq{ E_{out}(g^{-}_{m^{*}})}\leq{ E_{val}(g^{-}_{m^{*}})}+O
 
     * Therefore, we need to reuse by computing the combined VC dimension of all models(including what others tried)
 
-### Dealing with Data Snooping
+### 5.5 Dealing with Data Snooping
 * Be Blind: Avoid making modeling decision by data
 * Be suspicious: interpret research results(including your own)by proper feeling of contamination
 
@@ -1113,18 +1110,16 @@ $$E_{out}(g_{m^{*}})\leq{ E_{out}(g^{-}_{m^{*}})}\leq{ E_{val}(g^{-}_{m^{*}})}+O
         * valiation(no-snooping)
 
 
-## Lecture 14: Decision Trees
+## Chapter 6 (L14): Decision Trees
 
-### Categorical Features
-
-### Entropy
+### 6.1 Entropy
 * How diverse the set of value is?
 * Value: the lower a collection's entropy, the more pure it is
 
 $$Entropy(S)=\sum_{v\in{V(S)}}-\frac{|S_v|}{S}{\log_2}(\frac{|S_v|}{S})$$
 
 
-### Information Gain
+### 6.2 Information Gain
 
 $$IG(x_i,y)= Entropy(y)-\sum_{v\in{V(x_i)}}(f_v)(Entropy(y_{x_i=v}))$$
 
@@ -1134,11 +1129,9 @@ $$IG(x_i,y)= Entropy(y)-\sum_{v\in{V(x_i)}}(f_v)(Entropy(y_{x_i=v}))$$
     * $f_v$ is the fraction of inputs where $x_i=v$
     * $y_{x_i=v}$ is the collection of labels where $x_i=v$
 
-### The ID3 Algorithm
+### 6.3 The ID3 Algorithm
 
-### Real-Valued Features
-
-### Decision Tree/ ID3 Pros and Cons
+### 6.4 Decision Tree/ ID3 Pros and Cons
 * Pros:
     * Intuitive and explainable
     * Can handle categorical and real-valued features
@@ -1149,7 +1142,7 @@ $$IG(x_i,y)= Entropy(y)-\sum_{v\in{V(x_i)}}(f_v)(Entropy(y_{x_i=v}))$$
     * The ID3 algorithm is a greedy(it selects the feature with highest information gain at every step), so no optimality guarantee.
     * Overfitting! (Achieve zero in sample error)
 
-### Addressing Overfitting
+### 6.5 Addressing Overfitting
 * Heuristics("regularization")
     * Do not split leaves past a fixed depth $\delta$
     * Do not split leaves with fewer than $c$ labels
@@ -1161,17 +1154,17 @@ $$IG(x_i,y)= Entropy(y)-\sum_{v\in{V(x_i)}}(f_v)(Entropy(y_{x_i=v}))$$
     * Compare the validation error with and without that split(replacing it with most common label at that point)
 
 
-## Lecture 15 Decision Tree and Bagging
-### Pruning example
-* Input: a decision tree $t$, and a validation dataset, $\mathcal{D}_{val}$
-* Compute the validation error of tree $t$, and get $E_{val}(t)$
-* For each split $s\in{t}$
-    *  Compute $E_{val}(t\backslash{s})=$ the validation error of $t$ with $s$ replaced by a leaf using the most common label at $s$.
-* If $\exist$ a split $s\in{t}$, s.t. $E_{val}(t\backslash{s})\leq{E_{val}(t)}$, repeat the pruning process with $t\backslash{s^{*}}$, where $t\backslash{s^{*}}$ is the pruned tree with minimal validation error.
+## Chapter 7 (L15) Decision Tree and Bagging
+### 7.1 Pruning example
+> Input: a decision tree $t$, and a validation dataset, $\mathcal{D}_{val}$
+> Compute the validation error of tree $t$, and get $E_{val}(t)$
+> For each split $s\in{t}$
+> * Compute $E_{val}(t\backslash{s})=$ the validation error of $t$ with $s$ replaced by a leaf using the most common label at $s$.
+> * If $\exist$ a split $s\in{t}$, s.t. $E_{val}(t\backslash{s})\leq{E_{val}(t)}$, repeat the pruning process with $t\backslash{s^{*}}$, where $t\backslash{s^{*}}$ is the pruned tree with minimal validation error.
+>
+> Double check the pruned tree. If $E_{val}(t)=0$, this means that we cannot prune this tree any more.
 
-* Double check the pruned tree. If $E_{val}(t)=0$, this means that we cannot prune this tree any more.
-
-### Decision Tree/ ID3 Cons
+### 7.2 Decision Tree/ ID3 Cons
 * Algorithm is greedy
 * Overfitting
     * Can be addressed via heuristics("regularization") or pruning("validation")
@@ -1179,13 +1172,13 @@ $$IG(x_i,y)= Entropy(y)-\sum_{v\in{V(x_i)}}(f_v)(Entropy(y_{x_i=v}))$$
     * Bias will not change with 
     * More complicated model have higher variance, but with increasement of points in data set, the variance will decrease.
 
-### Bagging
+### 7.3 Bagging
 * Short for Bootstrap aggregating
 * Combine the prediction of many hypotheses to reduce variance
 * If $n$ independent random variables $x_1, x_2,\cdots, x_n$ have variance $\sigma^2$, then the variance of $\frac{1}{n}\sum_{i=1}^{n}{x_i}$ is $\frac{\sigma^2}{n}$
 
 
-### Bootstrapping
+### 7.4 Bootstrapping
 * A statistical method for estimating properties of a distribution, given potentially a small number of samples from that distribution
 * Rely on resampling the samples **with relacement** many, many times
 
@@ -1198,50 +1191,50 @@ $$IG(x_i,y)= Entropy(y)-\sum_{v\in{V(x_i)}}(f_v)(Entropy(y_{x_i=v}))$$
     * Resample 8 values(with replacement) from $\mathcal{D}$ 1000 times
     * Meaning that you will get 1000 sets of 8 values
 
-### Aggregating
+### 7.5 Aggregating
 * Combine multiple hypotheses
     * Regression: average the predictions;
     * Classification: find the category that most hypotheses predict(plurality vote)
 
-### Bagging Decision Trees
-* Input: $\mathcal{D}, B$
-* For $b=1,2,\cdots,B$
-    * Create a dataset, $\mathcal{D}_{b}$, by sampling $n$ points from $\mathcal{D}$ with replacement
-    * Learn a decision tree, $t_b$, using $D_b$ and the ID3 algorithm
-* Output: $\bar{t}$, the aggregated hypothesis
+### 7.6 Bagging Decision Trees
+> Input: $\mathcal{D}, B$
+> For $b=1,2,\cdots,B$
+> * Create a dataset, $\mathcal{D}_{b}$, by sampling $n$ points from $\mathcal{D}$ with replacement
+> * Learn a decision tree, $t_b$, using $D_b$ and the ID3 algorithm
+> Output: $\bar{t}$, the aggregated hypothesis
+>
+> But the problem is that predictions made by trees trained on similar datasets are highly correlated
 
-* But the problem is that predictions made by trees trained on similar datasets are highly correlated
-
-### Split-Feature Randomization
+### 7.7 Split-Feature Randomization
 * To decorrelate these predictions, randomly limit features avaliable at each iteration of ID3 algorithm.
 * Select $m<d$ features every time
 
-### Random forests
-* Input: $\mathcal{D}, B, m$
-* For $b=1,2,\cdots,B$
-    * Create a dataset, $\mathcal{D}_{b}$, by sampling $n$ points from $\mathcal{D}$ with replacement
-    * Learn a decision tree, $t_b$, using $D_b$ and the ID3 algorithm with split-feature randomization
-* Output: $\bar{t}$, the aggregated hypothesis
+### 7.8 Random forests
+> Input: $\mathcal{D}, B, m$
+> For $b=1,2,\cdots,B$
+> * Create a dataset, $\mathcal{D}_{b}$, by sampling $n$ points from $\mathcal{D}$ with replacement
+> * Learn a decision tree, $t_b$, using $D_b$ and the ID3 algorithm with split-feature randomization
+> Output: $\bar{t}$, the aggregated hypothesis
 
-### Random forest Validation
-* For each training point, there are some trees which $\mathbf{x}_i$ was not used to train.
-* Compute an aggregated prediction for each $\mathbf{x}_i$ by using those trees did not use this point to train
-* Then we can average every point to get the out-of-bag(OOB) error, which is almost an unbiased estimator of $E_{out}$
+### 7.9 Random forest Validation
+> For each training point, there are some trees which $\mathbf{x}_i$ was not used to train.
+> Compute an aggregated prediction for each $\mathbf{x}_i$ by using those trees did not use this point to train
+> Then we can average every point to get the out-of-bag(OOB) error, which is almost an unbiased estimator of $E_{out}$
 
-### Random Forests and Feature Selection
-* Random forests allow for the computation of "variable importance", a way of ranking features based on how useful they are at predicting the output.
-    * Initialize each feature's importance to zero
-    * Each time a feature is chosen by the ID3 algorithm(with split-feature randomization), add that feature's information gain(relative to the split) to its importance.
+### 7.10 Random Forests and Feature Selection
+> Random forests allow for the computation of "variable importance", a way of ranking features based on how useful they are at predicting the output.
+> * Initialize each feature's importance to zero
+> * Each time a feature is chosen by the ID3 algorithm(with split-feature randomization), add that feature's information gain(relative to the split) to its importance.
 
-## Lecture 16 Boosting
+## Chapter 8 (L16) Boosting
 * Another Cons for Decision Tree is High Bias(Especially short trees, i.e. stumps) 
 
-### Decision Stumps
+### 8.1 Decision Stumps
 * Weak learner 
 * Tend to use with boosting
 * Assemble them to make up a much better learner(complex one)
 
-### AdaBoost
+### 8.2 AdaBoost
 
 <center>
 <img class="center large" src=".//ml_pictures/ml083.png" height="50%" width="70%">
@@ -1262,66 +1255,64 @@ $$IG(x_i,y)= Entropy(y)-\sum_{v\in{V(x_i)}}(f_v)(Entropy(y_{x_i=v}))$$
     * Want final hypothesis to be a weighted combination of weak learners
     * Greedily minimize exponential loss(upper bounds for binary error)
 
-* Exponential Loss
-    * $e^{-f({\mathbf{x}})h(\mathbf{x})}$
-    * Used for binary classification, and the more $h(\mathbf{x})$ agrees with $f(\mathbf{x})$, the smaller the loss.
-    * Also, we can claim that:
+> Exponential Loss
+> * $e^{-f({\mathbf{x}})h(\mathbf{x})}$
+> * Used for binary classification, and the more $h(\mathbf{x})$ agrees with $f(\mathbf{x})$, the smaller the loss.
+> * Also, we can claim that:
+>
+> $$e^{-f({\mathbf{x}})h(\mathbf{x})}\leq{[|f({\mathbf{x}})\neq{h(\mathbf{x})}|]}$$
 
-    $$e^{-f({\mathbf{x}})h(\mathbf{x})}\leq{[|f({\mathbf{x}})\neq{h(\mathbf{x})}|]}$$
+### 8.3 Exponential Loss and Greedy Algorithm
+> Final Exponentail Loss
+>
+> $$\frac{1}{n}\sum_{i=1}^{n}{ e^{-y({\mathbf{x}_i})H_{T}({\mathbf{x}_i}) }}= \prod_{t=1}^{T}{Z_{t}}$$
+>
+> Then, if we want to achieve the mimimal loss at the final loss, we want to make each $Z_t$ is minimal at each iteration with greedy algorithm.
+>
+> Then, we are going to prove that choosing $\alpha_t=\frac{1}{2}{ \log{ \frac{(1-{\epsilon}_t)}{\epsilon_t}}}$ will be good with regard to greedy algorithm.
+>
+> Therefore, the in-sample error will finally be very small, since($Z_t<1$):
+>
+> $$\prod_{t=1}^{T}{Z_t}=\prod_{t=1}^{T}{2\sqrt{\epsilon_t(1-\epsilon_t)}}\rightarrow0$$
 
-### Exponential Loss and Greedy Algorithm
-* Final Exponentail Loss
-
-$$\frac{1}{n}\sum_{i=1}^{n}{ e^{-y({\mathbf{x}_i})H_{T}({\mathbf{x}_i}) }}= \prod_{t=1}^{T}{Z_{t}}$$
-
-* Then, if we want to achieve the mimimal loss at the final loss, we want to make each $Z_t$ is minimal at each iteration with greedy algorithm.
-
-* Then, we are going to prove that choosing $\alpha_t=\frac{1}{2}{ \log{ \frac{(1-{\epsilon}_t)}{\epsilon_t}}}$ will be good with regard to greedy algorithm.
-
-* Therefore, the in-sample error will finally be very small, since($Z_t<1$):
-
-$$\prod_{t=1}^{T}{Z_t}=\prod_{t=1}^{T}{2\sqrt{\epsilon_t(1-\epsilon_t)}}\rightarrow0$$
-
-### Out-of-Sample Error
-* Emprical Results indicate that increasing T does not lead to overfitting as this bound would suggest.
-
-* Margins: can be interpreted as how confident $g_T$
+### 8.4 Out-of-Sample Error
+> Emprical Results indicate that increasing T does not lead to overfitting as this bound would suggest.
+>
+> Margins: can be interpreted as how confident $g_T$
 is in its prediction: the bigger the margin, the more confident.
+>
+> Tips: 
+> * $n$ increase, I think that the model will become more inconfident.
 
-* Tips: 
-    * $n$ increase, I think that the model will become more inconfident.
 
+## Chapter 9 (L18) Nearest Neighbour
 
-## Lecture 17 Nearest Neighbour
-
-### Similarity
+### 9.1 Similarity
 * Euclidean Distance
 * Cosine similarity
 * Mahalanobis Distance
 
-### Nearest Neighbour
+### 9.2 Nearest Neighbour
 * Let $\mathbf{x}_{[1]}{\mathbf{x}}$ be $\mathbf{x}$'s nearest neighbour, i.e. the closest point to $\mathbf{x}$ in $\mathcal{D}$
 
 * The nearest neighbour hypothesis
     * $g(\mathbf{x})=y_{[1]}(\mathbf{x})$
     * Require no training!
     * Always no training error!(Can always shatter points)
-    * Tips: (1) In the training data set, $\mathbf{x}_{[1]}{\mathbf{x}}$ is just $\mathbf{x}$; (2)Outside trainding data set, $\mathbf{x}_{[1]}{\mathbf{x}}$ is not $\mathbf{x}$
 
-
-### Generallization of Nearest Neighbour
-* Claim: $E_{out}$ for the nearest neighbour hypothesis is not much worse than the best possible $E_{out}$
-
-* Formally: under certain conditions, with high probability, $E_{out}(g)\leq{2{E}_{out}(g^{*})}$ as $n\rightarrow{\infty}$
-
-* Proof:
-    * Assume a binary classification problem: $\mathcal{Y}=\{-1,+1\}$
-    * Assume labels are noisy: let $\pi(\mathbf{x})=P\{y=+1|\mathbf{x}\}$
-    * Assume $\pi(\mathbf{x})$ is continuous
-    * As $n\rightarrow{\infty}$, $\mathbf{x}_{[1]}{\mathbf{x}}\rightarrow{\mathbf{x}}$
-    * Therefore,
-
-$$
+### 9.3 Generallization of Nearest Neighbour
+> Claim: $E_{out}$ for the nearest neighbour hypothesis is not much worse than the best possible $E_{out}$
+>
+> Formally: under certain conditions, with high probability, $E_{out}(g)\leq{2{E}_{out}(g^{*})}$ as $n\rightarrow{\infty}$
+>
+> Proof:
+> * Assume a binary classification problem: $\mathcal{Y}=\{-1,+1\}$
+> * Assume labels are noisy: let $\pi(\mathbf{x})=P\{y=+1|\mathbf{x}\}$
+> * Assume $\pi(\mathbf{x})$ is continuous
+> * As $n\rightarrow{\infty}$, $\mathbf{x}_{[1]}{\mathbf{x}}\rightarrow{\mathbf{x}}$
+> * Therefore,
+>
+> $$
 \begin{aligned}
 E_{out}
 & =\mathbb{E}_{\mathbf{x}}\big[\llbracket{g(\mathbf{x})\neq{y}}\rrbracket\big]\\
@@ -1331,22 +1322,20 @@ E_{out}
 & \leq{2min(\pi(\mathbf{x}),(1-\pi({\mathbf{x}})))}=2E_{out}(g^{*})
 \end{aligned}
 $$
+>
+> Self-Regularization: The nearest neighbour hypothesis can only be complex when there is more data.
 
 
-* Self-REgularization
-    * The nearest neighbour hypothesis can only be complex when there is more data.
+### 9.4 k-Nearest Neighbour(kNN)
+> Classify a point as the most common label among the labels of the $k$ nearest training points
+>
+> If we have a binary classification probelm and $k$ is odd:
+>
+> $$g(\mathbf{x})=sign(\sum_{i=1}^{k}{y_{[i]}(\mathbf{x})})$$
+>
+> Setting $k$
 
-
-### k-Nearest Neighbour(kNN)
-* Classify a point as the most common label among the labels of the $k$ nearest training points
-
-* If we have a binary classification probelm and $k$ is odd:
-
-$$g(\mathbf{x})=sign(\sum_{i=1}^{k}{y_{[i]}(\mathbf{x})})$$
-
-* Setting $k$
-
-### kNN Pros and Cons
+### 9.5 kNN Pros and Cons
 * Pros
     * Intuitive/explainable
     * No training/retraining
@@ -1357,26 +1346,26 @@ $$g(\mathbf{x})=sign(\sum_{i=1}^{k}{y_{[i]}(\mathbf{x})})$$
         * Always needs to store all data
         * Computing $g(\mathbf{x})$ requires computing distances and sorting
  
-## Efficient $k$-Nearest Neighbours
-### Curse of Dimensionality
-* With increment of dimensinality, the furthest point and the closest points grow closer.
-* What can we do?
-    * More data
-    * Fewer dimensions
-    * Blessing non-uniformity
+### 9.6 Efficient $k$-Nearest Neighbours
+> **Curse of Dimensionality**
+> * With increment of dimensinality, the furthest point and the closest points grow closer.
+> * What can we do?
+>    * More data
+>    * Fewer dimensions
+>    * Blessing non-uniformity
+>
+> **Data Condensing**
+> * Use fewer input data points but have same predictions out of training data set
+> * be less rigid
+> * Use fewer input data points but have same predictions in trainding data set
 
-### Data Condensing
-* Use fewer input data points but have same predictions out of training data set
-* be less rigid
-* Use fewer input data points but have same predictions in trainding data set
 
-
-### Condensed Nearest Neighbour(CNN)
+### 9.7 Condensed Nearest Neighbour(CNN)
 <center>
 <img class="center large" src=".//ml_pictures/ml085.png" height="50%" width="70%">
 </center>
 
-### Organizing the inputs
+### 9.8 Organizing the inputs
 * Just split the inputs into clusters, groups of points that are close to one another but far from other groups.
 
 <center>
@@ -1391,7 +1380,7 @@ $$g(\mathbf{x})=sign(\sum_{i=1}^{k}{y_{[i]}(\mathbf{x})})$$
 <img class="center large" src=".//ml_pictures/ml087.png" height="50%" width="70%">
 </center>
 
-### Clustering inputs
+### 9.9 Clustering inputs
 * Using **Triangle Inequality** in norm, we have
 
  <center>
@@ -1409,7 +1398,7 @@ $$g(\mathbf{x})=sign(\sum_{i=1}^{k}{y_{[i]}(\mathbf{x})})$$
     * 2nd Step is about how to assign every points in data set $\mathcal{D}$ to $C$ clusters
     * 3rd Step is about after assigned point to each cluster, we need to update its center point and the radius
 
-### Parametric vs. Non-parametric
+### 9.10 Parametric vs. Non-parametric
 * Parametric Model
     * Hypotheses have a parametrized form
     * Parameters learned from training data; can discard training data afterwards;
@@ -1421,28 +1410,29 @@ $$g(\mathbf{x})=sign(\sum_{i=1}^{k}{y_{[i]}(\mathbf{x})})$$
     * Training data generally need to be stored in order to make predictions
     * Can recover any target function given enough data
 
-### Radial Basis Functions(RBF)
-* kNN only consider some points and weights them equally
-* What if we considered all points but weighted them unequally?
-* Intution: all points are useful but some points are more useful than others!
-* Bouns: no need to choose $k$
+### 9.11 Radial Basis Functions(RBF)
+> * kNN only consider some points and weights them equally
+> * What if we considered all points but weighted them unequally?
+> * Intution: all points are useful but some points are more useful than others!
+> * Bouns: no need to choose $k$
 
 Suppose we have a binary classification problem
+
  <center>
 <img class="center large" src=".//ml_pictures/ml090.png" height="50%" width="70%">
 </center>
 
- <center>
-<img class="center medium" src=".//ml_pictures/ml091.png" height="50%" width="50%">
-</center>
+> * If $r$ is really small, then $\frac{\|\mathbf{x}-\mathbf{x}_i\|}{r}$ will always be large (unless $\|\mathbf{x}-\mathbf{x}_i\|$ is small)
+> * If $\frac{\|\mathbf{x}-\mathbf{x}_i\|}{r}$ is large, then $\phi(\frac{\|\mathbf{x}-\mathbf{x}_i\|}{r})$ will always be small(unless $\|\mathbf{x}-\mathbf{x}_i\|$ is small)
+> * The smaller $r$ is, the closer $\mathbf{x}$ has to be to $\mathbf{x}_i$ in order for $\phi(\frac{\|\mathbf{x}-\mathbf{x}_i\|}{r})$ to be non-zero
 
-* If $r$ is really small, then $\frac{\|\mathbf{x}-\mathbf{x}_i\|}{r}$ will always be large (unless $\|\mathbf{x}-\mathbf{x}_i\|$ is small)
-* If $\frac{\|\mathbf{x}-\mathbf{x}_i\|}{r}$ is large, then $\phi(\frac{\|\mathbf{x}-\mathbf{x}_i\|}{r})$ will always be small(unless $\|\mathbf{x}-\mathbf{x}_i\|$ is small)
-* The smaller $r$ is, the closer $\mathbf{x}$ has to be to $\mathbf{x}_i$ in order for $\phi(\frac{\|\mathbf{x}-\mathbf{x}_i\|}{r})$ to be non-zero
+ <center>
+<img class="large" src=".//ml_pictures/ml091.png" height="50%" width="50%">
+</center>
 
 In a sense, $r$ is like $k$, if $r$ increases, we care more and more points.
 
-* Intutively, we want points close to $\mathbf{x}$ to have larger weights and points far from $\mathbf{x}$ to have small weights
+Intutively, we want points close to $\mathbf{x}$ to have larger weights and points far from $\mathbf{x}$ to have small weights
 
  <center>
 <img class="center medium" src=".//ml_pictures/ml092.png" height="50%" width="50%">
@@ -1454,101 +1444,104 @@ And finally, we have
 <img class="center medium" src=".//ml_pictures/ml093.png" height="50%" width="50%">
 </center>
 
-## Lecture 19-21 Support Vector Machine
-### Maximal Margin Linear Separators
-* We want maximum the margin with restraint on correct classification.
+## Chapter 10 (L19-L21) Support Vector Machine
 
-$$
+### 10.1 Maximal Margin Linear Separators
+> We want maximum the margin with restraint on correct classification.
+>
+> $$
 \begin{aligned}
 &\textbf{max}\ margin(\mathbf{w})\\
 &\textbf{subject\ to\ } \mathbf{w}\ classify\ every\ (\mathbf{x}_i,y_i)\ correctly
 \end{aligned}
 $$
-
-* We can use special scaling and make every linear separators become separating hyperplanes.
+>
+> We can use special scaling and make every linear separators become separating hyperplanes.
 
  <center>
 <img class="center large" src=".//ml_pictures/ml094.png" height="50%" width="70%">
 </center>
 
-* After scaling our weight vector, every separating hyperplane have margin expression:
+> After scaling our weight vector, every separating hyperplane have margin expression:
+>
+> $$\frac{1}{\|\mathbf{w}\|}$$
 
-$$\frac{1}{\|\mathbf{w}\|}$$
-
-### How to calculate the margin?
-* First, we want to prove that weight vector $\mathbf{w}$ is orthogonal to the hyperplane $h(\mathbf{x})=\mathbf{w^{T}x}+w_0=0$
-
-* Second, we will use the knowledge of projection. Suppose $\mathbf{x}'$ be an arbitrary point on the hyperplane, and $\mathbf{x}''$ be an arbitrary point. The distance between $\mathbf{x}''$ to the hyperplane $h(\mathbf{x})=\mathbf{w^{T}x}+w_0=0$ will be
-
-$$d(x'', h)=|\frac{\mathbf{w^{T}(\mathbf{x''}-\mathbf{x'})}}{\|\mathbf{w}\|}|=|\frac{\mathbf{w^T{x''}}+w_0}{\|\mathbf{w}\|}|$$
-
-* The margin of separating hyperplane is the distance between the hyperplane and the nearest training point
+### 10.2 How to calculate the margin?
+> First, we want to prove that weight vector $\mathbf{w}$ is orthogonal to the hyperplane $h(\mathbf{x})=\mathbf{w^{T}x}+w_0=0$
+> 
+> Second, we will use the knowledge of projection. Suppose $\mathbf{x}'$ be an arbitrary point on the hyperplane, and $\mathbf{x}''$ be an arbitrary point. The distance between $\mathbf{x}''$ to the hyperplane $h(\mathbf{x})=\mathbf{w^{T}x}+w_0=0$ will be
+>
+> $$d(x'', h)=|\frac{\mathbf{w^{T}(\mathbf{x''}-\mathbf{x'})}}{\|\mathbf{w}\|}|=|\frac{\mathbf{w^T{x''}}+w_0}{\|\mathbf{w}\|}|$$
+>
+> The margin of separating hyperplane is the distance between the hyperplane and the nearest training point
 
  <center>
 <img class="center large" src=".//ml_pictures/ml095.png" height="50%" width="70%">
 </center>
 
-### Why maximal margin?
-* With minimum margin $\rho$, linear separators in $\mathcal{H}_{\rho}$ can not always shatter all sets of three points.
+### 10.3 Why maximal margin?
+> With minimum margin $\rho$, linear separators in $\mathcal{H}_{\rho}$ can not always shatter all sets of three points.
 
 <center>
 <img class="center large" src=".//ml_pictures/ml096.png" height="50%" width="70%">
 </center>
 
-### Soft-Margin SVMs
+### 10.4 Soft-Margin SVMs
 
 <center>
 <img class="center large" src=".//ml_pictures/ml097.png" height="50%" width="70%">
 </center>
 
-* $\xi_i$ is the soft error on the $i^{th}$ training
+$\xi_i$ is the soft error on the $i^{th}$ training
 
 <center>
 <img class="center large" src=".//ml_pictures/ml098.png" height="50%" width="70%">
 </center>
 
 
-## Lecture 22: Neural Networks
-* Combining Perceptrons
+## Chapter 11 Lecture 22: Neural Networks
+### 11.1 Combining Perceptrons
 
 <center>
 <img class="center large" src=".//ml_pictures/ml099.png" height="50%" width="80%">
 </center>
 
-* Multi-Layer Perceptron(MLP)
+### 11.2 Multi-Layer Perceptron(MLP)
 
 <center>
 <img class="center large" src=".//ml_pictures/ml100.png" height="50%" width="100%">
 </center>
 
-* Architecture
-The architecture of an MLP is the vector $\vec{d}=[d^{(0)}, d^{(1)},\cdots, d^{(L)}]$
+### 11.3 Architecture
+> The architecture of an MLP is the vector $\vec{d}=[d^{(0)}, d^{(1)},\cdots, d^{(L)}]$
 
 <center>
 <img class="center large" src=".//ml_pictures/ml101.png" height="50%" width="100%">
 </center>
 
-* Weights
-The weights between layer $l-1$ and layer $l$ are a matrix: $W^{(l)} \in {\mathbb{R}^{(d^{(l-1)}+1)\times{d^{(l)}}}}$
+### 11.4 Weights
+> The weights between layer $l-1$ and layer $l$ are a matrix: $W^{(l)} \in {\mathbb{R}^{(d^{(l-1)}+1)\times{d^{(l)}}}}$
 
-* Signal and Outputs
+### 11.5 Signal and Outputs
 
 <center>
 <img class="center large" src=".//ml_pictures/ml102.png" height="50%" width="80%">
 </center>
 
+### 11.5 Forward Propagation for Predictions
+
 <center>
 <img class="center large" src=".//ml_pictures/ml103.png" height="50%" width="80%">
 </center>
 
-## Lecture 23: Backpropagation
-* Computing Gradients
+## Chapter 12 (L23): Backpropagation
+### 12.1 Computing Gradients
 
 <center>
 <img class="center large" src=".//ml_pictures/ml104.png" height="50%" width="80%">
 </center>
 
-* Computing Partial Derivatives With Chain Rule
+### 12.2 Computing Partial Derivatives With Chain Rule
 
 <center>
 <img class="center large" src=".//ml_pictures/ml105.png" height="50%" width="80%">
@@ -1558,35 +1551,34 @@ The weights between layer $l-1$ and layer $l$ are a matrix: $W^{(l)} \in {\mathb
 <img class="center large" src=".//ml_pictures/ml106.png" height="50%" width="80%">
 </center>
 
-* Back Propagation
+### 12.3 Back Propagation
 
 <center>
 <img class="center large" src=".//ml_pictures/ml107.png" height="50%" width="90%">
 </center>
 
-* Computing Gradients with Feed Forward and Back Propagation
+### 12.4 Computing Gradients with Feed Forward and Back Propagation
 
 <center>
 <img class="center large" src=".//ml_pictures/ml108.png" height="50%" width="90%">
 </center>
 
-* Mini-batch Gradient Descent
+### 12.5 Mini-batch Gradient Descent
 <center>
 <img class="center large" src=".//ml_pictures/ml109.png" height="50%" width="90%">
 </center>
 
-
-* Regulation
+### 12.6 Regulation
 <center>
 <img class="center large" src=".//ml_pictures/ml110.png" height="50%" width="70%">
 </center>
 
-* Dropout Regulation
+### 12.7 Dropout Regulation
 <center>
 <img class="center large" src=".//ml_pictures/ml111.png" height="50%" width="70%">
 </center>
 
-* MLP as Universal Approximators
+### 12.8 MLP as Universal Approximators
 <center>
 <img class="center large" src=".//ml_pictures/ml112.png" height="50%" width="70%">
 </center>
