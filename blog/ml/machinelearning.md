@@ -788,11 +788,11 @@ $$
 
 ### 4.4 Solutions for Overfitting
 
-* Start from simple model
-* data cleaning / pruning
-* data hinting
-* regularization
-* validation
+> * Start from simple model
+> * data cleaning / pruning
+> * data hinting
+> * regularization
+> * validation
 
 
 ### 4.5 Regularization
@@ -852,11 +852,11 @@ Just like the picture below
 <img class="large" src=".//ml_pictures/ml060.png" height="50%" width="50%">
 </center>
 
-For the condition above, $\mathbf{w}$ cannot be the optimal because $\nabla{E_{in}}(\mathbf{w})$ is not parallel to the red normal vector. Since in this condition, we can decrease $\nabla{E_{in}}(\mathbf{w})$ without violating the constraint.(Green Arrow on the figure above), and therefore, we can move closer to $\mathbf{w}$ without violating constraint.
-
-Therefore, for the optimal solution $\mathbf{w}_{reg}$, we have
-
-$$-\nabla{E}_{in}(\mathbf{w}_{reg})\propto{\mathbf{w}_{reg}}$$
+> For the condition above, $\mathbf{w}$ cannot be the optimal because $\nabla{E_{in}}(\mathbf{w})$ is not parallel to the red normal vector. Since in this condition, we can decrease $\nabla{E_{in}}(\mathbf{w})$ without violating the constraint.(Green Arrow on the figure above), and therefore, we can move closer to $\mathbf{w}$ without violating constraint.
+> 
+> Therefore, for the optimal solution $\mathbf{w}_{reg}$, we have
+> 
+> $$-\nabla{E}_{in}(\mathbf{w}_{reg})\propto{\mathbf{w}_{reg}}$$
 
 And the figure below just show its geometric meaning
 
@@ -959,9 +959,9 @@ $$\mathbb{E}_{\mathbf{x}_i}[e(h(\mathbf{x}_i),y_i)]=\mathbb{E}_{\mathbf{x}}[e(h(
 <img class="center medium" src=".//ml_pictures/ml077.png" height="50%" width="50%">
 </center>
 
-* From the statement above, we know that in validation part, we use $\mathcal{D}_{val}$ to pick a best hypothesis $g^{-}_{m^{*}}$, which corresponds to a Hypothesis set $\mathcal{H}_{m^{*}}$. Then we will learn a hypothesis $g_{m^{*}}$ from whole data set $\mathcal{D}$.
-
-* Tips: At here, $\mathcal{H}_{val}$ are formed up from many signle hypothesis from multiple hypothesis sets, and we are going to pick a best hypothesis set.
+> From the statement above, we know that in validation part, we use $\mathcal{D}_{val}$ to pick a best hypothesis $g^{-}_{m^{*}}$, which corresponds to a Hypothesis set $\mathcal{H}_{m^{*}}$. Then we will learn a hypothesis $g_{m^{*}}$ from whole data set $\mathcal{D}$.
+>
+> Tips: At here, $\mathcal{H}_{val}$ are formed up from many signle hypothesis from multiple hypothesis sets, and we are going to pick a best hypothesis set.
 
 <center>
 <img class="center large" src=".//ml_pictures/ml069.png" height="50%" width="70%">
@@ -973,13 +973,13 @@ $$\mathbb{E}_{\mathbf{x}_i}[e(h(\mathbf{x}_i),y_i)]=\mathbb{E}_{\mathbf{x}}[e(h(
 <img class="center large" src=".//ml_pictures/ml070.png" height="50%" width="70%">
 </center>
 
-### Picking $\lambda_{C}$ (for regularization)
+### 4.13 Picking $\lambda_{C}$ (for regularization)
 
 <center>
 <img class="center large" src=".//ml_pictures/ml071.png" height="50%" width="70%">
 </center>
 
-### Picking k
+### 4.14 Picking k
 
 $$E_{out}(g_{m^{*}})\leq{ E_{out}(g^{-}_{m^{*}})}\leq{ E_{val}(g^{-}_{m^{*}})}+O(\sqrt{\frac{\ln(m)}{k}})$$
 
@@ -995,7 +995,7 @@ $$E_{out}(g_{m^{*}})\leq{ E_{out}(g^{-}_{m^{*}})}\leq{ E_{val}(g^{-}_{m^{*}})}+O
 
 * Since using validation data set will reduce the size of training data set, we will introduce a new way to do validation——Cross Validation.
 
-### Leave-one-out cross validation(LOOCV)
+### 4.15 Leave-one-out cross validation(LOOCV)
 
 * Cross here means that this data point can be training data and validation data.
 
