@@ -242,10 +242,6 @@ $$
 > And we know $h(\mathbf{x_1}),\cdots,h(\mathbf{x_n})\in \{+1,-1\}^{n}$ 
 > And we also know dichotomies $\mathcal{H}(\mathbf{x_1,\cdots,x_n})$ is also a set of **hypothesis** just like hypothesis $\mathcal{H}$. The difference here is: One has upper bound, and one is possibly infinite.
 
-<center>
-<img class = "large" src=".//ml_pictures/ml010.png" height="67%" width="67%">
-</center>
-
 > The Growth Function can be defined for a hypothesis set $\mathcal{H}$ by
 >
 >$$m_{\mathcal{H}}(n)=\max_{\mathbf{x_1,\cdots,x_n}\in\mathcal{X}}{|\mathcal{H}(\mathbf{x_1,\cdots,x_n})|}$$
@@ -329,10 +325,14 @@ $$
 >    * (2) To enable the data to zoom in on the right hypothesis
 
 <span id="jump1"></span>
-* **VC Analysis**
+
+* VC Analysis on Generalization
+
 <center>
 <img class = "large" src=".//ml_pictures/ml014.png" height="55%" width="70%">
 </center>
+
+* VC Analysis with VC-Dimension
 
 <center>
 <img class = "large" src=".//ml_pictures/ml015.png" height="55%" width="70%">
@@ -369,10 +369,15 @@ $$
 $$
 
 <span id="jump2"></span>
-* CONCLUSION (Bias-Variance Analysis):
+
+* Bias-Variance Analysis on Function
+
 <center>
 <img class = "large" src=".//ml_pictures/ml016.png" height="55%" width="70%">
 </center>
+
+* Bias-Variance Analysis on Hypothesis Complexity
+
 <center>
 <img class = "large" src=".//ml_pictures/ml017.png" height="55%" width="70%">
 </center>
@@ -416,7 +421,7 @@ min_{\mathbf{w}\in{\mathbb{R^{d+1}}}}{\frac{1}{n}
 * Since [PLA](#jump3) will never terminate for non-linear separable data, we may adjust that algorithm with **Pocket Algorithm**:
 
 <center>
-<img class = "medium" src=".//ml_pictures/ml021.png" height="55%" width="55%">
+<img class = "large" src=".//ml_pictures/ml021.png" height="65%" width="65%">
 </center>
 
 ### 3.2 Linear Regression
@@ -492,7 +497,7 @@ $$
 ### 3.3 Linear Regression Algorithm
 
 <center>
-<img class = "medium" src=".//ml_pictures/ml022.png" height="50%" width="50%">
+<img class = "large" src=".//ml_pictures/ml022.png" height="70%" width="70%">
 </center>
 
 ### 3.4 Logistic Regression
@@ -539,35 +544,39 @@ $$
 >    
 >        * $E_{in}(\mathbf{w})=\frac{1}{n}{\sum_{i=1}^{n}\ln{(1+e^{-y_i\mathbf{w^Tx_i}})}  }$
 
+* Probability Union
+
 <center>
 <img class = "large" src=".//ml_pictures/ml024.png" height="60%" width="70%">
 </center>
 
+* Maximization
+
 <center>
-<img class="center large"  src=".//ml_pictures/ml025.png" height="60%" width="70%">
+<img class="large"  src=".//ml_pictures/ml025.png" height="60%" width="70%">
 </center>
 
-### Gradient Descent
+### 3.6 Gradient Descent
 
 * First, we shuold know that cross_entropy is a convex function.
 * After getting the Hessian Matrix with positive semidefinite, we know that Cross-Entropy function is convex.
 
 <center>
-<img class="center large"  src=".//ml_pictures/ml061.png" height="60%" width="70%">
+<img class="large"  src=".//ml_pictures/ml061.png" height="60%" width="70%">
 </center>
 
-### Gradient Descent Intution
-* Suppose current location $\mathbf{w}(t)$
-* Suppose we get a small step of size $\eta$ in the direction of a unit vector $\hat{v}$
-* Move some distance $\eta$ in the "most downhill" direction possible $\hat{v}$
-
-$$\mathbf{w}(t+1)=\mathbf{w}(t)+\eta\hat{v}$$
-
-* Fix $\eta$ and choose $\hat{\mathbf{v}}$ to maximize the decrease in $E_{in}$ after making the update $\mathbf{w}(t+1)=\mathbf{w}(t)+\eta\hat{v}$
-* $\Delta{E_{in}}(\hat{v})=E_{in}(\mathbf{w}(t)+\eta\hat{v})-E_{in}(\mathbf{w}(t))$
-* What we want to do here is to maximum the decreation here to Minimum the $E$ function.
-
-$$
+### 3.7 Gradient Descent Intution
+> * Suppose current location $\mathbf{w}(t)$
+> * Suppose we get a small step of size $\eta$ in the direction of a unit vector $\hat{v}$
+> * Move some distance $\eta$ in the "most downhill" direction possible $\hat{v}$
+>
+> $$\mathbf{w}(t+1)=\mathbf{w}(t)+\eta\hat{v}$$
+>
+> * Fix $\eta$ and choose $\hat{\mathbf{v}}$ to maximize the decrease in $E_{in}$ after making the update $\mathbf{w}(t+1)=\mathbf{w}(t)+\eta\hat{v}$
+> * $\Delta{E_{in}}(\hat{v})=E_{in}(\mathbf{w}(t)+\eta\hat{v})-E_{in}(\mathbf{w}(t))$
+> * What we want to do here is to maximum the decreation here to Minimum the $E$ function.
+>
+> $$
 \begin{aligned}
 \Delta{E_{in}}(\hat{v})&=E_{in}(\mathbf{w}(t)+\eta\hat{v})-E_{in}(\mathbf{w}(t))\\
 &{\approx}  (E_{in}(\mathbf{w}(t))+\eta\hat{v}^{\mathbf{T}}\nabla_{\mathbf{w}}{E_{in}(\mathbf{w}(t)))}-E_{in}(\mathbf{w}(t)) \\
@@ -576,38 +585,37 @@ $$
 \end{aligned}
 $$
 
-* The explanation for the last line here is
-
-$$\mathbf{a}\cdot\mathbf{b}=-|\mathbf{a}|\cdot|\mathbf{b}|$$
-
-* The explanation for second line here(Gradient):
-    * Knowing that $\mathbf{x,\ w}\in{\mathbb{R}^{d+1}}$, and means that $\mathbf{x,\ w}$ has d+1 dimensions.
-    * Thus, 
-    
-    $$\nabla{E}_{in}(\mathbf{w})=(\frac{\partial{E_{in}(\mathbf{w})}}{\partial{w}_0},\cdots,\frac{\partial{E_{in}(\mathbf{w})}}{\partial{w}_d})^{\mathbf{T}}$$
-    
-    * And $\mathbf{v}$ is a vector with same dimensions as $\mathbf{w}$
-    * **First Order Taylor Expansion**: 
-
-    $$\nabla{E}_{in}(\mathbf{w+v})={E}_{in}(\mathbf{w})+\nabla{E}_{in}(\mathbf{w})^{\mathbf{T}}{\mathbf{v}}+o(\|\mathbf{h}\|)$$
-
-
-* Thus, the optimial direction should be
-
-$$\hat{v^{*}_{t}}=-\frac{\nabla_{\mathbf{w}}E_{in}(\mathbf{w}(t))}{||\nabla_{\mathbf{w}}E_{in}(\mathbf{w}(t))||}$$
+> * The explanation for the last line here is
+> 
+> $$\mathbf{a}\cdot\mathbf{b}=-|\mathbf{a}|\cdot|\mathbf{b}|$$
+> 
+> * The explanation for second line here(Gradient):
+>    * Knowing that $\mathbf{x,\ w}\in{\mathbb{R}^{d+1}}$, and means that $\mathbf{x,\ w}$ has d+1 dimensions.
+>    * Thus, 
+>    
+>    $$\nabla{E}_{in}(\mathbf{w})=(\frac{\partial{E_{in}(\mathbf{w})}}{\partial{w}_0},\cdots,\frac{\partial{E_{in}(\mathbf{w})}}{\partial{w}_d})^{\mathbf{T}}$$
+>    
+>    * And $\mathbf{v}$ is a vector with same dimensions as $\mathbf{w}$
+>    * **First Order Taylor Expansion**: 
+>
+>    $$\nabla{E}_{in}(\mathbf{w+v})={E}_{in}(\mathbf{w})+\nabla{E}_{in}(\mathbf{w})^{\mathbf{T}}{\mathbf{v}}+o(\|\mathbf{h}\|)$$
+>
+> * Thus, the optimial direction should be
+> 
+> $$\hat{v^{*}_{t}}=-\frac{\nabla_{\mathbf{w}}E_{in}(\mathbf{w}(t))}{||\nabla_{\mathbf{w}}E_{in}(\mathbf{w}(t))||}$$
 
 * Intution for Step
 <center>
 <img  src=".//ml_pictures/ml026.png" height="50%" width="100%">
 </center>
 
-* A simple heuristic can do this. The gradient close to minimum is small and away from minimum can be large. Thus, we can set
-
-$$\eta_{t}=\eta_{0}||\nabla_{\mathbf{w}}E_{in}(\mathbf{w}(t))||$$
-
-Finally, we get
-
-$$
+> A simple heuristic can do this. The gradient close to minimum is small and away from minimum can be large. Thus, we can set
+> 
+> $$\eta_{t}=\eta_{0}||\nabla_{\mathbf{w}}E_{in}(\mathbf{w}(t))||$$
+>
+> Finally, we get
+>
+> $$
 \begin{aligned}
 \mathbf{w}(t+1)&=\mathbf{w}(t)+\eta_t\hat{v^{*}_{t}}\\
 &=\mathbf{w}(t)+(\eta_{0}||\nabla_{\mathbf{w}}E_{in}(\mathbf{w}(t))||)(-\frac{\nabla_{\mathbf{w}}E_{in}(\mathbf{w}(t))}{||\nabla_{\mathbf{w}}E_{in}(\mathbf{w}(t))||})\\
@@ -615,40 +623,44 @@ $$
 \end{aligned}
 $$
 
-### Gradient Descent Algorithm
+### 3.8 Gradient Descent Algorithm
 
 <center>
 <img class="center large" src=".//ml_pictures/ml027.png" height="50%" width="70%">
 </center>
 
-### SGD(Stochastic Gradient Descent)
+### 3.9 SGD(Stochastic Gradient Descent)
 
 <center>
 <img class="center large" src=".//ml_pictures/ml028.png" height="50%" width="70%">
 </center>
 
-### Nonlinera Transformation
+### 3.10 Nonlinera Transformation
 
 <center>
 <img class="center large" src=".//ml_pictures/ml029.png" height="70%" width="70%">
 </center>
 
-* Instead of Using $h(\mathbf{x})=f(\mathbf{w^Tx})$
-* We will set $\tilde{h}(\mathbf{z})=f({\mathbf{\tilde{w}^Tz}})$ where $\mathbf{z}=\Phi({\mathbf{x}})$
-
-* Example for setting $\mathbf{z}$
-
-* Through viewing the data figure, we can find out that it seems like a circle here, and we can set
-
-$$
+> Instead of Using $h(\mathbf{x})=f(\mathbf{w^Tx})$, we will set $\tilde{h}(\mathbf{z})=f({\mathbf{\tilde{w}^Tz}})$ where $\mathbf{z}=\Phi({\mathbf{x}})$
+> 
+> Example for setting $\mathbf{z}$:
+>
+> Through viewing the data figure, we can find out that it seems like a circle here, and we can set
+>
+>$$
 \begin{aligned}
 x_1^2+x_2^2&=0.6\\
 \mathbf{z}=\Phi(\mathbf{x})&=(1,x_1^2,x_2^2)\\
-\mathbf{OR\ if\ we\ } \mathbf{like\ we\ can\ set\ } \\
-\mathbf{z}=\Phi(\mathbf{x})&=[1,(x_1-0.5)^2,(x_2-0.5)^2)]\\
 \end{aligned}
 $$
-
+>
+> Or if we can set
+>
+>$$
+\begin{aligned}
+\mathbf{z}=\Phi(\mathbf{x})&=[1,(x_1-0.5)^2,(x_2-0.5)^2)]
+\end{aligned}
+$$
 
 * Therefore, the nonlinear model is
 <center>
@@ -656,6 +668,7 @@ $$
 </center>
 
 * Figures to show this procedures:
+
 <center>
 <img class="center medium" src=".//ml_pictures/ml031.png" height="50%" width="50%">
 </center>
@@ -666,7 +679,7 @@ $$
 <img class="center large" src=".//ml_pictures/ml032.png" height="50%" width="70%">
 </center>
 
-### kth-Order Transformation
+### 3.11 kth-Order Transformation
 
 * Notice that what we do above can just be suitable for circle but not for other universal quadratic conditions like Ellipses. Therefore, we need to set more general quadratic transformation
 
@@ -680,12 +693,14 @@ $$\mathbf{z}=\Phi_{2}(\mathbf{x})=[1,x_1,x_2,x_1^2,x_1x_2,x_2^2,]$$
 
 ## Chapter 4 Overfitting
 
+* Error and Generlization
 <center>
 <img class="center medium" src=".//ml_pictures/ml034.png" height="50%" width="50%">
 </center>
 
+* Error and Model Complexity
 <center>
-<img class="center medium" src=".//ml_pictures/ml035.png" height="50%" width="50%">
+<img class="large" src=".//ml_pictures/ml035.png" height="50%" width="50%">
 </center>
 
 * Cause for Overfitting
@@ -693,7 +708,7 @@ $$\mathbf{z}=\Phi_{2}(\mathbf{x})=[1,x_1,x_2,x_1^2,x_1x_2,x_2^2,]$$
     * Noise: bumpy road
     * Too limited data: not familiar with road conditions
 
-### Conditions for Overfitting (1) Noise
+### 4.1 Conditions for Overfitting (1) Noise
 
 <center>
 <img class="center medium" src=".//ml_pictures/ml036.png" height="50%" width="50%">
@@ -709,9 +724,13 @@ The figure above shows that in the shady area, which means we have limited data 
 
 * Data from 20 to 100 (increase learning data set)
 
+* Less Data with 20 Points
+
 <center>
 <img class="center large" src=".//ml_pictures/ml039.png" height="50%" width="70%">
 </center>
+
+* More Data with 100 Points
 
 <center>
 <img class="center large" src=".//ml_pictures/ml040.png" height="50%" width="70%">
@@ -719,7 +738,7 @@ The figure above shows that in the shady area, which means we have limited data 
 
 After increasing number of data, the complex model($\mathcal{H_{10}}$) wins.
 
-### Conditions for Overfitting (2) Deterministic Noise
+### 4.2 Conditions for Overfitting (2) Deterministic Noise
 
 * Deterministic Noise can be calculated.
 
@@ -733,13 +752,13 @@ After increasing number of data, the complex model($\mathcal{H_{10}}$) wins.
 <img class="center large" src=".//ml_pictures/ml041.png" height="50%" width="70%">
 </center>
 
-### Bias-Variance Analysis for Noise
+### 4.3 Bias-Variance Analysis for Noise
 
-$$y=f(\mathbf{x})+\epsilon$$
-
-* $\epsilon$ is the Gussian Distribution Noise
-
-$$
+> $$y=f(\mathbf{x})+\epsilon$$
+> 
+> * $\epsilon$ is the Gussian Distribution Noise
+> 
+> $$
 \begin{aligned}
 \mathbb{E}_{\mathcal{D}}  [E_{out}(g_{\mathcal{D}})]
 &=\mathbb{E_{\mathcal{D}}}\Big[ \mathbb{E}_{\mathbf{x},y}[( g_{\mathcal{D}}(\mathbf{x})-y(\mathbf{x}))^2] \Big]\\ 
@@ -752,9 +771,9 @@ $$
 <img class="center large" src=".//ml_pictures/ml058.png" height="50%" width="70%">
 </center>
 
-* Therefore, we have
-
-$$
+> Therefore, we have
+> 
+> $$
 \begin{aligned}
 \mathbb{E}_{\mathcal{D}}[E_{out}(g_{\mathcal{D}})]
 &=\mathbb{E}_{\mathbf{x},y}\Big[\mathbb{E}_{\mathcal{D}}[ g_{\mathcal{D}}(\mathbf{x})^2]-2\bar{g}(\mathbf{x})f(\mathbf{x})+f(\mathbf{x})^2+{\epsilon}^2\Big]\\
@@ -767,53 +786,55 @@ $$
 \end{aligned}
 $$
 
-### Solutions for Overfitting
+### 4.4 Solutions for Overfitting
+
+* Start from simple model
+* data cleaning / pruning
+* data hinting
+* regularization
+* validation
+
+
+### 4.5 Regularization
+
+Idea: 'Step Back' from $\mathcal{H}_{10}$ to $\mathcal{H}_{2}$
 
 <center>
-<img class="center large" src=".//ml_pictures/ml043.png" height="50%" width="70%">
+<img class="large" src=".//ml_pictures/ml059.png" height="50%" width="50%">
 </center>
 
+Example: $\mathcal{H}_{2}$ is just $\mathcal{H}_{10}$ with certain constraint.
 
-### Regularization
-
-* Idea: 'Step Back' from $\mathcal{H}_{10}$ to $\mathcal{H}_{2}$
-
-<center>
-<img class="center medium" src=".//ml_pictures/ml059.png" height="50%" width="50%">
-</center>
-
-
-
-* Example: $\mathcal{H}_{2}$ is just $\mathcal{H}_{10}$ with certain constraint.
-
+* 10-th Polynomials
 <center>
 <img class="center large" src=".//ml_pictures/ml044.png" height="50%" width="70%">
 </center>
 
+* 2-nd Polynomials
 <center>
 <img class="center large" src=".//ml_pictures/ml045.png" height="50%" width="70%">
 </center>
 
 
-### Regression with Soft Constraints
+### 4.6 Regression with Soft Constraints
 
 <center>
 <img class="center large" src=".//ml_pictures/ml046.png" height="50%" width="70%">
 </center>
 
-* We will generate a hypothesis set, which is looser than $\mathcal{H}_{2}$, but less risky than $\mathcal{H}_{10}$
+We will generate a hypothesis set, which is looser than $\mathcal{H}_{2}$, but less risky than $\mathcal{H}_{10}$
 
 <center>
 <img class="center large" src=".//ml_pictures/ml047.png" height="50%" width="70%">
 </center>
 
 
-* Solving the optimization based on a contriant
+Solving the optimization based on a contriant
 <center>
 <img class="center large" src=".//ml_pictures/ml048.png" height="50%" width="70%">
 </center>
 
-* Special conditions when constraint contains the solutions, we certainly will get
+Special conditions when constraint contains the solutions, we certainly will get
 
 $$ \mathbf{w}_{reg}= \mathbf{w}_{lin}$$
 
@@ -823,27 +844,27 @@ Just like the picture below
 <img class="center large" src=".//ml_pictures/ml049.png" height="50%" width="70%">
 </center>
 
-### The Lagrange Multiplier
+### 4.7 The Lagrange Multiplier
 * More common conditions: using convex optimization
 * At here, $X\in{\mathbb{R}^{n\times{d}}}$ and $\mathbf{w}_{d\times1}$
 
 <center>
-<img class="center medium" src=".//ml_pictures/ml060.png" height="50%" width="50%">
+<img class="large" src=".//ml_pictures/ml060.png" height="50%" width="50%">
 </center>
 
-* For the condition above, $\mathbf{w}$ cannot be the optimal because $\nabla{E_{in}}(\mathbf{w})$ is not parallel to the red normal vector. Since in this condition, we can decrease $\nabla{E_{in}}(\mathbf{w})$ without violating the constraint.(Green Arrow on the figure above), and therefore, we can move closer to $\mathbf{w}$ without violating constraint.
+For the condition above, $\mathbf{w}$ cannot be the optimal because $\nabla{E_{in}}(\mathbf{w})$ is not parallel to the red normal vector. Since in this condition, we can decrease $\nabla{E_{in}}(\mathbf{w})$ without violating the constraint.(Green Arrow on the figure above), and therefore, we can move closer to $\mathbf{w}$ without violating constraint.
 
-* Therefore, for the optimal solution $\mathbf{w}_{reg}$, we have
+Therefore, for the optimal solution $\mathbf{w}_{reg}$, we have
 
 $$-\nabla{E}_{in}(\mathbf{w}_{reg})\propto{\mathbf{w}_{reg}}$$
 
-* And the figure below just show its geometric meaning
+And the figure below just show its geometric meaning
 
 <center>
 <img class="center large" src=".//ml_pictures/ml050.png" height="50%" width="70%">
 </center>
 
-* To solve the last line equation above, we should transfer it into the formula below:
+To solve the last line equation above, we should transfer it into the formula below:
 
 <center>
 <img class="center large" src=".//ml_pictures/ml051.png" height="50%" width="70%">
@@ -863,17 +884,20 @@ $$-\nabla{E}_{in}(\mathbf{w}_{reg})\propto{\mathbf{w}_{reg}}$$
 <img class="center large" src=".//ml_pictures/ml053.png" height="50%" width="70%">
 </center>
 
-### Underfitting
+### 4.8 Underfitting
 * Pick a small $\lambda_C$ will cause overfitting
-* Pick a huge $\lambda_C$ will cause underfitting
 
 <center>
 <img class="center large" src=".//ml_pictures/ml054.png" height="50%" width="70%">
 </center>
 
+* Pick a huge $\lambda_C$ will cause underfitting
+
 <center>
 <img class="center large" src=".//ml_pictures/ml055.png" height="50%" width="70%">
 </center>
+
+* How to pick $\lambda_C$
 
 <center>
 <img class="center large" src=".//ml_pictures/ml056.png" height="50%" width="70%">
@@ -885,16 +909,20 @@ $$-\nabla{E}_{in}(\mathbf{w}_{reg})\propto{\mathbf{w}_{reg}}$$
 <img class="center large" src=".//ml_pictures/ml057.png" height="50%" width="70%">
 </center>
 
-### Understanding
+### 4.9 Understanding
 * Constrain hypothesis sets to prevent them from being able to fit noise
 * Learning algorithms are optimization problems and regularization imposes constraints on that optimization
 * Constraints can be converted into augmented objectives
 
-### Validation
+### 4.10 Validation
+
+* Regularization Estimation
 
 <center>
 <img class="center large" src=".//ml_pictures/ml062.png" height="50%" width="70%">
 </center>
+
+* Validation Estimation
 
 <center>
 <img class="center large" src=".//ml_pictures/ml063.png" height="50%" width="70%">
@@ -921,22 +949,11 @@ For the third line above, since $\mathbf{x}_i$ have the same distribution with $
 
 $$\mathbb{E}_{\mathbf{x}_i}[e(h(\mathbf{x}_i),y_i)]=\mathbb{E}_{\mathbf{x}}[e(h(\mathbf{x},y))]=E_{out}$$
 
-### Using test sets
-
-<center>
-<img class="center large" src=".//ml_pictures/ml066.png" height="50%" width="70%">
-</center>
-
-<center>
-<img class="center large" src=".//ml_pictures/ml067.png" height="50%" width="70%">
-</center>
-
-### Model Selection (Not Single Hypothesis Anymore)
+### 4.12 Model Selection (Not Single Hypothesis Anymore)
 
 <center>
 <img class="center large" src=".//ml_pictures/ml068.png" height="50%" width="70%">
 </center>
-
 
 <center>
 <img class="center medium" src=".//ml_pictures/ml077.png" height="50%" width="50%">
