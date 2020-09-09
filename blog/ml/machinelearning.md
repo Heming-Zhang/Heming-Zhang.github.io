@@ -422,7 +422,7 @@ min_{\mathbf{w}\in{\mathbb{R^{d+1}}}}{\frac{1}{n}
 ### 3.2 Linear Regression
 
 * Linear Models
->
+
 > $$h(\mathbf{x})= \mathbf{some\ function\ of\ w^{T}x}$$
 >
 > $$
@@ -450,8 +450,9 @@ E_{in}(h)&={\frac{1}{n}\sum_{i=1}^{n}(h(\mathbf{x}_i)-y_i)^2 }\\
 \end{aligned}
 $$
 
->
+
 * To Minimize the Error
+
 >    * Find the gradient
 >    * Set it equal to zero
 >    * Solve
