@@ -1339,7 +1339,7 @@ $$
 > * Intuitive/explainable
 > * No training/retraining
 > * Provably near-optimal in terms of $E_{out}$
-
+>
 > Cons:
 > * Computationally expensive
 >    * Always needs to store all data
