@@ -1160,7 +1160,7 @@ $$IG(x_i,y)= Entropy(y)-\sum_{v\in{V(x_i)}}(f_v)(Entropy(y_{x_i=v}))$$
 > Compute the validation error of tree $t$, and get $E_{val}(t)$
 > For each split $s\in{t}$
 > * Compute $E_{val}(t\backslash{s})=$ the validation error of $t$ with $s$ replaced by a leaf using the most common label at $s$.
-> * If $\exist$ a split $s\in{t}$, s.t. $E_{val}(t\backslash{s})\leq{E_{val}(t)}$, repeat the pruning process with $t\backslash{s^{*}}$, where $t\backslash{s^{*}}$ is the pruned tree with minimal validation error.
+> * If exist a split $s\in{t}$, s.t. $E_{val}(t\backslash{s})\leq{E_{val}(t)}$, repeat the pruning process with $t\backslash{s^{*}}$, where $t\backslash{s^{*}}$ is the pruned tree with minimal validation error.
 >
 > Double check the pruned tree. If $E_{val}(t)=0$, this means that we cannot prune this tree any more.
 
@@ -1216,10 +1216,6 @@ $$IG(x_i,y)= Entropy(y)-\sum_{v\in{V(x_i)}}(f_v)(Entropy(y_{x_i=v}))$$
 > * Learn a decision tree, $t_b$, using $D_b$ and the ID3 algorithm with split-feature randomization
 > Output: $\bar{t}$, the aggregated hypothesis
 
-### 7.9 Random forest Validation
-> For each training point, there are some trees which $\mathbf{x}_i$ was not used to train.
-> Compute an aggregated prediction for each $\mathbf{x}_i$ by using those trees did not use this point to train
-> Then we can average every point to get the out-of-bag(OOB) error, which is almost an unbiased estimator of $E_{out}$
 
 ### 7.10 Random Forests and Feature Selection
 > Random forests allow for the computation of "variable importance", a way of ranking features based on how useful they are at predicting the output.
@@ -1307,7 +1303,10 @@ is in its prediction: the bigger the margin, the more confident.
 >
 > Proof:
 > * Assume a binary classification problem: $\mathcal{Y}=\{-1,+1\}$
-> * Assume labels are noisy: let $\pi(\mathbf{x})=P\{y=+1|\mathbf{x}\}$
+> * Assume labels are noisy:
+>
+> $$\pi(\mathbf{x})=P\{y=+1|\mathbf{x}\}$$
+>
 > * Assume $\pi(\mathbf{x})$ is continuous
 > * As $n\rightarrow{\infty}$, $\mathbf{x}_{[1]}{\mathbf{x}}\rightarrow{\mathbf{x}}$
 > * Therefore,
@@ -1315,7 +1314,7 @@ is in its prediction: the bigger the margin, the more confident.
 > $$
 \begin{aligned}
 E_{out}
-& =\mathbb{E}_{\mathbf{x}}\big[\llbracket{g(\mathbf{x})\neq{y}}\rrbracket\big]\\
+& =\mathbb{E}_{\mathbf{x}}\big[[{g(\mathbf{x})\neq{y}}]\big]\\
 & =P\{ g(\mathbf{x})=+1 \cap {y=-1}\} + P\{ g(\mathbf{x})=-1 \cap {y=+1}\} \\
 & =\pi{(\mathbf{x}_{[1]}{\mathbf{x}})}(1-\pi{(\mathbf{x})}) + \big(1-\pi{(\mathbf{x}_{[1]}{\mathbf{x}})}\big)(\pi{(\mathbf{x})})\\
 & = 2\pi(\mathbf{x})(1-\pi(\mathbf{x}))\\
@@ -1336,15 +1335,15 @@ $$
 > Setting $k$
 
 ### 9.5 kNN Pros and Cons
-* Pros
-    * Intuitive/explainable
-    * No training/retraining
-    * Provably near-optimal in terms of $E_{out}$
+> Pros
+> * Intuitive/explainable
+> * No training/retraining
+> * Provably near-optimal in terms of $E_{out}$
 
-* Cons:
-    * Computationally expensive
-        * Always needs to store all data
-        * Computing $g(\mathbf{x})$ requires computing distances and sorting
+> Cons:
+> * Computationally expensive
+>    * Always needs to store all data
+>    * Computing $g(\mathbf{x})$ requires computing distances and sorting
  
 ### 9.6 Efficient $k$-Nearest Neighbours
 > **Curse of Dimensionality**
@@ -1399,16 +1398,16 @@ $$
     * 3rd Step is about after assigned point to each cluster, we need to update its center point and the radius
 
 ### 9.10 Parametric vs. Non-parametric
-* Parametric Model
-    * Hypotheses have a parametrized form
-    * Parameters learned from training data; can discard training data afterwards;
-    * Cannot exactly model every target function
-
-* Non Parametric Models
-    * Hypotheses cannot be expressed using a finite number of parameters
-        * Example: kNN, decision trees
-    * Training data generally need to be stored in order to make predictions
-    * Can recover any target function given enough data
+> Parametric Model
+> * Hypotheses have a parametrized form
+> * Parameters learned from training data; can discard training data afterwards;
+> * Cannot exactly model every target function
+>
+> Non Parametric Models
+> * Hypotheses cannot be expressed using a finite number of parameters
+>    * Example: kNN, decision trees
+> * Training data generally need to be stored in order to make predictions
+> * Can recover any target function given enough data
 
 ### 9.11 Radial Basis Functions(RBF)
 > * kNN only consider some points and weights them equally
@@ -1444,7 +1443,7 @@ And finally, we have
 <img class="center medium" src=".//ml_pictures/ml093.png" height="50%" width="50%">
 </center>
 
-## Chapter 10 (L19-L21) Support Vector Machine
+## Chapter 10 (L19-21) Support Vector Machine
 
 ### 10.1 Maximal Margin Linear Separators
 > We want maximum the margin with restraint on correct classification.
@@ -1492,14 +1491,14 @@ $$
 <img class="center large" src=".//ml_pictures/ml097.png" height="50%" width="70%">
 </center>
 
-$\xi_i$ is the soft error on the $i^{th}$ training
+> $\xi_i$ is the soft error on the $i^{th}$ training
 
 <center>
 <img class="center large" src=".//ml_pictures/ml098.png" height="50%" width="70%">
 </center>
 
 
-## Chapter 11 Lecture 22: Neural Networks
+## Chapter 11 (L22): Neural Networks
 ### 11.1 Combining Perceptrons
 
 <center>
