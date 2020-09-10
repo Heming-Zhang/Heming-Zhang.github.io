@@ -264,9 +264,13 @@ Usually, there are two assumptions in discrimitive supervised learning:
 > and 
 > 
 > $$p(\mathbf{w}|X)=p(\mathbf{w})$$  
+>
 > (2) $y_i$ are independent ghven the input features $\mathbf{x}_i$ and $\mathbf{w}$  
+>
  > **Goal:** Estimate $\mathbf{w}$ directly from $D=\{(\mathbf{x}, y_i)\}^{n}_{i=1}$ using the joint conditional likelihood 
+ >
  > $$p(\mathbf{y}|X,\mathbf{w})$$
+ >
 
 #### 4.1.1 Maximum Likelihood Estimation
 > Choose $\mathbf{w}$ to maximize the conditional likelihood. (use two assumptions above)
@@ -342,7 +346,9 @@ We have a discrete lable space $C$ that can either be binary ${-1,+1}$ or multi-
 > 
 > $$p(\mathbf{x}|y)=\prod_{\alpha=1}^{d}p([\mathbf{x}]_{\alpha}|y)$$
 > 
-> And estimating $p([\mathbf{x}]_{\alpha}|y)$ is relatively easy since we only need to consider one dimension.
+> And estimating 
+> $$p([\mathbf{x}]_{\alpha}|y)$$
+> is relatively easy since we only need to consider one dimension.
 > 
 > (1) Case1: Categorical Features  
 > (2) Case2: Multinomial Features  
