@@ -167,17 +167,17 @@ $$
 ### 3.3 Baysian Way and Maximum a-posterior Estimation
 > (1) To avoid the randomness of data, you may want to use baysian way to estimate $\theta$.  
 > (2) Baysian Way - Maximum A Posterior(MAP) 
->* (1) Model $\theta$ as a random variable
->* (2) Where $\theta$ is a drown from a distribution
->* (3) New, we look at $p(\theta|D)$
+> * (1) Model $\theta$ as a random variable
+> * (2) Where $\theta$ is a drown from a distribution
+> * (3) New, we look at 
 >
 > $$P(\theta|D) = \frac{P(D|\theta)P(\theta)}{P(D)}{\propto}{P(D|\theta)P(\theta)}$$
 >
 >
 > (2) Tips for notation:  
-$P(D|\theta)$ : **likelihood** of the data given the parameters $\theta$  
-$P(\theta)$ : **prior** distribution over the parameters $\theta$  
-$P(\theta|D)$ : **posterior** distribution over the parameters $\theta$
+> $P(D|\theta)$ : **likelihood** of the data given the parameters $\theta$  
+> $P(\theta)$ : **prior** distribution over the parameters $\theta$  
+> $P(\theta|D)$ : **posterior** distribution over the parameters $\theta$
 >
 > (3) A useful prior distribution  
 Beta distribution: $P(\theta)=Beta{(\theta|\alpha, \beta) }= \frac{\theta^{\alpha-1}(1-\theta)^{\beta-1}}{b(\alpha, \beta)}$, where $b(\alpha, \beta)=\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}$, and note that  
@@ -231,7 +231,9 @@ Note that MAP is only one way to get an estimator for $\theta$. There is much mo
 #### 3.4.2 Posterior Predictive
 > So far, we talked about modeling and estimating parameters. But in machine learning, we actually interested in predictions. To directly estimate label $y$ from the given data, we can use the posterior predictive distribution. 
 >
-> In our coin tossing example, this is given by: (since we know that $p(y=H|\theta,D)=\theta$ in the coin flipping)
+> In our coin tossing example, this is given by: (since we know that 
+> $$p(y=H|\theta,D)=\theta$$
+> in the coin flipping).
 > 
 > $$
 \begin{aligned}
@@ -263,7 +265,8 @@ Usually, there are two assumptions in discrimitive supervised learning:
 > 
 > $$p(\mathbf{w}|X)=p(\mathbf{w})$$  
 > (2) $y_i$ are independent ghven the input features $\mathbf{x}_i$ and $\mathbf{w}$  
- > **Goal:** Estimate $\mathbf{w}$ directly from $D=\{(\mathbf{x}, y_i)\}^{n}_{i=1}$ using the joint conditional likelihood $p(\mathbf{y}|X,\mathbf{w})$
+ > **Goal:** Estimate $\mathbf{w}$ directly from $D=\{(\mathbf{x}, y_i)\}^{n}_{i=1}$ using the joint conditional likelihood 
+ > $$p(\mathbf{y}|X,\mathbf{w})$$
 
 #### 4.1.1 Maximum Likelihood Estimation
 > Choose $\mathbf{w}$ to maximize the conditional likelihood. (use two assumptions above)
@@ -278,7 +281,9 @@ Usually, there are two assumptions in discrimitive supervised learning:
  $$
 
 #### 4.1.2 Bayesian way to Maximum-a-posterior Estimation
-> Model $\mathbf{w}$ as a random variable from $p(\mathbf{w})$ and use $p(\mathbf{w}|D)$. Choose $\mathbf{w}$ to maximize the posterior $p(\mathbf{w}|X,\mathbf{y})$ over $\mathbf{w}$.
+> Model $\mathbf{w}$ as a random variable from $p(\mathbf{w})$ and use $p(\mathbf{w}|D)$. Choose $\mathbf{w}$ to maximize the posterior 
+> $$p(\mathbf{w}|X,\mathbf{y})$$
+> over $\mathbf{w}$.
 > 
 > $$
 \begin{aligned}
@@ -302,9 +307,13 @@ $$
 
 ## Lecture 6 Naive Bayes Classifier
 ### 6.1 Introduction
-> **Thought**: Can we model $p(y|\mathbf{x})$ without model assumptions, e.g. Gussian/Bernoulli distribution etc.?
+> (1) **Thought**: Can we model 
+> $$p(y|\mathbf{x})$$
+> without model assumptions, e.g. Gussian/Bernoulli distribution etc.?
 > 
-> **Idea**: Estimate $p(y|\mathbf{x})$ from the data directly, then use the Bayes classifier.
+> (2) **Idea**: Estimate 
+> $$p(y|\mathbf{x})$$
+ from the data directly, then use the Bayes classifier.
 > 
 > Let $y$ be discrete,
 > 
@@ -316,10 +325,13 @@ $$
 > 
 > $$p(y|\mathbf{x})=\frac{p(\mathbf{x}|y)p(y)}{p(\mathbf{x})}$$
 > 
-> In this way, let's estimate $p(\mathbf{x}|y)$ and $p(y)$ instead.
+> In this way, let's estimate 
+> $$p(\mathbf{x}|y)$$ 
+> and 
+> $$p(y)$$ instead.
 
 ### 6.2 Naive Bayes
-We have a discrete lable space $C$ that can either be binary $\{-1,+1\}$ or multi-class $\{1,...,K\}$
+We have a discrete lable space $C$ that can either be binary ${-1,+1}$ or multi-class ${1,...,K}$
 
 #### 6.2.1 Estimate $p(y)$
 (1) Binary classification  
@@ -335,44 +347,3 @@ We have a discrete lable space $C$ that can either be binary $\{-1,+1\}$ or mult
 > (1) Case1: Categorical Features  
 > (2) Case2: Multinomial Features  
 > (3) Case3: Continuous Features(Gussian Naive Bayes)
- 
-## Lecture 7 Performance Evaluation for ML Methods
-### 7.1 Introduction
-
-### 7.2 Assessing Performance
-
-### 7.3 Statistical Tests
-#### 7.3.1 Parametric Tests
-
-#### 7.3.2 Non-parametric Tests
-* degree of freedom (review on stastics book)
-
-## Lecture 8 Radial Basis Function Networks
-### 8.1 Introduction
-
-### 8.2 Model using Radial Basis Functions
-* Use RBF to quantify the contribution of each training data point with respect to **its distance to the test point**
-
-#### 8.2.1 A Prediction Model: Kernel Regression
-* Two Interpratation: (LFD Chapter6-26)
-    * sum of $y_n$ with respect to $\alpha_n$
-    * sum of bumps, on each $x_n$, with weight $w_n(\mathbf{x})$
-* Depend on test input $\mathbf{x}_n$
-
-#### 8.2.2 A Simplified Prediction Model
-* The weight vector $\mathbf{w}$ here are unknown constants
-
-#### 8.2.3 Radial Basis Function Networks
-* Choose $k<<n$ weights/bumps 
-* Training the RBF-Network
-* Strategy
-
-## Lecture 9 Kerneal Methods
-### 9.1 Introduction
-### 9.2 Kernel Tricks
-
-
-
-
-
-
