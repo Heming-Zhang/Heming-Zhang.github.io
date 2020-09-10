@@ -138,9 +138,7 @@ For example, the function $\lim_{x\rightarrow{+\infty}}{f(x)}=\lim_{x\rightarrow
 >
 
 ### 1.8 Squeeze Principle (Sandwich Principle)
-> Let $g, h, f$ be functions defined on some open interval that contains the number $x_0$, except possibly at $x_0$ itself. If we have $g(x)\leq{f(x)}\leq{h(x)}$ with $0<|x-x_0|<r$, we will have relation such that
->
-> $$\lim_{x\rightarrow{x_0}(x\rightarrow{\infty})}g(x)=A,\lim_{x\rightarrow{x_0}(x\rightarrow{\infty})}h(x)=A\\ \Rightarrow{\lim_{x\rightarrow{x_0}(x\rightarrow{\infty})}}=A$$
+
 <br>
 <center>
 <img class = "medium" src="./calculus_pictures/calculus_007.png" height="55%" width="55%">

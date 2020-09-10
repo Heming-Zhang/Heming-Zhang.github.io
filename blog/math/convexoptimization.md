@@ -75,7 +75,7 @@ f(\mathbf{x}^{(k)}+\lambda_k{\mathbf{p}^{(k)}}) &=f(\mathbf{x}^{(k)}-\lambda_k{\
 >
 > $$\lambda_k=\frac{\nabla_{\mathbf{x}}f(\mathbf{x}^{(k)})^{\text{T}}\nabla_{\mathbf{x}}f(\mathbf{x}^{(k)})\|\nabla_{\mathbf{x}}f(\mathbf{x}^{(k)})^{\text{T}}\|}{\nabla_{\mathbf{x}}f(\mathbf{x}^{(k)})^{\text{T}}{\mathbf{H}(\mathbf{x}^{(k)})}\nabla_{\mathbf{x}}f(\mathbf{x}^{(k)})}$$
 
- 2.2 Newton's Method
+### 2.2 Newton's Method
 > If $f(\mathbf{x})$ has continuous second-order partial derivative, and $\mathbf{x}^{(k)}$ as its approximate minimum, which we have second-order Taylor Expansion:
 >
 > $$f(\mathbf{x})\approx{ f(\mathbf{x}^{(k)})+\nabla{f(\mathbf{x}^{(k)})}^{\text{T}}(\mathbf{x}-\mathbf{x}^{(k)})+\frac{1}{2}{(\mathbf{x}-\mathbf{x}^{(k)})^{\text{T}}}\mathbf{H}(\mathbf{x}^{(k)})(\mathbf{x}-\mathbf{x}^{(k)})}$$
