@@ -68,11 +68,11 @@ $ alias python=python (to switch back python to be python 2.7.16)
 > If $y=+1$ and the more $h(\mathbf{x})$ agree with $y$, the smaller loss is. (CSE 417T Lecture 16 Slide25). Therefore, the exponential loss is very aggressive and thus sensitive to label noise.
 
 #### 1.2.2 Commonly Used Regression Loss Function
-> (1) Squared Loss: $(f_{\mathbf{w}}(\mathbf{x}_i)-y_i)^2$  
-> (2) Absollute loss:  $\text{abs.}(f_{\mathbf{w}}(\mathbf{x}_i)-y_i)$  
-> (3) Huber Loss  
-> (4) Log-Cosh Loss  
-> (5) $\epsilon$-Insensitive Loss  
+> * Squared Loss: $(f_{\mathbf{w}}(\mathbf{x}_i)-y_i)^2$    
+> * Absollute loss:  $\text{abs.}(f_{\mathbf{w}}(\mathbf{x}_i)-y_i)$  
+> * Huber Loss  
+> * Log-Cosh Loss  
+> * $\epsilon$-Insensitive Loss  
 
 ### 1.3 Regularizers
 > (1) $l_2$-regularizer: $r(\mathbf{w})=\mathbf{w}^{\text{T}}\mathbf{w}$  
