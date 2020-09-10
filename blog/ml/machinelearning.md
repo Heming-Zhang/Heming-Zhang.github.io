@@ -49,11 +49,11 @@ $$
 >
 > To simplify the noation of the perceptron formula, we will treat the bias $b$ as a weight $w_0=b$ and merge it with the other weights into one vector $\mathbf{w}=[w_0,w_1,\cdots,w_n]^{T}$,where $^{T}$ denotes the transpose of a vector, so $\mathbf{w}$ is a column vector. We also treat $\mathbf{x}$ as a column vector and modify it to become $\mathbf{x}=[x_0,x_1,\cdots,x_n]^T(where\ x_0=1)$, therefore $\mathbf{x}=(x_1, x_2,\cdots,x_n)\in\mathbb{R}^{n}$
 
- * With such convention, we will have 
+With such convention, we will have 
 
- $$\mathbf{w}^{T}\mathbf{x}=\sum_{i=0}^{d}w_ix_i$$
+$$\mathbf{w}^{T}\mathbf{x}=\sum_{i=0}^{d}w_ix_i$$
 
- * Tips: 
+Tips: 
 
  $$
 \mathbf{w}^T\mathbf{x}=[w_0,w_1,\cdots,w_n]
@@ -70,7 +70,8 @@ $$
 =
 w_0x_0+w_1x_1+\cdots+w_nx_n=\sum_{i=0}^{n}w_ix_i
 $$
->
+
+
 > **Finally, we will get** 
 >
 > $$h(\mathbf{x})=sign(\mathbf{w}^T\mathbf{x})$$
@@ -82,9 +83,10 @@ $$
 We will use iterative method to find $\mathbf{w}$. At iteration $t$, where $t=0,1,2,\cdots$, there is a current value of the weight vector, call it $\mathbf{w}(t)$. Then the algorithm will pick one of misclassified examples, called $(\mathbf{x}(t),y(t))$, and uses it to update $\mathbf{w}(t)$. And the update rule is
 
 $$\mathbf{w}(t+1)=\mathbf{w}(t)+y(t)\mathbf{x}(t)$$
-* Tip1: $y(t)$ and $\mathbf{x}(t)$ are actully $y_{n(t)}$, $\mathbf{x}_{n(t)}$ in short.
 
-* Tip2: $y(t)$ and $\mathbf{x}(t)$ is a point from training data set $\mathcal{D}=\{(\mathbf{x_1}, y_1), (\mathbf{x_2}, y_2),\cdots,(\mathbf{x_i}, y_i),\cdots,(\mathbf{x_n}, y_n)\}$
+Tip1: $y(t)$ and $\mathbf{x}(t)$ are actully $y_{n(t)}$, $\mathbf{x}_{n(t)}$ in short.
+
+Tip2: $y(t)$ and $\mathbf{x}(t)$ is a point from training data set $\mathcal{D}=\{(\mathbf{x_1}, y_1), (\mathbf{x_2}, y_2),\cdots,(\mathbf{x_i}, y_i),\cdots,(\mathbf{x_n}, y_n)\}$
 >
 > Intution: suppose $(\mathbf{x},y)\in\mathcal{D}$ is a misclassified training example and $y=+1$
 > * $\mathbf{w}^T\mathbf{x}$ is negative
@@ -261,13 +263,13 @@ $$\hat{v^{*}_{t}}=-\frac{\nabla_{\mathbf{w}}E_{in}(\mathbf{w}(t))}{||\nabla_{\ma
 \end{aligned}
 $$
 
-Gradient Descent Algorithm
+* Gradient Descent Algorithm
 
 <center>
 <img class="center large" src=".//ml_pictures/ml027.png" height="50%" width="70%">
 </center>
 
-SGD(Stochastic Gradient Descent)
+* SGD(Stochastic Gradient Descent)
 
 <center>
 <img class="center large" src=".//ml_pictures/ml028.png" height="50%" width="70%">
@@ -313,3 +315,4 @@ Before getting more data, the simple model will have better effect. Following fi
 </center>
 
 After increasing number of data, the complex model($\mathcal{H_{10}}$) wins. And to solve overfitting problems, we may want to (1)start from simple model;(2)data cleaning / pruning; (3)data hinting; (4)regularization; (5)validation. 
+
