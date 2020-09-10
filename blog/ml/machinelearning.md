@@ -316,3 +316,43 @@ Before getting more data, the simple model will have better effect. Following fi
 
 After increasing number of data, the complex model($\mathcal{H_{10}}$) wins. And to solve overfitting problems, we may want to (1)start from simple model;(2)data cleaning / pruning; (3)data hinting; (4)regularization; (5)validation. 
 
+## 4. Validation
+### 4.1 Model Selection (Not Single Hypothesis Anymore)
+
+<center>
+<img class="center large" src=".//ml_pictures/ml068.png" height="50%" width="70%">
+</center>
+
+<center>
+<img class="center medium" src=".//ml_pictures/ml077.png" height="50%" width="50%">
+</center>
+
+> Tips: At here, $\mathcal{H}_{val}$ are formed up from many signle hypothesis from multiple hypothesis sets, and we are going to pick a best hypothesis set.
+
+<center>
+<img class="center large" src=".//ml_pictures/ml069.png" height="50%" width="70%">
+</center>
+
+### 4.2 Leave-one-out cross validation(LOOCV)
+
+Cross here means that this data point can be training data and validation data. And $E_{cv}$ is almost an unbiased estimator of $E_{out}(g)$.
+
+<center>
+<img class="center large" src=".//ml_pictures/ml073.png" height="50%" width="70%">
+</center>
+
+Making an concrete example for calculating LOOCV Error:
+
+<center>
+<img class="center large" src=".//ml_pictures/ml074.png" height="50%" width="70%">
+</center>
+
+Model selection
+  * For each hypothesis set, we need to run $n$ points to get its error.
+  * Then, just like the validation data set above, we can just pick a best hypothesis $g^{-}_{m^{*}}$ which comes from hypothesis set $\mathcal{H}_{m^{*}}$
+
+### 4.3 K-fold cross validation
+
+<center>
+<img class="center large" src=".//ml_pictures/ml076.png" height="50%" width="70%">
+</center>
