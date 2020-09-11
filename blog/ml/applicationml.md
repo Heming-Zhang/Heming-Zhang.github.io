@@ -10,6 +10,8 @@ category: ml
 ---
 
 ## 1. Neural Networks
+<hr>
+
 ### 1.1 Combining Perceptrons
 
 A simple and direct idea of **Neural Networks** is to combine perceptrons to approach the target function.
