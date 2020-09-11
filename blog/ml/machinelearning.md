@@ -21,6 +21,8 @@ Recommended Books
 * [Computer Age Statistical Inference](https://heming-zhang.github.io/course/[Bradley_Efron,_Trevor_Hastie]_Computer_Age_Statis(z-lib.org).pdf)
 
 ## 1. Learning Problem
+<hr>
+
 ### 1.1 Mathematical Notation
 > * unknown target function$f:\mathcal{X}\rightarrow\mathcal{Y}$
 > * training data $\mathcal{D}$
@@ -96,8 +98,12 @@ Tip2: $y(t)$ and $\mathbf{x}(t)$ is a point from training data set $\mathcal{D}=
 
 * [PLA extension reading](https://www.csie.ntu.edu.tw/~htlin/course/ml13fall/doc/02_handout.pdf)
 
+<br>
+<br>
+<br>
 
 ## 2. Linear Model
+<hr>
 
 ### 2.1 Linear Regression
 > **Linear Models**:
@@ -270,7 +276,12 @@ $$
 <img class="center large" src=".//ml_pictures/ml028.png" height="50%" width="70%">
 </center>
 
+<br>
+<br>
+<br>
+
 ## 3. Overfitting
+<hr>
 
 With High-Dimensional Input Space, sometimes it will cause low in-sample error and bad generalization, which can be demonstrated in following figure:
 
@@ -311,7 +322,13 @@ Before getting more data, the simple model will have better effect. Following fi
 
 After increasing number of data, the complex model($\mathcal{H_{10}}$) wins. And to solve overfitting problems, we may want to (1)start from simple model;(2)data cleaning / pruning; (3)data hinting; (4)regularization; (5)validation. 
 
+<br>
+<br>
+<br>
+
 ## 4. Validation
+<hr>
+
 ### 4.1 Model Selection (Not Single Hypothesis Anymore)
 
 <center>
@@ -352,7 +369,13 @@ Model selection
 <img class="center large" src=".//ml_pictures/ml076.png" height="50%" width="70%">
 </center>
 
+<br>
+<br>
+<br>
+
 ## 5. Three Principles
+<hr>
+
 ### 5.1 Occam 's Razor
 > An explanation of the data should be made as simple as possible, but no simpler. ——Albert Einstein
 >
@@ -398,7 +421,13 @@ $$small\ \Omega(\mathcal{H})\rightarrow{small\ Omega(h)}$$
 > * **"If you torture the data long enough, it will confess."**, which is the phenomena called **Data Reuse**. Trying different models **on the same data set** will eventually lead to "success". Therefore, we need to reuse by computing the combined VC dimension of all models(including what others tried)
 > * Be Blind: Avoid making modeling decision by data
 
+<br>
+<br>
+<br>
+
 ## 6. Estimating Probabilities from Data
+<hr>
+
 ### 6.1 MLE (Maximum Likelihood Estimation)
 > (1) Let $p(y=H)=\theta$, where $\theta$ is the unknown parameter, and all we have is $D$. So, the goal is to choose $\theta$ such taht observed data $D$ is most like likely.  
 > (2) Formally(MLE principle), Find $\hat{\theta}$ that maximizes the likelihood of the data $p(D|\theta)$.  
