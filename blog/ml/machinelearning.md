@@ -476,7 +476,7 @@ Disadvantages:
 (2) Also we have to choose a reasonable prior
 
 
-> **Posterior Mean**: Note that MAP is only one way to get an estimator for $\theta$. There is much more information in $P(\theta|D)$. So, instead of the maximum as we did with MAP, we can use the posterior mean (and even its variance).
+> **Posterior Mean**: Note that MAP is only one way to get an estimator for $\theta$. There is much more information in $P(\theta\|D)$. So, instead of the maximum as we did with MAP, we can use the posterior mean (and even its variance).
 > 
 > $$\hat{\theta}_{\text{MEAN}}=E[\theta, D]=\int_{\theta}\theta{p(\theta|D)}d\theta$$
 
