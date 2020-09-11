@@ -69,28 +69,39 @@ At last, we can check the following for details of whole process of **Back Propa
 <img class="center large" src=".//ml_pictures/ml107.png" height="50%" width="90%">
 </center>
 
-### 1.3 Computing Gradients with Feed Forward and Back Propagation
+In summary, we will use following figures to describe the **Gradients Descent with Feed Forward and Back Propagation**:
 
 <center>
 <img class="center large" src=".//ml_pictures/ml108.png" height="50%" width="90%">
 </center>
 
-### 12.5 Mini-batch Gradient Descent
+Calculating gradient for full points will cause a huge amount of time. Therefore, we will use **Mini-batch Gradient Descent**:
+
 <center>
 <img class="center large" src=".//ml_pictures/ml109.png" height="50%" width="90%">
 </center>
 
-### 12.6 Regulation
+### 1.3 Regulation
+
+Also, in neural network research, overfitting is a annoying problem. To solve this, we propose to use **Regulation**:
+
 <center>
 <img class="center large" src=".//ml_pictures/ml110.png" height="50%" width="70%">
 </center>
 
-### 12.7 Dropout Regulation
+Also, **Dropout Regulation** is an effective way:
+
 <center>
 <img class="center large" src=".//ml_pictures/ml111.png" height="50%" width="70%">
 </center>
 
-### 12.8 MLP as Universal Approximators
+### 1.4 MLP as Universal Approximators
+
+> Therom: Any function that can be decomposed into perceptrons can be modelled exactly using a 3-layer MLP. Any smooth decision boundary can be approximated to an arbitrary precision using a finite number of perceptrons.
+
 <center>
-<img class="center large" src=".//ml_pictures/ml112.png" height="50%" width="70%">
+<img class="center large" src=".//ml_pictures/ml113.png" height="50%" width="70%">
 </center>
+
+> Therom: Any smooth decision boundary can be approximated to an arbitrary precision using a 3-layer MLP
+
