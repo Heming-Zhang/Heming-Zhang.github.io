@@ -59,6 +59,7 @@ f(\mathbf{x}^{(k)}+\lambda_k{\mathbf{p}^{(k)}}) &=f(\mathbf{x}^{(k)}-\lambda_k{\
 &= \mathbf{x}^{(k)}-\lambda_0{\nabla_{\mathbf{x}}f(\mathbf{x}^{(k)})}
 \end{aligned}
 $$
+>
 > * If $f(\mathbf{x})$ has second-order continuous partial derivative, and use **Taylor Second-Order Expansion** at point $\mathbf{x}^{(k)}$ with negative gradient $-\nabla_{\mathbf{x}}{f}(\mathbf{x}^{(k)})^{\text{T}}$ as search direction
 >
 > $$
