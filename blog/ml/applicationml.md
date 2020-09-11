@@ -116,8 +116,12 @@ Bootstrapping Example:
 > * Initialize each feature's importance to zero
 > * Each time a feature is chosen by the ID3 algorithm(with split-feature randomization), add that feature's information gain(relative to the split) to its importance.
 
+<br>
+<br>
+<br>
 
 ## 3. Boosting
+<hr>
 
 Another Cons for Decision Tree is High Bias(Especially short trees, i.e. stumps). Therefore, we introduce a new way - **Boosting**.
 
@@ -173,36 +177,43 @@ is in its prediction: the bigger the margin, the more confident.
 >
 > Tips: $n$ increase, I think that the model will become more inconfident.
 
+<br>
+<br>
+<br>
 
 ## 4. Nearest Neighbour
+<hr>
 
-### 9.1 Similarity
+### 4.1 Introduction to Nearest Neighbour
 * Euclidean Distance
 * Cosine similarity
 * Mahalanobis Distance
 
-### 9.2 Nearest Neighbour
-* Let $\mathbf{x}_{[1]}{\mathbf{x}}$ be $\mathbf{x}$'s nearest neighbour, i.e. the closest point to $\mathbf{x}$ in $\mathcal{D}$
+> Nearest Neighbour:  
+> Let $\mathbf{x}_{[1]}{\mathbf{x}}$ be $\mathbf{x}$'s nearest neighbour, i.e. the closest point to $\mathbf{x}$ in $\mathcal{D}$  
+> The nearest neighbour hypothesis
+> * $g(\mathbf{x})=y_{[1]}(\mathbf{x})$
+> * Require no training!
+> * Always no training error!(Can always shatter points)
 
-* The nearest neighbour hypothesis
-    * $g(\mathbf{x})=y_{[1]}(\mathbf{x})$
-    * Require no training!
-    * Always no training error!(Can always shatter points)
-
-### 9.3 Generallization of Nearest Neighbour
+### 4.2 Generallization of Nearest Neighbour
 > Claim: $E_{out}$ for the nearest neighbour hypothesis is not much worse than the best possible $E_{out}$
 >
 > Formally: under certain conditions, with high probability, $E_{out}(g)\leq{2{E}_{out}(g^{*})}$ as $n\rightarrow{\infty}$
 >
-> Proof:
-> * Assume a binary classification problem: $\mathcal{Y}=\{-1,+1\}$
-> * Assume labels are noisy:
+>
+> Proof:  
+>
+> Before proof, here are the assumptions:  
+> (1)Assume a binary classification problem: $\mathcal{Y}=\{-1,+1\}$  
+> (2)Assume labels are noisy:  
 >
 > $$\pi(\mathbf{x})=P\{y=+1|\mathbf{x}\}$$
 >
-> * Assume $\pi(\mathbf{x})$ is continuous
-> * As $n\rightarrow{\infty}$, $\mathbf{x}_{[1]}{\mathbf{x}}\rightarrow{\mathbf{x}}$
-> * Therefore,
+> (3) Assume $\pi(\mathbf{x})$ is continuous  
+> (4) As $n\rightarrow{\infty}$, $\mathbf{x}_{[1]}{\mathbf{x}}\rightarrow{\mathbf{x}}$  
+>
+> Therefore,
 >
 > $$
 \begin{aligned}
@@ -218,7 +229,7 @@ $$
 > Self-Regularization: The nearest neighbour hypothesis can only be complex when there is more data.
 
 
-### 9.4 k-Nearest Neighbour(kNN)
+### 4.3 k-Nearest Neighbour(kNN)
 > Classify a point as the most common label among the labels of the $k$ nearest training points
 >
 > If we have a binary classification probelm and $k$ is odd:
@@ -227,37 +238,18 @@ $$
 >
 > Setting $k$
 
-### 9.5 kNN Pros and Cons
-> Pros
-> * Intuitive/explainable
-> * No training/retraining
-> * Provably near-optimal in terms of $E_{out}$
->
-> Cons:
-> * Computationally expensive
->    * Always needs to store all data
->    * Computing $g(\mathbf{x})$ requires computing distances and sorting
- 
-### 9.6 Efficient $k$-Nearest Neighbours
-> **Curse of Dimensionality**
-> * With increment of dimensinality, the furthest point and the closest points grow closer.
-> * What can we do?
->    * More data
->    * Fewer dimensions
->    * Blessing non-uniformity
->
-> **Data Condensing**
-> * Use fewer input data points but have same predictions out of training data set
-> * be less rigid
-> * Use fewer input data points but have same predictions in trainding data set
+kNN Pros and Cons  
+For pros, it is (1)Intuitive/explainable; (2)Has No training/retraining; (3)Provably near-optimal in terms of $E_{out}$
+
+As to cons, it is Computationally expensive, which always needs to store all data, and computing $g(\mathbf{x})$ requires computing distances and sorting
 
 
-### 9.7 Condensed Nearest Neighbour(CNN)
+### 4.4 Condensed Nearest Neighbour(CNN)
 <center>
 <img class="center large" src=".//ml_pictures/ml085.png" height="50%" width="70%">
 </center>
 
-### 9.8 Organizing the inputs
+**Procedure #1: Organizing the inputs**
 * Just split the inputs into clusters, groups of points that are close to one another but far from other groups.
 
 <center>
@@ -272,7 +264,7 @@ $$
 <img class="center large" src=".//ml_pictures/ml087.png" height="50%" width="70%">
 </center>
 
-### 9.9 Clustering inputs
+**Procedure #2: Clustering inputs**
 * Using **Triangle Inequality** in norm, we have
 
  <center>
@@ -290,7 +282,7 @@ $$
     * 2nd Step is about how to assign every points in data set $\mathcal{D}$ to $C$ clusters
     * 3rd Step is about after assigned point to each cluster, we need to update its center point and the radius
 
-### 9.10 Parametric vs. Non-parametric
+### 4.5 Parametric vs. Non-parametric
 > Parametric Model
 > * Hypotheses have a parametrized form
 > * Parameters learned from training data; can discard training data afterwards;
@@ -302,7 +294,7 @@ $$
 > * Training data generally need to be stored in order to make predictions
 > * Can recover any target function given enough data
 
-### 9.11 Radial Basis Functions(RBF)
+### 4.6 Radial Basis Functions(RBF)
 > * kNN only consider some points and weights them equally
 > * What if we considered all points but weighted them unequally?
 > * Intution: all points are useful but some points are more useful than others!
@@ -336,9 +328,14 @@ And finally, we have
 <img class="center medium" src=".//ml_pictures/ml093.png" height="50%" width="50%">
 </center>
 
-## Chapter 10 (L19-21) Support Vector Machine
+<br>
+<br>
+<br>
 
-### 10.1 Maximal Margin Linear Separators
+## 5. Support Vector Machine
+<hr>
+
+### 5.1 Maximal Margin Linear Separators
 > We want maximum the margin with restraint on correct classification.
 >
 > $$
@@ -358,7 +355,7 @@ $$
 >
 > $$\frac{1}{\|\mathbf{w}\|}$$
 
-### 10.2 How to calculate the margin?
+### 5.2 How to calculate the margin?
 > First, we want to prove that weight vector $\mathbf{w}$ is orthogonal to the hyperplane $h(\mathbf{x})=\mathbf{w^{T}x}+w_0=0$
 > 
 > Second, we will use the knowledge of projection. Suppose $\mathbf{x}'$ be an arbitrary point on the hyperplane, and $\mathbf{x}''$ be an arbitrary point. The distance between $\mathbf{x}''$ to the hyperplane $h(\mathbf{x})=\mathbf{w^{T}x}+w_0=0$ will be
@@ -371,14 +368,14 @@ $$
 <img class="center large" src=".//ml_pictures/ml095.png" height="50%" width="70%">
 </center>
 
-### 10.3 Why maximal margin?
+### 5.3 Why maximal margin?
 > With minimum margin $\rho$, linear separators in $\mathcal{H}_{\rho}$ can not always shatter all sets of three points.
 
 <center>
 <img class="center large" src=".//ml_pictures/ml096.png" height="50%" width="70%">
 </center>
 
-### 10.4 Soft-Margin SVMs
+### 5.4 Soft-Margin SVMs
 
 <center>
 <img class="center large" src=".//ml_pictures/ml097.png" height="50%" width="70%">
@@ -390,15 +387,14 @@ $$
 <img class="center large" src=".//ml_pictures/ml098.png" height="50%" width="70%">
 </center>
 
+<br>
+<br>
+<br>
 
-
-
-
-
-## 1. Neural Networks
+## 6. Neural Networks
 <hr>
 
-### 1.1 Combining Perceptrons
+### 6.1 Combining Perceptrons
 
 A simple and direct idea of **Neural Networks** is to combine perceptrons to approach the target function.
 
@@ -431,7 +427,7 @@ Then we can make **Forward Propagation for Predictions**:
 <img class="center large" src=".//ml_pictures/ml103.png" height="50%" width="80%">
 </center>
 
-### 1.2 Backpropagation
+### 6.2 Backpropagation
 
 The most important and interesting part of neural network is about backpropagation. To minimize the error function of the huge neural network with forward propagation of predictinos, we need to **Compute Gradients**:
 
@@ -467,7 +463,7 @@ Calculating gradient for full points will cause a huge amount of time. Therefore
 <img class="center large" src=".//ml_pictures/ml109.png" height="50%" width="90%">
 </center>
 
-### 1.3 Regulation
+### 6.3 Regulation
 
 Also, in neural network research, overfitting is a annoying problem. To solve this, we propose to use **Regulation**:
 
@@ -481,7 +477,7 @@ Also, **Dropout Regulation** is an effective way:
 <img class="center large" src=".//ml_pictures/ml111.png" height="50%" width="70%">
 </center>
 
-### 1.4 MLP as Universal Approximators
+### 6.4 MLP as Universal Approximators
 
 > Therom: Any function that can be decomposed into perceptrons can be modelled exactly using a 3-layer MLP. Any smooth decision boundary can be approximated to an arbitrary precision using a finite number of perceptrons.
 
