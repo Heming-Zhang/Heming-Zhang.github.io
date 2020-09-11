@@ -497,7 +497,7 @@ $$\hat{\theta}_{MAP}=\frac{n_{H}+\alpha-1}{n+\alpha+\beta-2}$$
 
 
 Advantages:  
-(1) as $n{\rightarrow}{\infty}$, $\hat{\theta}_{MAP}{\rightarrow}\hat{\theta}_{MLE}$  
+(1) as $n$ approach infinity, MAP Estimation will approach MLE.
 (2) MAP is a great estimator if prior belief exists and is accurate
 
 Disadvantages:  
