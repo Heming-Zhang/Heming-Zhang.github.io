@@ -792,65 +792,7 @@ $$\mathbb{E}_{\mathbf{x}_i}[e(h(\mathbf{x}_i),y_i)]=\mathbb{E}_{\mathbf{x}}[e(h(
 <img class="center large" src=".//ml_pictures/ml079.png" height="50%" width="70%">
 </center>
 
-### 5.2 Simple Models
-> * Simple Hypothesis$h$: Few parameters
-> * Simple Model$\mathcal{H}$: contain small number of hypotheses(slow growth function)
-> * Connection: If we only have $2^{l}$ hypotheses, then we only need $l$ bits to represent each model.
-> * Example: constrain with weight be smaller than 2 for 2-dimensions positive integer, then we have at most 4 hypotheses with 2 parameters.
-> * Therefore, $small\ \Omega(\mathcal{H})\rightarrow{small\ Omega(h)}$
 
-* Case Study #1
-    * Suppose I tell you that I have found a $10^{th}$-order polynomial that perfectly fits my dataset of 10 points.
-    * Should you believe that the true function is a $10^{th}$-order polynomial?
-    * The Answer is no! Since $10^{th}$-order polynomial function can always fits 10 points.
-    * And suppose I tell you I have found a line that perfectly fits my dataset of 10 points?
-
-* Axiom of Non-falsifiability
-    * If an experiment has no chance of falsifying a hypothesis, then the result of that experiment provides no evidence one way or the other for the hypothesis.
-
-* Counterpoint: Hickam's Dictum
-    * "A man can have as many diseases as he damn well pleases."
-    * Data Snooping: with other target functions $f_1,\ f_2$
-
-### 5.3 Sampling Bias
-* Case Study #2
-    * Presidential Story: 1948 US President election => Truman versus Dewey
-
-* Case Study #3
-    * Trump versus Hillary
-
-* Data and Testing both iid from $\mathcal{P}$
-    * If not from the same distribution, we will have **VC Fails**
-
-### 5.4 Data Snooping
-* Visualize data => careful about your brain's model complexity.
-
-<center>
-<img class="center large" src=".//ml_pictures/ml080.png" height="50%" width="70%">
-</center>
-
-* Red line shows the result when we compute $z$ with 8 years data(train & test)
-* Blue line shows the result when we compute $z$ with 6 years training data and normalize test data with mean and variance from training data.
-
-<center>
-<img class="center large" src=".//ml_pictures/ml081.png" height="50%" width="70%">
-</center>
-
-* **"If you torture the data long enough, it will confess."**
-
-* Data Reuse
-    * Trying different models **on the same data set** will eventually lead to "success"
-
-    * Therefore, we need to reuse by computing the combined VC dimension of all models(including what others tried)
-
-### 5.5 Dealing with Data Snooping
-* Be Blind: Avoid making modeling decision by data
-* Be suspicious: interpret research results(including your own)by proper feeling of contamination
-
-* Secret to winning KDDCups:
-    * careful balance between 
-        * data_driven modeling(snooping)
-        * valiation(no-snooping)
 
 
 ## Chapter 6 (L14): Decision Trees
