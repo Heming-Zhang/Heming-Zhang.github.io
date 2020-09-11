@@ -1,7 +1,7 @@
 ---
 layout: notes
 section-type: notes
-title: Machine Learning
+title: Machine Learning Theory
 category: ml
 ---
 

@@ -52,9 +52,9 @@ category: ml
 
 ### 1.5 Pruning Process
 
-> Input: a decision tree $t$, and a validation dataset, $\mathcal{D}_{val}$
+> Input: a decision tree $t$, and a validation dataset, $\mathcal{D}_{val}$  
 > Compute the validation error of tree $t$, and get $E_{val}(t)$
-> For each split $s\in{t}$
+> For each split $s$ in $t$
 > * Compute $E_{val}(t\backslash{s})=$ the validation error of $t$ with $s$ replaced by a leaf using the most common label at $s$.
 > * If exist a split $s\in{t}$, s.t. $E_{val}(t\backslash{s})\leq{E_{val}(t)}$, repeat the pruning process with $t\backslash{s^{*}}$, where $t\backslash{s^{*}}$ is the pruned tree with minimal validation error.
 >
