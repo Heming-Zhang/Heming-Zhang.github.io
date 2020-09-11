@@ -385,31 +385,16 @@ $$small\ \Omega(\mathcal{H})\rightarrow{small\ Omega(h)}$$
 > Therefore, we need **Data and Testing** both iid from $\mathcal{P}$. If not from the same distribution, we will have **VC Fails**
 
 ### 5.4 Data Snooping
-* Visualize data => careful about your brain's model complexity.
 
 <center>
 <img class="center large" src=".//ml_pictures/ml080.png" height="50%" width="70%">
 </center>
 
-* Red line shows the result when we compute $z$ with 8 years data(train & test)
-* Blue line shows the result when we compute $z$ with 6 years training data and normalize test data with mean and variance from training data.
+(1) Red line shows the result when we compute $z$ with 8 years data(train & test)  
+(2) Blue line shows the result when we compute $z$ with 6 years training data and normalize test data with mean and variance from training data.
 
-<center>
-<img class="center large" src=".//ml_pictures/ml081.png" height="50%" width="70%">
-</center>
+> To avoid **Data Snooping**, we need to avoid several following things:  
+> * Visualize data => careful about your brain's model complexity.
+> * **"If you torture the data long enough, it will confess."**, which is the phenomena called **Data Reuse**. Trying different models **on the same data set** will eventually lead to "success". Therefore, we need to reuse by computing the combined VC dimension of all models(including what others tried)
+> * Be Blind: Avoid making modeling decision by data
 
-* **"If you torture the data long enough, it will confess."**
-
-* Data Reuse
-    * Trying different models **on the same data set** will eventually lead to "success"
-
-    * Therefore, we need to reuse by computing the combined VC dimension of all models(including what others tried)
-
-### 5.5 Dealing with Data Snooping
-* Be Blind: Avoid making modeling decision by data
-* Be suspicious: interpret research results(including your own)by proper feeling of contamination
-
-* Secret to winning KDDCups:
-    * careful balance between 
-        * data_driven modeling(snooping)
-        * valiation(no-snooping)
