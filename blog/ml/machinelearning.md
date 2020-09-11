@@ -467,13 +467,13 @@ Hence,
 $$\hat{\theta}_{MAP}=\frac{n_{H}+\alpha-1}{n+\alpha+\beta-2}$$  
 
 
-Advantages:
-* as $n\rightarrow{\infty}$, $\hat{\theta}_{MAP}\rightarrow\hat{\theta}_{MLE}$
-* MAP is a great estimator if prior belief exists and is accurate
+Advantages:  
+(1) as $n\rightarrow{\infty}$, $\hat{\theta}_{MAP}\rightarrow\hat{\theta}_{MLE}$  
+(2) MAP is a great estimator if prior belief exists and is accurate
 
-Disadvantages:
-* If $n$ is small, it can be very wrong if prior belief is wrong
-* Also we have to choose a reasonable prior
+Disadvantages:  
+(1) If $n$ is small, it can be very wrong if prior belief is wrong  
+(2) Also we have to choose a reasonable prior
 
 
 > **Posterior Mean**: Note that MAP is only one way to get an estimator for $\theta$. There is much more information in $P(\theta|D)$. So, instead of the maximum as we did with MAP, we can use the posterior mean (and even its variance).
