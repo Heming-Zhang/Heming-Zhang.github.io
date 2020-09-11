@@ -9,17 +9,24 @@ category: cs
 {:toc}
 ---
 
-## Recommended Books
+Recommended Books
 
 * [Introduction to Algorithms(2009)(3rd Edition)](https://heming-zhang.github.io/course/Introduction_to_Algorithms(2009)(3rd_Edition).pdf)
 
+
 ## Introductions
-### Algorithm Definition
+Algorithm Definition
 * An "Effective Procedure"
 * For taking any instance of a computational problem
 * finding a correct solution
 
-## Asymptotic Complexity (Lecture 1)
+<br>
+<br>
+<br>
+
+## Asymptotic Complexity
+<hr>
+
 ### Desirable Properties of Running Time Estimates
 
 ### Definition of Big-O Notation
@@ -102,8 +109,12 @@ n^b&\neq{\Omega({a^n})}
 \end{aligned}
 $$
 
+<br>
+<br>
+<br>
 
 ## Abstract Data Type(ADT)
+<hr>
 
 <center>
 <img class="center large" src=".//cs_pictures/datastr_000.png">
@@ -183,7 +194,12 @@ p.next = q;
 > Queue: Add to tail; Remove from the head;  
 > Stack: Add to top; Remove from the top;
 
+<br>
+<br>
+<br>
+
 ## Priority Queue(PQ)
+<hr>
 
 ### Priority Queue Default
 * In PQ, we assume that the header items is the min value
@@ -305,8 +321,13 @@ $$T(n)=T(g(n))+k=T(\frac{2n}{3})+k$$
 * We can use binary search in Ordered Array to find where to insert but we still need $\Theta(n)$ time to rearrange the array. Therefore $\Theta(n)+\Theta(\log{n})+\Theta(1)=\Theta(n)$
 
 
+<br>
+<br>
+<br>
 
-## Recurrence(Lecture4,5; Studio4,5)
+## Recurrence
+<hr>
+
 ### Substituion(Guess and Check)
 * Claim and then math induction
 
@@ -329,8 +350,13 @@ $$T(n)=T(g(n))+k=T(\frac{2n}{3})+k$$
 
 $$T(n)=T(\frac{n}{2})+c$$
 
+<br>
+<br>
+<br>
 
-## Sort(Lecture6, Studio6)
+## Sort
+<hr>
+
 ### Comparison Sort
 * We want a lower bound for comparison sort algorithm
 * How many comparisons do we need to sort an input array of size n?
@@ -397,9 +423,13 @@ $$T(n)=T(\frac{n}{2})+c$$
     * Total time is $\Theta(d(n+k))$
 
 
+<br>
+<br>
+<br>
 
+## Hashing
+<hr>
 
-## Hashing(Lecture8,9 Studio8,9)
 * Is it possible to implement a dictionary with sublinear time for all of insert, remove and find?
 
 ### Dictionary ADT
@@ -605,8 +635,13 @@ $$b(c) = (c\cdot{A}\ mod\ 1.0)\cdot{m}$$
     * In worst case, $N(h)=N(h-1)+N(h-2)$
     * Claim: AVL tree at least has $\Phi^{h}$ nodes
 
+<br>
+<br>
+<br>
 
-## AVL Tree and B+ Tree(lecture 11)
+## AVL Tree and B+ Tree
+<hr>
+
 ### Check AVL Property
 * Key measurement: Balance Factor
     * x.right.h - x.left.h
@@ -633,8 +668,12 @@ $$b(c) = (c\cdot{A}\ mod\ 1.0)\cdot{m}$$
 
 * **Deletion Probelm(Studio 11)**
 
+<br>
+<br>
+<br>
 
-## Graph(Lecture 12)
+## Graph
+<hr>
 
 ### Some definitions of Graph
 * A graph $G=(V,E)$ is a set of nodes or vertices, together with a set of $E$ of edges(described as pairs of vertices)
@@ -679,7 +718,12 @@ $$b(c) = (c\cdot{A}\ mod\ 1.0)\cdot{m}$$
 
 * A [Video](https://youtube.com/watch?v=AK7BuT5MgU0) about cycle finding.
 
-## Weighted Shortest Paths(Lecture 13)
+<br>
+<br>
+<br>
+
+## Weighted Shortest Paths
+<hr>
 
 ### Alternate Strategy - "Relaxation"
 * Whenever we follow an edge $(v,u)$, check whether
@@ -706,7 +750,13 @@ $$v.dist+w(v,u)<u.dist$$
 * At each step, must efficiently **find** vertex $v$ in collection by using **extractMin**  with smallest $v.dist$ **remove** it
 * Decreasing $v.dist$ is done by using $v$'s **Decreaser** object
 
-## Weighted Shortest Paths(Lecture13)
+<br>
+<br>
+<br>
+
+## Weighted Shortest Paths
+<hr>
+
 * Problem: Given a starting vertex $v$, find path of least total weight from $v$ to each other vertex in the graph.
 
 * Alternative Strategy - "Relaxation"
@@ -731,7 +781,13 @@ Using PQ as ADT :
     * Contradiction: If there are a vertex $u$ on the path from start to $v$, and with IH, we know $u.dist$ is correct, and we find the shortest path from $u$ to $v$, which makes contradiction.
     * Otherwise, if there is a vertex $x$ has a distance $x.dist<v.dist$, the extractmin should give $x$ instead of $v$, which also makes contractions.
 
-## Greedy Algorithm and the Minimum Spanning Tree(Lecture14)
+<br>
+<br>
+<br>
+
+## Greedy Algorithm and the Minimum Spanning Tree
+<hr>
+
 * Want to minimize the total cost to connect all vertices
 
 ### Minimum Spaning Tree (MST)
@@ -762,9 +818,6 @@ Using PQ as ADT :
 * Running Time:
     * Sorted edges, run main loop
     * Main Loop: Union Find-> Make sure no cycle 
-
-
-
 
 <!-- <print markdown to pdf>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>

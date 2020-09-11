@@ -36,7 +36,3 @@ In the head of those files, those are binary bits for "rwx"(Read, Write, Execute
 </center>
 
 ### Navigating in Linux Demo
-
-
-
-

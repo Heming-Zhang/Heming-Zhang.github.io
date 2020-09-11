@@ -9,9 +9,8 @@ category: en_misc
 {:toc}
 ---
 
-## Recommended Java Resources
-
 ## Data Type
+<hr>
 
 ### Integer
 * Difference between int and Integer
@@ -44,8 +43,12 @@ OR
 int [] intArray = new int[20];
 ```
 
+<br>
+<br>
+<br>
 
 ## Generics
+<hr>
 
 * From the point of my view, I think **Generics** is just another kind of class.
 
@@ -83,8 +86,6 @@ public static<T> void printMe(T[] x){
 * V - Value
 * T - Type
 
-
-
 ### Generics Application in Java
 * Say we have different types of data and we want to return a sorted list. Therefore, we need a class called "compareTo", and to use generics
 
@@ -119,7 +120,12 @@ public static <T extends Comparable<T>> T max(T[] x){
 }
 ```
 
+<br>
+<br>
+<br>
+
 ## Java Control Flow
+<hr>
 
 ### For Loop
 
@@ -131,7 +137,12 @@ for(Integer i: array){
 }
 ```
 
+<br>
+<br>
+<br>
+
 ## Java Class
+<hr>
 
 ### Inheritence
 * subclass can **extends** superclass
@@ -167,7 +178,6 @@ GameObject game = new GameObject();// this sentence will be invalid in java with
 
 
 ### Polymorphism
-
 
 ```java
 public abstract class GameObject {
@@ -213,9 +223,12 @@ tuna.saying();
 output: Nancy.
 ```
 
-### Object Class
+<br>
+<br>
+<br>
 
 ## Collection
+<hr>
 
 ### Interface in Collection
 * Iterator
@@ -348,19 +361,3 @@ for(String key: keys) {
     System.out.println(map.get(key));
 }
 ```
-
-## JUnit
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -16,16 +16,8 @@ category: ml
     * Course [Video Link](https://www.youtube.com/results?search_query=cs+231n)
 
 
-## 1st Lecture Introduction
-
-## 2nd Lecture Image Classfication
-
-## 3rd Lecture Loss Functions and Optimization
-
-## 4th Lecture Neural Networks and Back Propogation
-
-## 5th Lecture Convolutional Neural Networks
-### 5.1 Convolute
+## 1. Convolutional Neural Networks
+### 1.1 Convolute
 <center>
 <img class="center large" src=".//net/net001.png" height="50%" width="70%">
 </center>
@@ -36,13 +28,12 @@ category: ml
 <img class="center large" src=".//net/net002.png" height="50%" width="70%">
 </center>
 
-### 5.2 Pooling
+### 1.2 Pooling
 <center>
 <img class="center large" src=".//net/net003.png" height="50%" width="70%">
 </center>
 
-## 7, 8th Lecture Training Neural Networks
-### 7.1 Activation Functions
+### 1.3 Activation Functions
 <center>
 <img class="center large" src=".//net/net004.png" height="50%" width="70%">
 </center>
@@ -51,18 +42,18 @@ category: ml
 <img class="center large" src=".//net/net005.png" height="50%" width="70%">
 </center>
 
-### 7.2 Weight Initialization
+### 1.4 Weight Initialization
 * Xavier Initialization
 
-### 7.3 Batch Normalization
+### 1.5 Batch Normalization
 <center>
 <img class="center large" src=".//net/net006.png" height="50%" width="80%">
 </center>
 
-### 7.4 Transfer Learning
+### 1.6 Transfer Learning
 * [Demo Link](https://blog.csdn.net/SunshineSki/article/details/84086760)
 
-### 8.1 Optimizer
+### 1.7 Optimizer
 * SGD + Momentum
 <center>
 <img class="center large" src=".//net/net007.png" height="50%" width="80%">
@@ -78,23 +69,23 @@ category: ml
 <img class="center large" src=".//net/net009.png" height="50%" width="80%">
 </center>
 
-### 8.2 Learning Rate Decay
+### 1.8 Learning Rate Decay
 <center>
 <img class="center large" src=".//net/net010.png" height="50%" width="80%">
 </center>
 
-### 8.3 Regularization
+### 1.9 Regularization
 * Dropout
 * [Dropout Lecture Link](http://cs231n.stanford.edu/slides/2020/lecture_8.pdf)
 
 
-## 9th Lecture CNN Architectures
-### 9.1 AlexNet
+## 2. CNN Architectures
+### 2.1 AlexNet
 <center>
 <img class="center large" src=".//net/net011.png" height="50%" width="80%">
 </center>
 
-### 9.2 VGGNet
+### 2.2 VGGNet
 <center>
 <img class="center large" src=".//net/net012.png" height="50%" width="80%">
 </center>
@@ -103,7 +94,7 @@ category: ml
 <img class="center large" src=".//net/net013.png" height="50%" width="80%">
 </center>
 
-### 9.3 GoogLeNet
+### 2.3 GoogLeNet
 <center>
 <img class="center large" src=".//net/net014.png" height="50%" width="80%">
 </center>
@@ -121,7 +112,7 @@ category: ml
 <img class="center large" src=".//net/net017.png" height="50%" width="80%">
 </center>
 
-### 9.4 ResNet
+### 2.4 ResNet
 <center>
 <img class="center large" src=".//net/net018.png" height="50%" width="80%">
 </center>
@@ -130,8 +121,8 @@ category: ml
 <img class="center large" src=".//net/net019.png" height="50%" width="80%">
 </center>
 
-## 10th Lecture Recurrent Neural Networks
-### 10.1 Genreal Applications
+## 3. RNN (Recurrent Neural Networks)
+### 3.1 Genreal Applications
 <center>
 <img class="center large" src=".//net/net020.png" height="50%" width="80%">
 </center>
@@ -148,7 +139,7 @@ category: ml
 <img class="center large" src=".//net/net023.png" height="50%" width="80%">
 </center>
 
-### 10.2 Recurrence Formula
+### 3.2 Recurrence Formula
 <center>
 <img class="center large" src=".//net/net024.png" height="50%" width="80%">
 </center>
@@ -166,7 +157,7 @@ category: ml
 <img class="center large" src=".//net/net028.png" height="50%" width="80%">
 </center>
 
-### 10.3 Recurrent Model
+### 3.3 Recurrent Model
 <center>
 <img class="center large" src=".//net/net025.png" height="50%" width="80%">
 </center>
@@ -179,12 +170,12 @@ category: ml
 <img class="center large" src=".//net/net027.png" height="50%" width="80%">
 </center>
 
-### 10.4 Model Applications
+### 3.4 Model Applications
 <center>
 <img class="center large" src=".//net/net029.png" height="50%" width="80%">
 </center>
 
-### 10.5 LSTM (Long Short Term Memory)
+### 3.5 LSTM (Long Short Term Memory)
 <center>
 <img class="center large" src=".//net/net032.png" height="50%" width="80%">
 </center>

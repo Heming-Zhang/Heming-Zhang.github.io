@@ -16,50 +16,46 @@ category: ml
     * Course [Video Link](https://www.youtube.com/watch?v=0eNQnc0eOB4&list=PL1OaWjIc3zJ4xhom40qFY5jkZfyO5EDOZ)
 
 
-## 1st Lecture Introduction and Structure of Graphs 
+## 1. Introduction and Structure of Graphs
+<hr>
+
 ### 1.1 Components of Graph
 * Objects: nodes, vertices $N$
 * Interactions: links, edges $E$
 * System: network, graph $G(N,E)$
 
-### 1.2 Node Degrees
-* Node Degree
+### 1.2 Features of Graph
 * Avg Degree $\bar{k}=\frac{1}{N}{\sum_{i=1}^{N}k_i}=\frac{2E}{N}$
+* Adjacency Matrix: Undirected and Directed Graphs
 
-### 1.3 Biartite Graph
-* Folded/Projected Bipartite Graphs
-
-### 1.4 Adjacency Matrix
-* Undirected
-* Directed
-
-### 1.5 Edge Attributes
+### 1.3 Edge Attributes
 * Weight(e.g. frequency of communication)
 * Ranking(best friend, second best friend)
 * Type(friend, relative, co-worker)
 * Sign(Friend vs. Foe, Trust vs. Distrust)
 
-### 1.6 Types of Graphs
+### 1.4 Types of Graphs
 * Unweighted; Weighted
 * Self-edges; Multigraph
 
-### 1.7 Connectivity
-* Connectivity of Undirected graph
-* Connectivity of directed graph
 
-## 2nd Lecture Properties of Networks and Random Graph Models 
-### 2.0 Notations
+<br>
+<br>
+<br>
+
+## 2. Properties of Networks and Random Graph Models
+<hr>
+
+### 2.1 Notations
 * Degree Distribution: $P(k)$
 * Path Length: $h$
 * Clustering Coefficient: $C$
 * Connected Components: $s$
 
-### 2.1 Degree Distributionn $P(k)$
 ### 2.2 Paths in a Graph
 * Distance in a Graph
-* Network Diameter
-    * Diameter: The maximum(shortest path) distance between any pair of nodes in a graph
-    * Average path length: 
+* Network Diameter: The maximum(shortest path) distance between any pair of nodes in a graph
+* Average path length;
 
 ### 2.3 Clustering Coefficient $C_i$
 * Undirected Graph Clustering Coefficient
@@ -88,10 +84,14 @@ category: ml
 <img class = "large" src=".//graph/002.png" height="65%" width="65%">
 </center>
 
-### 2.6 Kronecker Graph Model
 
+<br>
+<br>
+<br>
 
-## 3rd Lecture Motifs and Structure Roles in Networks
+## 3. Motifs and Structure Roles in Networks
+<hr>
+
 ### 3.1 Subnetwork
 ### 3.2 Network Motifs
 * Motif: Recurring, Significant, Patterns of interconnections
@@ -106,30 +106,36 @@ category: ml
 ### 3.4 Graph Isomophism
 * Example: Are $G$ and $H$ topologically equivalent?
 
+<br>
+<br>
+<br>
 
-## 7th Lecture Graph Representation Learning
+## 4. Graph Representation Learning
+<hr>
+
+Following fields are **Graph Representation Learning** focused on:
 * Node Classification
 * Link Prediction
 
-### 7.1 Feature Learning in Graphs
+### 4.1 Feature Learning in Graphs
 * Feature Representation Embedding
 * Task: Map each node in a network into a low-dimensional space
 
-### 7.2 Node Embedding
+### 4.2 Node Embedding
 * CNN for fixed-size images/grids
 * RNNs or word2vec for text/sequences
 
-### 7.3 Embedding Nodes Task
+### 4.3 Embedding Nodes Task
 <center>
 <img class = "large" src=".//graph/004.png" height="65%" width="65%">
 </center>
 
-* Hence, we can analyse the similarity of those nodes in space, and we have many approaches to measure the distance like Eucliden Distance, Cos Vector etc. In this way, we can just use the 
+Hence, we can analyse the similarity of those nodes in space, and we have many approaches to measure the distance like Eucliden Distance, Cos Vector etc. In this way, we can just use the 
 
-### 7.4 Random Walk Approaches to Node Embeddings
+### 4.4 Random Walk Approaches to Node Embeddings
 * $z_u^{T}z_v$ probability that $v$ and $u$ co-occur on a random walk over the network
 
-### 7.5 Unsupervised Feature Learning
+### 4.5 Unsupervised Feature Learning
 <center>
 <img class = "large" src=".//graph/005.png" height="65%" width="65%">
 </center>
@@ -138,9 +144,15 @@ category: ml
 <img class = "large" src=".//graph/006.png" height="65%" width="65%">
 </center>
 
-## 8th Graph Neural Network
-### [Lecture 8 video](https://www.youtube.com/watch?v=7JELX6DiUxQ)
-### 8.1 Nodes Embeddings
+<br>
+<br>
+<br>
+
+## 5. Graph Neural Network
+<hr>
+
+### [Lecture video](https://www.youtube.com/watch?v=7JELX6DiUxQ)
+### 5.1 Nodes Embeddings
 <center>
 <img class = "large" src=".//graph/007.png" height="65%" width="65%">
 </center>
@@ -149,7 +161,7 @@ category: ml
     * Encoder
     * Similarity Function
 
-### 8.2 Basics of Deep Learning for Graphs
+### 5.2 Basics of Deep Learning for Graphs
 * Idea: Neighbourhood Aggregation
 <center>
 <img class = "large" src=".//graph/008.png" height="65%" width="65%">
@@ -162,7 +174,7 @@ category: ml
 * Inductive Capability
 * So far, the GraphNN aggregate the neighbour messages by taking their(weighted) average 
 
-### 8.3 GraphSAGE Graph Neural Network Architecture
+### 5.3 GraphSAGE Graph Neural Network Architecture
 * Concatenece:
     * Concatenate neighbour embedding and self embedding
     * Unlike Graph Convolution with adding itself, we just concatenate itself features then activate with non-linearity function
@@ -184,7 +196,7 @@ category: ml
 </center>
 Hints: we can apply different pooling startegies
 
-### 8.4 Implementation
+### 5.4 Implementation
 <center>
 <img class = "large" src=".//graph/011.png" height="65%" width="65%">
 </center>
@@ -197,7 +209,7 @@ Hints: we can apply different pooling startegies
 * $D^{-1}$ matrix acts as a mean function in this formula.
 * $AH^{k-1}$ is aimed to sum all neighbour features
 
-### 8.5 Graph Attention Network (GAT)
+### 5.5 Graph Attention Network (GAT)
 * Simple Neighbourhood Aggregation in Graph Convolution
     * Use coefficient of ${\alpha}_{vu}$
     * All neighbour $u \in {N}(v)$ are equally important to node $v$
@@ -216,7 +228,7 @@ Hints: we can apply different pooling startegies
 <img class = "large" src=".//graph/014.png" height="65%" width="65%">
 </center>
 
-### 8.6 More on Graph Neural Networks
+### 5.6 Papers on GNN
 * Tutoiral and Overviews
 
     * [Relational inductive biases and graph networks (Battaglia et al., 2018)](https://arxiv.org/pdf/1806.01261.pdf)

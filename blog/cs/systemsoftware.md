@@ -28,7 +28,10 @@ category: cs
 * [Compile C](akira.ruc.dk/~keld/teaching/CAN_e14/Readings/How%20to%20Compile%20and%20Run%20a%20C%20Program%20on%20Ubuntu%20Linux.pdf)
 * [Linux machine gdb](http://csapp.cs.cmu.edu/2e/docs/gdbnotes-x86-64.pdf)
 
+
 ## Slide 1 Overview
+<hr>
+
 ### Course Topics
 * interact with hardware
 * with system software
@@ -53,7 +56,14 @@ category: cs
 * Assembly
 * Memory Matters
 
+
+<br>
+<br>
+<br>
+
 ## Slide 2 Bits&Ints
+<hr>
+
 ### Textbook on 2.1 Information Storage
 * Every memory is identified by a unique number, known as its address, and the set of all possible addresses is known as the **virtual address space**.
 
@@ -209,7 +219,7 @@ output x=2
     * 2' complement: $B2T(X)=-x_{w-1}\cdot2^{w-1}+\sum_{i=0}^{w-2}x_i\cdot2^i$
 
 * Observations  
-    * |$T_{Min}$| = $T_{Max}+1$
+    * $\text{abs}(T_{Min})$ = $T_{Max}+1$
     * $U_{Max} = 2\times{T_{Max}}+1$
 
 ### Shift Operations  
@@ -276,7 +286,12 @@ If we use signed int x = -35, the code will fall into the infinite loop, just as
 <img class="center medium" class="center medium" src=".//cs_pictures/systemsoftware03.png" height="50%" width="50%">
 </center>
 
+<br>
+<br>
+<br>
+
 ## Slide 3 Bits, Bytes and Ints
+<hr>
 
 ### Casting Between Signed vs. Unsigned in C
 * Constants
@@ -524,7 +539,13 @@ printf("%d, %d\n", y1, y2);
 output: y1=-5 y2=-6
 ```
 
+<br>
+<br>
+<br>
+
 ## Slide 4 Floats
+<hr>
+
 <center>
 <img class="center medium" src=".//cs_pictures/systemsoftware06.png" height="50%" width="50%">
 </center>
@@ -638,7 +659,12 @@ Since it is overflow in integer, 1.000...01*2^24.
 * Additive Inverse Almost(Except for Infinities & NaN)
 * ...
 
+<br>
+<br>
+<br>
+
 ## Slide 5 Machine_Level Programmimng I: Basics
+<hr>
 
 ### GeeksforGeeks
 
