@@ -447,13 +447,13 @@ $$T(n)=T(\frac{n}{2})+c$$
 
 
 ### Problems with Direct-Addressed Tables
-* What if $|U|>>n$;
+* What if $\|U\|>>n$;
 * What if keys are not integers?
 
 
 ### When keys Collide
 * What happen if multiple keys hash to same table cell
-* This must happen if $m<|U|$ -- pigeonhole principle
+* This must happen if $m<\|U\|$ -- pigeonhole principle
 * When two keys hash to same cell, we say they collide.
 
 ### A Simple Strategy: Chaining
