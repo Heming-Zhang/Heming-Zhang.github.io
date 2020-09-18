@@ -331,7 +331,7 @@ $$T(n)=T(g(n))+k=T(\frac{2n}{3})+k$$
 ### Substituion(Guess and Check)
 * Claim and then math induction
 
-### Recurrence Table;
+### Recurrence Table
 * Bianry Search $T(n)=T(\frac{n}{2})+c$
 * Merge Sort $T(n)=2T(\frac{n}{2})+cn$
 
@@ -343,9 +343,14 @@ $$T(n)=T(g(n))+k=T(\frac{2n}{3})+k$$
     * Local Work Per Level
 
 
-### Master Theorem;
+### Master Theorem
+<center>
+<img class="center large" src=".//cs_pictures/datastr_026.png" height="70%" width="70%">
+</center>
 
-### Binary Search;
+Also, [Master Theorem in wikipedia](https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)) has explanation on this.
+
+### Binary Search
 * Binary Search Recurrence
 
 $$T(n)=T(\frac{n}{2})+c$$
@@ -362,7 +367,7 @@ $$T(n)=T(\frac{n}{2})+c$$
 * How many comparisons do we need to sort an input array of size n?
 * A trivial lower bound $\Omega(n)$
 * And improve this lower bound
-* It is impossible to sort in time in less than nlogn
+* It is impossible to sort in time in less than $n{\log}n$
 (Using comparisons)
 * Let's see how we can sort in time less than nlogn(see in radix sort)
 
@@ -393,8 +398,10 @@ $$T(n)=T(\frac{n}{2})+c$$
 * **Convert unsorted array into heap without allocating another array(Two Methods)**
     * Use Heapify(): From the nodes just above the bottom, and traverse to the top of the heap.(Which can make sure that below is a heap).
     * [Video](https://www.geeksforgeeks.org/heap-sort/) about this.
+    * Another [video](https://www.programiz.com/dsa/heap-sort)
+
     </br>
-    </br>
+
     * Use Insert(): From the second element, we can just Insert(this_element), which can make sure that above this inserted element is a heap. 
 
 * **Next Step is to do Heap Sort**
