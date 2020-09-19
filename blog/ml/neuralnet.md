@@ -30,7 +30,7 @@ category: ml
 <img class="center large" src=".//net/net034.png" height="50%" width="70%">
 </center>
 
-Above picture show the application of Conv1D in NLP. By using Conv1D, the matrix will be transformed into a column vector.
+Above picture show the application of Conv1D in NLP. By using Conv1D with different kernel sizes, the matrix will be transformed into multiple column vectors.
 
 <center>
 <img class="center large" src=".//net/net002.png" height="50%" width="70%">
