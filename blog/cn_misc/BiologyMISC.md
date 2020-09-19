@@ -131,3 +131,16 @@ Figure 2
 * 过程1：mRNA进入核糖体内部，核糖体一次读取mRNA的3个字母，每一套都被叫做三重密码子（triplet codon）。tRNA的三个碱基会与mRNA的三个碱基配对，tRNA的配对端被叫做反密码子（anticodon）。所有的mRNA的碱基序列中，你都会找到AUG的序列作为起始，而tRNA的配对端就是UAC，连接着的氨基酸（amino acid）就是蛋氨酸（methionine）。这样之后，每一个新形成的氨基酸都会和前面的结合，形成多肽链（Polypeptide Chain），它是蛋白质的最原始结构。
 
 * 过程2：在把氨基酸变成变成某些细胞组织前，需要先折叠一下。
+
+### SNPs 单核苷酸多态性
+单核苷酸多态性，通常称为SNP（发音为“片段”），是人们中最常见的遗传变异类型。每个SNP代表单个DNA结构单元（称为核苷酸）中的差异。例如，在某些DNA片段中，SNP可以用核苷酸胸腺嘧啶（T）代替核苷酸胞嘧啶（C）。
+
+Single nucleotide polymorphisms, frequently called SNPs (pronounced “snips”), are the most common type of genetic variation among people. Each SNP represents a difference in a single DNA building block, called a nucleotide. For example, a SNP may replace the nucleotide cytosine (C) with the nucleotide thymine (T) in a certain stretch of DNA.
+
+SNP通常发生在整个人的DNA中。它们平均每1,000个核苷酸中几乎发生一次，这意味着一个人的基因组中大约有4至500万个SNP。这些变化可能是独特的，也可能发生在许多个人中。科学家们发现全世界有超过1亿个SNP。最常见的是，这些变异是在基因之间的DNA中发现的。它们可以充当生物标记，帮助科学家找到与疾病相关的基因。当SNP出现在基因内或基因附近的调控区内时，它们可能会通过影响基因的功能而在疾病中发挥更直接的作用。
+
+SNPs occur normally throughout a person’s DNA. They occur almost once in every 1,000 nucleotides on average, which means there are roughly 4 to 5 million SNPs in a person's genome. These variations may be unique or occur in many individuals; scientists have found more than 100 million SNPs in populations around the world. Most commonly, these variations are found in the DNA between genes. They can act as biological markers, helping scientists locate genes that are associated with disease. When SNPs occur within a gene or in a regulatory region near a gene, they may play a more direct role in disease by affecting the gene’s function.
+
+大多数SNP对健康或发育没有影响。然而，这些遗传差异中的一些已被证明在人类健康研究中非常重要。研究人员发现，单核苷酸多态性（SNP）可能有助于预测个人对某些药物的反应，对诸如毒素等环境因素的敏感性以及患特定疾病的风险。 SNP还可以用于追踪家族中疾病基因的遗传。未来的研究将致力于鉴定与复杂疾病（例如心脏病，糖尿病和癌症）相关的SNP。
+
+Most SNPs have no effect on health or development. Some of these genetic differences, however, have proven to be very important in the study of human health. Researchers have found SNPs that may help predict an individual’s response to certain drugs, susceptibility to environmental factors such as toxins, and risk of developing particular diseases. SNPs can also be used to track the inheritance of disease genes within families. Future studies will work to identify SNPs associated with complex diseases such as heart disease, diabetes, and cancer.

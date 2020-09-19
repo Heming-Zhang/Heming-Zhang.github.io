@@ -22,11 +22,21 @@ category: ml
 <img class="center large" src=".//net/net001.png" height="50%" width="70%">
 </center>
 
-* [Demo Link](https://cs231n.github.io/convolutional-networks/)
+* Dynamic [Demo Link](https://cs231n.github.io/convolutional-networks/) for Convolution 
+
+* Also, Conv1D and Conv2D have their own application.
+
+<center>
+<img class="center large" src=".//net/net034.png" height="50%" width="70%">
+</center>
+
+Above picture show the application of Conv1D in NLP. By using Conv1D, the matrix will be transformed into a column vector.
 
 <center>
 <img class="center large" src=".//net/net002.png" height="50%" width="70%">
 </center>
+
+While Conv2D will keep transform the original matrix to 2D matrices by multiple filters with concatentation.
 
 ### 1.2 Pooling
 <center>
