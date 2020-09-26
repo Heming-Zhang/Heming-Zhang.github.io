@@ -133,7 +133,7 @@ Figure 2
 * 过程2：在把氨基酸变成变成某些细胞组织前，需要先折叠一下。
 
 ### SNPs 单核苷酸多态性
-单核苷酸多态性，通常称为SNP（发音为“片段”），是人们中最常见的遗传变异类型。每个SNP代表单个DNA结构单元（称为核苷酸）中的差异。例如，在某些DNA片段中，SNP可以用核苷酸胸腺嘧啶（T）代替核苷酸胞嘧啶（C）。
+单核苷酸多态性，通常称为SNPs（发音为“snips”），是人们中最常见的遗传变异类型。每个SNP代表单个DNA结构单元（称为核苷酸）中的差异。例如，在某些DNA片段中，SNP可以用核苷酸胸腺嘧啶（T）代替核苷酸胞嘧啶（C）。
 
 Single nucleotide polymorphisms, frequently called SNPs (pronounced “snips”), are the most common type of genetic variation among people. Each SNP represents a difference in a single DNA building block, called a nucleotide. For example, a SNP may replace the nucleotide cytosine (C) with the nucleotide thymine (T) in a certain stretch of DNA.
 
