@@ -93,7 +93,11 @@ Denote by $S$ the fraction of nodes in the giant component and then $S=1-u$, and
 
 $$S=1-exp(-cS)$$
 
-#### Depending on the value of $c$
+#### Size of Giant Component
+Depending on the value of $c$
 
+<center>
+<img class="center large" src="./network_fig/net_001.png" height="50%" width="70%">
+</center>
 
 
