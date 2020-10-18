@@ -50,10 +50,28 @@ $$\bar{k}=\frac{1}{n}{\sum_{i=1}^{n}{k_i}}=\frac{2m}{n}$$
 
 
 ## Chapter 3 Random Networks
-### 3.1 Number of Links in a Random Networks
-$$c=\bar{k}=\frac{2\bar{m}}{n}=p(n-1)$$
+### 3.1 Introduction
+> Historically, there were two formulations of a **random network**:  
+> * $G(n,m)$ model: $n$ labeled nodes are connected with $m$ randomly placed links. 
+> * $G(n,p)$ model: Each pair of $n$ labeled nodes is connected with probability $p$, a model introduced by Gilbert.
 
-For ease of representation, we will denote the average degree as $c=\bar{k}$
+### 3.2 Number of Links in a Random Networks
+
+> The probability that a particular realization of a random network has exactly $m$ links is:
+>
+> $$p_m=C_{m}^{\frac{n(n-1)}{2}}p^m(1-p)^{\frac{n(n-1)}{2}-m}$$
+>
+> which is a Binomial distribution.
+
+> Then, the average number of links in a random network is
+> 
+> $$<m>=\sum_{m}{mp_m}=pC_{n}^2$$
+
+> Then the average degree of a random network is then 
+> $$<k>=\frac{2<m>}{n}=p(n-1)$$
+
+### 3.3 Degree Distribution
+
 
 ### 3.x Giant Component
 > We define a giant component as a network component whose size grows in proportion to $n$.
