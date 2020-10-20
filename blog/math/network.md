@@ -43,6 +43,12 @@ $$\bar{k}=\frac{1}{n}{\sum_{i=1}^{n}{k_i}}=\frac{2m}{n}$$
 
 * Finding the Connected Components of a Network
 
+### 2.9 Clustering Coefficient
+> Local Clustering Coefficient:
+> $$C_i=\frac{2L_i}{k_i(k_i-1)}$$
+
+> Global Clustering Coefficient
+> $$C_{\Delta}=\frac{3\times\text{NumberOfTriangles}}{\text{NumberOfConnectedTriples}}$$
 
 ### 2.11 Density and Sparsity
 > The density of a graph is the fraction of those edges that are actually present
@@ -72,8 +78,9 @@ $$\bar{k}=\frac{1}{n}{\sum_{i=1}^{n}{k_i}}=\frac{2m}{n}$$
 
 ### 3.3 Degree Distribution
 
+### 3.4 Real networks are not Poisson
 
-### 3.x Giant Component
+### 3.5 Giant Component
 > We define a giant component as a network component whose size grows in proportion to $n$.
 
 * Constant fraction: By definition, as the size of the network grows, the average size of the giant component grows with it. Hence the largest component is constant fraction of the whole network.
@@ -119,3 +126,14 @@ Depending on the value of $c$
 </center>
 
 
+### 3.x Small Components
+
+
+## 4 Random Networks: Configuration Model
+### 4.1 Introduction
+
+### 4.2 Excess Degree Distribution
+
+### 4.3 Clustring Coefficient
+
+### 4.4 Locally Tree-like Networks
