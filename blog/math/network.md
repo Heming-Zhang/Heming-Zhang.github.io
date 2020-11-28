@@ -130,10 +130,36 @@ Depending on the value of $c$
 
 
 ## 4 Random Networks: Configuration Model
+
+In this part, we introduce the configuration model, a more sophisticated kind of random graph which can have any desired degree distribution and yet is still exactly solvable for many properties in the limit of large network size.
+
 ### 4.1 Introduction
+> The configuration model is a model of a random graph with a given degree sequence.
+> A degree sequence is the set of the degrees of all nodes, {$k_1,k_2,...,k_n$}, in a network, where $k_i$ denotes the degree of node $i$.
+
+The most widely studied of the generalized random graph models is the configuration model, an analogue of the $G(n,m)$ model.
+
+A degree sequence contains essentially the same information as the degree distribution, as the latter represents the fraction of nodes for a given degree.
+
+The degree sequence in turn fixes the total number of edges $m$ in the network, since
+
+$$m=\frac{1}{2}\sum_{i}{k_i}$$
+
+as we have discussed.
+
+It is quite simple, however, to modify the configuration model for cases where only the degree distribution is known and not the exact degree sequence, and we will discuss it later.
+
+
+
 
 ### 4.2 Excess Degree Distribution
 
+
+
 ### 4.3 Clustring Coefficient
 
+
+
 ### 4.4 Locally Tree-like Networks
+
+
