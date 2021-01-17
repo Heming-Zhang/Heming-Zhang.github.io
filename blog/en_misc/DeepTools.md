@@ -16,3 +16,6 @@ category: deep learning
 * anaconda venv [Instruction Link](https://cs231n.github.io/setup-instructions/)
 
 We can also check the virtual environment python version.
+
+### Working Remotely
+* 
