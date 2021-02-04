@@ -113,7 +113,7 @@ $$f(\theta\|x,n,\alpha,\beta) \propto \theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1
 
 for $\theta\in[0,1]$ and $0$ elsewhere. And the proportionality constant ensures that the integral of the posterior over all values of $\theta$ is $1$. Hence, the normalized posterior p.d.f. is:
 
-$$\textcolor{yellow}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}\theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}$$
+$$\color{yellow}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}\color{red}{\theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}}$$
 
 > Thus, when a prior p.d.f. is a beta distribution with parameters $\alpha, \beta$ and the likelihood is binomial, the posterior p.d.f. is a beta distribution with parameters $x+a$ and $n-x+b$. For this reason, the beta family of priors is said to be conjugate to binomial likelihood functions.
 
@@ -134,9 +134,11 @@ $$
 
 **Posterior Predictive Distributions**
 
-With a $\textcolor{yellow}{\text{posterior pdf}}$ $\textcolor{yellow}{f(\theta\|D)}$ on parameters $\theta$ given observations $D$, we can compute a distribution on future observations that does not depend on assuming any particular parameter values.
+With a $\textbf{posterior pdf}$ $f\bf{(\theta\|D)}$ on parameters $\theta$ given observations $D$, we can compute a distribution on future observations that does not depend on assuming any particular parameter values.
 
-$$Pr(X=x\|D)=\int_{-\infty}^{{+\infty}}Pr(X=x\|\theta)\textcolor{yellow}{f(\theta\|D)}d\theta$$
+$$Pr(X=x\|D)=\int_{-\infty}^{{+\infty}}Pr(X=x\|\theta)f\bf{(\theta\|D)}d\theta$$
+
+
 
 
 
