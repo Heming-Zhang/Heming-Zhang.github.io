@@ -56,7 +56,8 @@ $$Pr(\theta|D)=\frac{Pr(D|\theta)Pr(\theta)}{Pr(D)}$$
 
 For a fixed set of observations,
 
-$$Pr(\theta\|D) \propto Pr(D\|\theta)Pr(\theta)$$
+$$Pr(\theta\|D) \propto Pr(D\|\theta)Pr(\theta)$$  
+
 $$\text{Posterior} \propto \text{Likelihood}\times{\text{Prior}}$$
 
 If $\theta$ is a continuous r.v. with prior p.d.f., $g(\theta)$ then its posterior p.d.f. $f(\theta\|D)$ is given by
