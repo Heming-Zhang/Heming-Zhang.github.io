@@ -81,7 +81,7 @@ $$
 $$
 \begin{aligned}
 f(\theta|x,n)&\propto{\binom{n}{x}\theta^x(1-\theta)^{n-x}\times{2\theta}}\\
-&\propto {{\theta^{\color{red}{x+1}}}(1-\theta)^{n-x}}
+&\propto {{\theta^{x+1}}(1-\theta)^{n-x}}
 \end{aligned}
 $$
 
