@@ -59,7 +59,7 @@ $$Pr(\theta|D)=\frac{Pr(D|\theta)Pr(\theta)}{Pr(D)}$$
 
 For a fixed set of observations,
 
-$$Pr(\theta|D) \propto Pr(D|\theta)Pr(\theta)$$  
+$$Pr(\theta|D) \propto Pr(D|\theta)\times{Pr(\theta)}$$  
 
 $$\text{Posterior} \propto \text{Likelihood}\times{\text{Prior}}$$
 
@@ -142,7 +142,7 @@ $$
 
 #### **Posterior Predictive Distributions**
 
-With a $\color{orangered}{\textbf{conjugate priors}}$ of $\color{orangered}{f(\theta\|D)}$ on parameters $\theta$ given observations $D$, we can compute a distribution on future observations that does not depend on assuming any particular parameter values.
+With a $\color{orangered}{\textbf{conjugate priors}}$ of $\color{orangered}{f(\theta|D)}$ on parameters $\theta$ given observations $D$, we can compute a distribution on future observations that does not depend on assuming any particular parameter values.
 
 $$Pr(X=x|D)=\int_{-\infty}^{{+\infty}}Pr(X=x|\theta)\color{orangered}{\ f{(\theta|D)}}\color{b}d\theta$$
 
@@ -163,6 +163,11 @@ Pr(X=1|D)
 \end{aligned}
 $$
 
+Here, we re-introduce $\color{violet}{\textbf{beta function}}$ concept.
+
+$$ \color{violet}{\textbf{beta function}}:\color{b}{\text{Beta}(\alpha,\beta)=\int_{0}^{1}{\theta^{\alpha-1}(1-\theta)^{\beta-1}}{d{\theta}}=\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}}$$
+
+$$\color{violet}{\textbf{beta distribution}}:\color{b}{\text{Beta}(\theta|\alpha,\beta)=\text{Beta}(\alpha,\beta){\theta^{\alpha-1}(1-\theta)^{\beta-1}}}$$
 
 
 
