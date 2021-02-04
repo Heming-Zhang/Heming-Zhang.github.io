@@ -142,7 +142,7 @@ $$
 
 #### **Posterior Predictive Distributions**
 
-With a $\color{orangered}{\textbf{conjugate priors}}$ of $\color{orangered}{f(\theta|D)}$ on parameters $\theta$ given observations $D$, we can compute a distribution on future observations that does not depend on assuming any particular parameter values.
+With a $\color{orangered}{\textbf{conjugate priors}}$ of $\color{orangered}{f(\theta\|D)}$ on parameters $\theta$ given observations $D$, we can compute a distribution on future observations that does not depend on assuming any particular parameter values.
 
 $$Pr(X=x|D)=\int_{-\infty}^{{+\infty}}Pr(X=x|\theta)\color{orangered}{\ f{(\theta|D)}}\color{b}d\theta$$
 
@@ -169,7 +169,7 @@ $$ \color{violet}{\textbf{beta function}}:\color{b}{\text{Beta}(\alpha,\beta)=\i
 
 $$\color{violet}{\textbf{beta distribution}}:\color{b}{\text{Beta}(\theta|\alpha,\beta)=\text{Beta}(\alpha,\beta){\theta^{\alpha-1}(1-\theta)^{\beta-1}}}$$
 
-
+#### **Multinomial Distribution**
 
 
 
