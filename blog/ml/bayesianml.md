@@ -63,7 +63,7 @@ $$Pr(\theta|D) \propto Pr(D|\theta)Pr(\theta)$$
 
 $$\text{Posterior} \propto \text{Likelihood}\times{\text{Prior}}$$
 
-If $\theta$ is a continuous r.v. with $\color{blue}\text{prior p.d.f.}$ with $\color{blue}g(\theta)$, then its $\color{red}\text{posterior p.d.f.}$ with $\color{red}f(\theta|D)$ is given by
+If $\theta$ is a continuous r.v. with $\color{blue}{\text{prior p.d.f.}}$ with $\color{blue}{g(\theta)}$, then its $\color{red}{\text{posterior p.d.f.}}$ with $\color{red}{f(\theta|D)}$ is given by
 
 $$\color{red}{f(\theta|D)}=\color{black}\frac{Pr(D|\theta)\times\color{blue}{g(\theta)}}{Pr(D)}$$
 
@@ -142,7 +142,7 @@ $$
 
 **Posterior Predictive Distributions**
 
-With a $\color{red}{\textbf{conjugate priors}}$ $f\bf{(\theta|D)}$ on parameters $\theta$ given observations $D$, we can compute a distribution on future observations that does not depend on assuming any particular parameter values.
+With a $\color{red}{\textbf{conjugate priors}}$ of $\color{red}{f(\theta|D)}$ on parameters $\theta$ given observations $D$, we can compute a distribution on future observations that does not depend on assuming any particular parameter values.
 
 $$Pr(X=x|D)=\int_{-\infty}^{{+\infty}}Pr(X=x|\theta)\color{red}{f{(\theta|D)}}\color{b}d\theta$$
 
