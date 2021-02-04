@@ -63,9 +63,9 @@ $$Pr(\theta|D) \propto Pr(D|\theta)Pr(\theta)$$
 
 $$\text{Posterior} \propto \text{Likelihood}\times{\text{Prior}}$$
 
-If $\theta$ is a continuous r.v. with $\color{blue}{\text{prior p.d.f.}}$ with $\color{blue}{g(\theta)}$, then its $\color{red}{\text{posterior p.d.f.}}$ with $\color{red}{f(\theta\|D)}$ is given by
+If $\theta$ is a continuous r.v. with $\color{dodgerblue}{\text{prior p.d.f.}}$ with $\color{dodgerblue}{g(\theta)}$, then its $\color{orangered}{\text{posterior p.d.f.}}$ with $\color{orangered}{f(\theta\|D)}$ is given by
 
-$$\color{red}{f(\theta|D)}=\color{b}{\frac{Pr(D|\theta)\times\color{blue}{g(\theta)}}{Pr(D)}}$$
+$$\color{orangered}{f(\theta|D)}=\color{b}{\frac{Pr(D|\theta)\times\color{dodgerblue}{g(\theta)}}{Pr(D)}}$$
 
 * Suppose prior representing an expectation of coins biased toward more heads:
 
@@ -100,7 +100,7 @@ g(\theta)=
 \end{cases}
 $$
 
-are both $\color{red}{\textbf{conjugate priors}}$ for the bionmial likelihood function because the prior and the posterior have the same function form. Distributions with this form are called $\color{red}{\textbf{beta distributions}}$.
+are both $\color{orangered}{\textbf{conjugate priors}}$ for the bionmial likelihood function because the prior and the posterior have the same function form. Distributions with this form are called $\color{orangered}{\textbf{beta distributions}}$.
 
 In general, a beta distribution on $\theta$ has the form  
 
@@ -119,7 +119,7 @@ $$f(\theta|x,n,\alpha,\beta) \propto \theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}
 
 for $\theta\in[0,1]$ and $0$ elsewhere. And the proportionality constant ensures that the integral of the posterior over all values of $\theta$ is $1$. Hence, the normalized posterior p.d.f. is:
 
-$$\color{b}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}\color{red}{\theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}}$$
+$$\color{b}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}\color{orangered}{\theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}}$$
 
 > Thus, when a prior p.d.f. is a beta distribution with parameters $\alpha, \beta$ and the likelihood is binomial, the posterior p.d.f. is a beta distribution with parameters $x+a$ and $n-x+b$. For this reason, the beta family of priors is said to be conjugate to binomial likelihood functions.
 
@@ -142,14 +142,25 @@ $$
 
 **Posterior Predictive Distributions**
 
-With a $\color{red}{\textbf{conjugate priors}}$ of $\color{red}{f(\theta\|D)}$ on parameters $\theta$ given observations $D$, we can compute a distribution on future observations that does not depend on assuming any particular parameter values.
+With a $\color{orangered}{\textbf{conjugate priors}}$ of $\color{orangered}{f(\theta\|D)}$ on parameters $\theta$ given observations $D$, we can compute a distribution on future observations that does not depend on assuming any particular parameter values.
 
-$$Pr(X=x|D)=\int_{-\infty}^{{+\infty}}Pr(X=x|\theta)\color{red}{\ f{(\theta|D)}}\color{b}d\theta$$
+$$Pr(X=x|D)=\int_{-\infty}^{{+\infty}}Pr(X=x|\theta)\color{orangered}{\ f{(\theta|D)}}\color{b}d\theta$$
 
 For example:  
 * When the prior on $\theta$ is $\text{beta}(\alpha,\beta)$, $X$ is a binary random variable with $Pr(X=1)=\theta$.  
 * Here, $n$ Bernoulli experiments have been observed in which $X=1$ occured $x$ times, above equation becomes:
 
+$$
+\begin{aligned}
+Pr(X=1|D)
+& = \int_{0}^{1}\color{dodgerblue}{Pr(X=1|\theta)}\color{orangered}{\ f{(\theta|D)}}\color{b}{d\theta}\\
+& = \int_{0}^{1}\color{dodgerblue}{\theta}\color{b}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}\color{orangered}{\theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}}\color{b}{d\theta}\\
+& = \int_{0}^{1}\color{b}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}{\theta^{x+\alpha}(1-\theta)^{n-x+\beta-1}}d{\theta}\\
+& = \color{b}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}\color{violet}{\int_{0}^{1}{\theta^{x+\alpha}(1-\theta)^{n-x+\beta-1}}d{\theta}}\\
+
+& =\frac{x+\alpha-1}{n+\alpha+\beta-2}
+\end{aligned}
+$$
 
 
 
