@@ -167,11 +167,31 @@ Here, we re-introduce $\color{violet}{\textbf{beta function}}$ concept.
 
 $$ \color{violet}{\textbf{beta function}}:\color{b}{\text{Beta}(\alpha,\beta)=\int_{0}^{1}{\theta^{\alpha-1}(1-\theta)^{\beta-1}}{d{\theta}}=\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}}$$
 
-$$\color{violet}{\textbf{beta distribution}}:\color{b}{\text{Beta}(\theta|\alpha,\beta)=\text{Beta}(\alpha,\beta){\theta^{\alpha-1}(1-\theta)^{\beta-1}}}$$
+$$\color{violet}{\textbf{beta distribution}}:\color{b}{\text{Beta}(\theta|\alpha,\beta)=\frac{1}{\text{Beta}(\alpha,\beta)}{\theta^{\alpha-1}(1-\theta)^{\beta-1}}}$$
 
 #### **Multinomial Distribution**
 
+* Here, *binomial distribution* becomes *multinomial distribution*.
+* *Beta distribution* becomes *Dirichlet* prior.
 
+Likelihood  
+
+$$Pr(X|\theta)=\text{Mu}(x|\theta)=\prod_{j=1}^{K}{\theta_{j}^{I(x=j)}}$$
+
+$$Pr(x|\theta)=\text{Mu}(x|\theta)=\prod_{j=1}^{K}{\theta_{j}^{x_j}}$$
+
+$$
+\begin{aligned}
+Pr(D|\theta)
+&=\prod_{n=1}^{N}\prod_{j=1}^{K}{\theta_{j}^{I(x_{n}=j)}}\ \ \ (D=\{x_1,x_2,\cdots,x_N \})\\
+Pr(N_1,N_2,\cdots,N_k|N)
+&=\text{Mu}(\theta,N)=\binom{N}{N_1,N_2,\cdots,N_k}\prod_{j=1}^{K}{\theta_{j}^{N_j}}
+\end{aligned}
+$$
+
+For example,
+
+$$Pr(x_1,x_2,x_3|\theta_1,\theta_2,\theta_3)=\frac{(x_1+x_2+x_3)!}{{x_1}!{x_2}!{x_3}!}{\ \theta_1^{x_1}}{\theta_2^{x_2}}{\theta_3^{x_3}}$$
 
 
 
