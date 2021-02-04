@@ -46,13 +46,13 @@ Suppose that we flip the coin $n$ times and observe $x$ "heads". Therefore, the 
 
 $$Pr(x|n,\theta)=\binom{n}{x}\theta^x(1-\theta)^{n-x}$$
 
-**Maximum Likelihood**  
+#### **Maximum Likelihood**  
 
 $$\theta_{MLE}=\arg{\max_{\theta}}{Pr(x|\theta)}$$  
 
 $$\theta_{MLE}=\frac{x}{n}$$
 
-**Maximum A Posterior Emstimation**  
+#### **Maximum A Posterior Emstimation**  
 Since we have formula
 
 $$Pr(\theta|D)=\frac{Pr(D|\theta)Pr(\theta)}{Pr(D)}$$
@@ -88,7 +88,7 @@ $$
 
 * From above formula, we will observe one more head than former belief, which is counted with **Pseudocount**
 
-**Conjugate Priors**
+#### **Conjugate Priors**
 
 The two example priors given here, the uniform prior on $[0,1]$ and  
 
@@ -140,7 +140,7 @@ $$
 $$
 
 
-**Posterior Predictive Distributions**
+#### **Posterior Predictive Distributions**
 
 With a $\color{orangered}{\textbf{conjugate priors}}$ of $\color{orangered}{f(\theta\|D)}$ on parameters $\theta$ given observations $D$, we can compute a distribution on future observations that does not depend on assuming any particular parameter values.
 
@@ -154,11 +154,12 @@ $$
 \begin{aligned}
 Pr(X=1|D)
 & = \int_{0}^{1}\color{dodgerblue}{Pr(X=1|\theta)}\color{orangered}{\ f{(\theta|D)}}\color{b}{d\theta}\\
-& = \int_{0}^{1}\color{dodgerblue}{\theta}\color{b}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}\color{orangered}{\theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}}\color{b}{d\theta}\\
+& = \int_{0}^{1}\color{dodgerblue}{\theta}\color{orangered}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}\color{orangered}{\theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}}\color{b}{d\theta}\\
 & = \int_{0}^{1}\color{b}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}{\theta^{x+\alpha}(1-\theta)^{n-x+\beta-1}}d{\theta}\\
 & = \color{b}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}\color{violet}{\int_{0}^{1}{\theta^{x+\alpha}(1-\theta)^{n-x+\beta-1}}d{\theta}}\\
-
-& =\frac{x+\alpha-1}{n+\alpha+\beta-2}
+& = \color{b}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}\color{violet}{\text{ Beta}(\alpha,\beta)}\\
+& = \color{b}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}\color{violet}{\frac{(x+\alpha)!(n-x+\beta-1)!}{(n+\alpha+\beta)!}}\\
+& = \frac{x+\alpha}{n+\alpha+\beta}
 \end{aligned}
 $$
 
