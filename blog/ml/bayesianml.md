@@ -47,6 +47,7 @@ Suppose that we flip the coin $n$ times and observe $x$ "heads". Therefore, the 
 $$Pr(x|n,\theta)=\binom{n}{x}\theta^x(1-\theta)^{n-x}$$
 
 **Maximum Likelihood**  
+
 $$\theta_{MLE}=\underset{\theta}\text{argmax}{Pr(x|\theta)}$$  
 
 $$\theta_{MLE}=\frac{x}{n}$$
@@ -62,7 +63,7 @@ $$Pr(\theta|D) \propto Pr(D|\theta)Pr(\theta)$$
 
 $$\text{Posterior} \propto \text{Likelihood}\times{\text{Prior}}$$
 
-If $\theta$ is a continuous r.v. with $\color{blue}\text{prior p.d.f.}$ $\color{blue}g(\theta)$, then its $\color{red}\text{posterior p.d.f.}$ $\color{red}f(\theta|D)$ is given by
+If $\theta$ is a continuous r.v. with $\color{blue}\text{prior p.d.f.}$ with $\color{blue}g(\theta)$, then its $\color{red}\text{posterior p.d.f.}$ with $\color{red}f(\theta|D)$ is given by
 
 $$\color{red}{f(\theta|D)}=\color{black}\frac{Pr(D|\theta)\times\color{blue}{g(\theta)}}{Pr(D)}$$
 
@@ -122,10 +123,11 @@ $$\color{b}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}\color{red}{
 
 > Thus, when a prior p.d.f. is a beta distribution with parameters $\alpha, \beta$ and the likelihood is binomial, the posterior p.d.f. is a beta distribution with parameters $x+a$ and $n-x+b$. For this reason, the beta family of priors is said to be conjugate to binomial likelihood functions.
 
-* Maximum Likelihood Estimation for Above Distribution
+Maximum Likelihood Estimation for Above Distribution
+
 $$\theta_{MLE}=\frac{x}{n}$$
 
-* Maximum A Posterior Emstimation
+Maximum A Posterior Emstimation
 
 $$
 \begin{aligned}
@@ -140,7 +142,7 @@ $$
 
 **Posterior Predictive Distributions**
 
-With a $\color{red}\text{posterior pdf}\ f\bf{(\theta|D)}$ on parameters $\theta$ given observations $D$, we can compute a distribution on future observations that does not depend on assuming any particular parameter values.
+With a $\color{red}{\textbf{conjugate priors}}$ $f\bf{(\theta|D)}$ on parameters $\theta$ given observations $D$, we can compute a distribution on future observations that does not depend on assuming any particular parameter values.
 
 $$Pr(X=x|D)=\int_{-\infty}^{{+\infty}}Pr(X=x|\theta)\color{red}{f{(\theta|D)}}\color{b}d\theta$$
 
