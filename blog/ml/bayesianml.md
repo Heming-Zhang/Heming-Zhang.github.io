@@ -144,7 +144,7 @@ $$
 
 With a $\color{red}{\textbf{conjugate priors}}$ of $\color{red}{f(\theta\|D)}$ on parameters $\theta$ given observations $D$, we can compute a distribution on future observations that does not depend on assuming any particular parameter values.
 
-$$Pr(X=x|D)=\int_{-\infty}^{{+\infty}}Pr(X=x|\theta)\color{red}{f{(\theta|D)}}\color{b}d\theta$$
+$$Pr(X=x|D)=\int_{-\infty}^{{+\infty}}Pr(X=x|\theta)\color{red}{\ f{(\theta|D)}}\color{b}d\theta$$
 
 For example:  
 * When the prior on $\theta$ is $\text{beta}(\alpha,\beta)$, $X$ is a binary random variable with $Pr(X=1)=\theta$.  
