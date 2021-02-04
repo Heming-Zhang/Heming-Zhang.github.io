@@ -26,10 +26,12 @@ The goal of probabilistic inference is to make some statements about $\theta$ gi
 >
 > $$p(x)=\int_{Y}p(x,y)dy$$
 
-> Product Rule
+> Product Rule  
+> 
 > $$Pr(X,Y)=Pr(Y\|X)Pr(X)$$
 
-> Bayesian Theorem
+> Bayesian Theorem  
+> 
 > $$Pr(Y\|X)=\frac{Pr(X\|Y)Pr(Y)}{Pr(X)}=\frac{Pr(X\|Y)Pr(Y)}{\sum{Pr(X\|Y)Pr(Y)}}$$
 
 Posterior: $Pr(\theta\|D)$  
@@ -41,16 +43,16 @@ Likelihood: $Pr(D\|\theta)$
 
 Suppose that we flip the coin $n$ times and observe $x$ "heads". Therefore, the probability of this observation, given the value of $\theta$, comes from a binomial distribution:
 
-$$Pr(x\|n,\theta)=\binom{n}{x}\theta^x(1-\theta)^{n-x}$$
+$$Pr(x|n,\theta)=\binom{n}{x}\theta^x(1-\theta)^{n-x}$$
 
 **Maximum Likelihood**  
-* $\theta_{MLE}=\underset{\theta}\text{argmax}{Pr(x\|\theta)}$  
+* $\theta_{MLE}=\underset{\theta}\text{argmax}{Pr(x|\theta)}$  
 * Here, coin flipping, $x$ heads in $n$ flips, $\theta_{MLE}=\frac{x}{n}$
 
 **Maximum A Posterior Emstimation**  
 Since we have formula
 
-$$Pr(\theta\|D)=\frac{Pr(D\|\theta)Pr(\theta)}{Pr(D)}$$
+$$Pr(\theta|D)=\frac{Pr(D|\theta)Pr(\theta)}{Pr(D)}$$
 
 For a fixed set of observations,
 
