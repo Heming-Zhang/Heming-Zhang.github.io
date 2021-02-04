@@ -65,7 +65,7 @@ $$\text{Posterior} \propto \text{Likelihood}\times{\text{Prior}}$$
 
 If $\theta$ is a continuous r.v. with $\color{blue}{\text{prior p.d.f.}}$ with $\color{blue}{g(\theta)}$, then its $\color{red}{\text{posterior p.d.f.}}$ with $\color{red}{f(\theta\|D)}$ is given by
 
-$$\color{red}{f(\theta|D)}=\color{black}\frac{Pr(D|\theta)\times\color{blue}{g(\theta)}}{Pr(D)}$$
+$$\color{red}{f(\theta|D)}=\color{b}{\frac{Pr(D|\theta)\times\color{blue}{g(\theta)}}{Pr(D)}}$$
 
 * Suppose prior representing an expectation of coins biased toward more heads:
 
