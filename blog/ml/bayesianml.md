@@ -48,7 +48,7 @@ $$Pr(x|n,\theta)=\binom{n}{x}\theta^x(1-\theta)^{n-x}$$
 
 **Maximum Likelihood**  
 
-$$\theta_{MLE}=\underset{\theta}\text{argmax}{Pr(x|\theta)}$$  
+$$\theta_{MLE}=\arg{\max_{\theta}}{Pr(x|\theta)}$$  
 
 $$\theta_{MLE}=\frac{x}{n}$$
 
@@ -63,7 +63,7 @@ $$Pr(\theta|D) \propto Pr(D|\theta)Pr(\theta)$$
 
 $$\text{Posterior} \propto \text{Likelihood}\times{\text{Prior}}$$
 
-If $\theta$ is a continuous r.v. with $\color{blue}{\text{prior p.d.f.}}$ with $\color{blue}{g(\theta)}$, then its $\color{red}{\text{posterior p.d.f.}}$ with $\color{red}{f(\theta|D)}$ is given by
+If $\theta$ is a continuous r.v. with $\color{blue}{\text{prior p.d.f.}}$ with $\color{blue}{g(\theta)}$, then its $\color{red}{\text{posterior p.d.f.}}$ with $\color{red}{f(\theta\|D)}$ is given by
 
 $$\color{red}{f(\theta|D)}=\color{black}\frac{Pr(D|\theta)\times\color{blue}{g(\theta)}}{Pr(D)}$$
 
@@ -132,9 +132,9 @@ Maximum A Posterior Emstimation
 $$
 \begin{aligned}
 \theta_{MAP}
-& =\underset{\theta}\text{argmax}{Pr(\theta|D)}\\
-& =\underset{\theta}\text{argmax}{Pr(D|\theta)\cdot{Pr(\theta)}}\\
-& =\underset{\theta}\text{argmax }{\theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}}\\
+& =\arg{\max_{\theta}}{\ Pr(\theta|D)}\\
+& =\arg{\max_{\theta}}{\ Pr(D|\theta)\cdot{Pr(\theta)}}\\
+& =\arg{\max_{\theta}}{\ \theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}}\\
 & =\frac{x+\alpha-1}{n+\alpha+\beta-2}
 \end{aligned}
 $$
@@ -142,14 +142,13 @@ $$
 
 **Posterior Predictive Distributions**
 
-With a $\color{red}{\textbf{conjugate priors}}$ of $\color{red}{f(\theta|D)}$ on parameters $\theta$ given observations $D$, we can compute a distribution on future observations that does not depend on assuming any particular parameter values.
+With a $\color{red}{\textbf{conjugate priors}}$ of $\color{red}{f(\theta\|D)}$ on parameters $\theta$ given observations $D$, we can compute a distribution on future observations that does not depend on assuming any particular parameter values.
 
 $$Pr(X=x|D)=\int_{-\infty}^{{+\infty}}Pr(X=x|\theta)\color{red}{f{(\theta|D)}}\color{b}d\theta$$
 
 For example:  
 * When the prior on $\theta$ is $\text{beta}(\alpha,\beta)$, $X$ is a binary random variable with $Pr(X=1)=\theta$.  
 * Here, $n$ Bernoulli experiments have been observed in which $X=1$ occured $x$ times, above equation becomes:
-
 
 
 
