@@ -191,7 +191,7 @@ $$
 
 * From above formula, we will observe one more head than former belief, which is counted with **Pseudocount**
 
-<!-- #### **Posterior Predictive Distributions**
+#### **Posterior Predictive Distributions**
 
 With posterior function $\color{orangered}{\textbf{(conjugate priors)}}$ of $\color{orangered}{f(\theta\|D)}$ on parameters $\theta$ given observations $D$, we can compute a distribution on future observations that does not depend on assuming any particular parameter values.
 
@@ -247,7 +247,7 @@ $$
 
 For example,
 
-$$Pr(x_1,x_2,x_3|\theta_1,\theta_2,\theta_3)=\frac{(x_1+x_2+x_3)!}{{x_1}!{x_2}!{x_3}!}{\ \theta_1^{x_1}}{\theta_2^{x_2}}{\theta_3^{x_3}}$$ -->
+$$Pr(x_1,x_2,x_3|\theta_1,\theta_2,\theta_3)=\frac{(x_1+x_2+x_3)!}{{x_1}!{x_2}!{x_3}!}{\ \theta_1^{x_1}}{\theta_2^{x_2}}{\theta_3^{x_3}}$$
 
 
 
