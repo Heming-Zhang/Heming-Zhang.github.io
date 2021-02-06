@@ -69,104 +69,31 @@ For a fixed set of observations,
 
 $$Pr(\theta|D) \propto Pr(D|\theta)\times{Pr(\theta)}$$  
 
-$$\color{orangered}{\text{Posterior }} \color{b}{\propto} \color{lightgreen}{\text{ Likelihood }}\color{b}{\times}\color{dodgerblue}{{\text{ Prior }}}$$
+$$\text{Posterior} \propto \text{Likelihood}\times{\text{Prior}}$$
 
 If $\theta$ is a continuous r.v. with $\color{dodgerblue}{\text{prior p.d.f.}}$ with $\color{dodgerblue}{g(\theta)}$, then its $\color{orangered}{\text{posterior p.d.f.}}$ with $\color{orangered}{f(\theta\|D)}$ is given by
 
-$$\color{orangered}{f(\theta|D)}=\color{b}{\frac{\color{lightgreen}{Pr(D|\theta)}\color{b}{\times}\color{dodgerblue}{g(\theta)}}{Pr(D)}}$$ 
-
-Here, for MAP, since we decide likelihood function with binomial, we can choose beta distribution as prior (details told in Conjugate Priors). Therefore, we have following induction:
-
-$$
-\begin{aligned}
-\hat\theta_{MAP}
-& =\arg{\max_{\theta}}{\ Pr(\theta|D)}\\
-& =\arg{\max_{\theta}}{\ Pr(D|\theta)\cdot{Pr(\theta)}}\\
-& =\arg{\max_{\theta}}{\ \theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}}\\
-& =\frac{x+\alpha-1}{n+\alpha+\beta-2}
-\end{aligned}
-$$
-
-#### **Conjugate Priors**
-
-If the posteriors and priors have the same function form, we call those priors $\color{dodgerblue}{\textbf{conjugate priors}}$. The most famous prior is $\color{dodgerblue}{\textbf{beta distributions}}$, which is a convenient prior for binonmial likelihood and has two parameters $\alpha$ and $\beta$:
-
-$$ 
-\begin{aligned}
-\color{dodgerblue}{g(\theta)=\mathcal{B}(\theta|\alpha,\beta)}\color{b}{=\frac{1}{\color{violet}{\text{Beta}(\alpha,\beta)}}{\theta^{\alpha-1}(1-\theta)^{\beta-1}}}
-\end{aligned}
-$$
-
-Here, the normalizing constant $\color{violet}{\text{Beta}(\alpha,\beta)}$ is the $\color{violet}{\textbf{beta function}}$.
-
-$$ 
-\color{violet}{\text{Beta}(\alpha,\beta)=\int_{0}^{1}{\theta^{\alpha-1}(1-\theta)^{\beta-1}}{d{\theta}}=\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}}
-$$
-
-Above equation is to ensure that integral of $\color{dodgerblue}{g(\theta)\text{ or }\mathcal{B}(\theta|\alpha,\beta)}$ is one.
-
-#### **General Cases for Posterior of Binomial Distribution**
-
-Given our observations $D=(x,n)$, we can now compute the posterior distribution of $\theta$:
-
-$$
-\color{orangered}{f(\theta|x,n,\alpha,\beta)}
-\color{b}{=\frac{\color{lightgreen}{Pr(x|n,\theta)}\color{b}{\times}\color{dodgerblue}{g(\theta|\alpha,\beta)}}
-{\color{violet}{\int{Pr(x|n,\theta)g(\theta|\alpha,\beta)}d{\theta}}}}
-$$
-
-First, we can handle the normalization constant $\color{violet}{Pr(x|n,\alpha,\beta)}$:
-
-$$
-\begin{aligned}
-{\color{violet}{\int{Pr(x|n,\theta)g(\theta|\alpha,\beta)}d{\theta}}}
-&= {\int_{0}^{1}{\binom{n}{x}{\theta}^{x}{(1-\theta)}^{n-x}} 
-\color{b}{\times\frac{1}{\text{Beta}(\alpha,\beta)}}{\theta^{\alpha-1}(1-\theta)^{\beta-1}}d{\theta}}\\
-&= \frac{\binom{n}{x}}{\text{Beta}(\alpha,\beta)}\times{\int_{0}^{1}{\theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}}d{\theta}}\\
-&= \frac{\binom{n}{x}}{\text{Beta}(\alpha,\beta)}\times{{\text{Beta}(x+\alpha,n-x+\beta)}}
-\end{aligned}
-$$
-
-Second, we can expand and simplify numerator with:
-
-$$
-\begin{aligned}
-\color{lightgreen}{Pr(x|n,\theta)}\color{b}{\times}\color{dodgerblue}{g(\theta|\alpha,\beta)}
-&= \color{lightgreen}{\binom{n}{x}{\theta^{x}}{(1-\theta)^{n-x}}}
-\color{b}{\times}
-\color{dodgerblue}
-{\frac{1}{\text{Beta}(\alpha,\beta)}}{\theta^{\alpha-1}(1-\theta)^{\beta-1}}\\
-&= \frac{\binom{n}{x}}{\text{Beta}(\alpha,\beta)}\times{\theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}}
-\end{aligned}
-$$
+$$\color{orangered}{f(\theta|D)}=\color{b}{\frac{\color{lightgreen}{Pr(D|\theta)}\color{b}{\times}\color{dodgerblue}{g(\theta)}}{Pr(D)}}$$
 
 
-Hence, $\color{orangered}{f(\theta|x,n,\alpha,\beta)}$ have:
 
-$$
-\begin{aligned}
-\color{orangered}{f(\theta|x,n,\alpha,\beta)}
-&= \color{b}{\frac{\color{lightgreen}{Pr(x|n,\theta)}\color{b}{\times}\color{dodgerblue}{g(\theta|\alpha,\beta)}}
-{\color{violet}{\int{Pr(x|n,\theta)g(\theta|\alpha,\beta)}d{\theta}}}}\\
-& = \frac{\frac{\binom{n}{x}}{\text{Beta}(\alpha,\beta)}\times{\theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}}}
-{\frac{\binom{n}{x}}{\text{Beta}(\alpha,\beta)}\times{{\text{Beta}(x+\alpha,n-x+\beta)}}}\\
-&= \frac{1}
-{{\text{Beta}(x+\alpha,n-x+\beta)}}\times{\theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}}\\
-&= \mathcal{B}(x+\alpha, n-x+\beta)
-\end{aligned}
-$$
 
-The posterior $\color{orangered}{f(\theta|x,n,\alpha,\beta)}$ is therefore another beta distribution with parameters $(x+\alpha,n-x+\beta)$. 
 
-And we find out posterior is still beta distribution with different parameters. The interpreatation of parameters are usually considered as **pseudocount**.
 
-Their plot are like the following picture:
+
+
+
+
+
+
+
+
+
+Like following picture:
 
 <center>
 <img class="center large" src=".//bml/001.png" height="50%" width="70%">
 </center>
-
-#### **Special Case for Prior**
 
 * Suppose prior representing an expectation of coins biased toward more heads:
 
@@ -191,9 +118,61 @@ $$
 
 * From above formula, we will observe one more head than former belief, which is counted with **Pseudocount**
 
+#### **Conjugate Priors**
+
+The two example priors given here, the uniform prior on $[0,1]$ and  
+
+$$
+g(\theta)=
+\begin{cases}
+    2\theta\ \ 0\leq{\theta}\leq{1} \\
+    0\ \ \ \ \text{otherwise}
+\end{cases}
+$$
+
+are both $\color{orangered}{\textbf{conjugate priors}}$ for the bionmial likelihood function because the prior and the posterior have the same function form. Distributions with this form are called $\color{orangered}{\textbf{beta distributions}}$.
+
+In general, a beta distribution on $\theta$ has the form  
+
+$$\text{beta}(\theta|\alpha,\beta)=\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}\theta^{\alpha-1}(1-\theta)^{\beta-1}$$
+
+When $n$ is a positive integer, $\Gamma(n)=(n-1)!$. Thus, when $\alpha$ and $\beta$ are positive integers,
+
+$$\text{beta}(\theta|\alpha,\beta)=\frac{(\alpha+\beta-1)!}{(\alpha-1)!\ (\beta-1)!}\theta^{\alpha-1}(1-\theta)^{\beta-1}$$
+
+* The p.d.f. that is uniform on $[0,1]$ and $0$ elsewhere is $\text{beta}(\theta\|\alpha=1,\beta=1)=1$
+* The p.d.f. that is $2\theta$ on $[0,1]$ and $0$ elsewhere is $\text{beta}(\theta\|\alpha=2,\beta=1)=2\theta$
+
+Therefore, when a beta prior p.d.f. with integer parameters $\alpha, \beta$, is multiplied by a binomial likelihood of $x$ heads in $n$ trials, the posterior p.d.f. on $\theta$ is
+
+$$f(\theta|x,n,\alpha,\beta) \propto \theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}$$
+
+for $\theta\in[0,1]$ and $0$ elsewhere. And the proportionality constant ensures that the integral of the posterior over all values of $\theta$ is $1$. Hence, the normalized posterior p.d.f. is:
+
+$$\color{b}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}\color{orangered}{\theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}}$$
+
+> Thus, when a prior p.d.f. is a beta distribution with parameters $\alpha, \beta$ and the likelihood is binomial, the posterior p.d.f. is a beta distribution with parameters $x+a$ and $n-x+b$. For this reason, the beta family of priors is said to be conjugate to binomial likelihood functions.
+
+Maximum Likelihood Estimation for Above Distribution
+
+$$\theta_{MLE}=\frac{x}{n}$$
+
+Maximum A Posterior Emstimation
+
+$$
+\begin{aligned}
+\theta_{MAP}
+& =\arg{\max_{\theta}}{\ Pr(\theta|D)}\\
+& =\arg{\max_{\theta}}{\ Pr(D|\theta)\cdot{Pr(\theta)}}\\
+& =\arg{\max_{\theta}}{\ \theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}}\\
+& =\frac{x+\alpha-1}{n+\alpha+\beta-2}
+\end{aligned}
+$$
+
+
 #### **Posterior Predictive Distributions**
 
-With posterior function $\color{orangered}{\textbf{(conjugate priors)}}$ of $\color{orangered}{f(\theta\|D)}$ on parameters $\theta$ given observations $D$, we can compute a distribution on future observations that does not depend on assuming any particular parameter values.
+With a $\color{orangered}{\textbf{conjugate priors}}$ of $\color{orangered}{f(\theta\|D)}$ on parameters $\theta$ given observations $D$, we can compute a distribution on future observations that does not depend on assuming any particular parameter values.
 
 $$Pr(X=x|D)=\int_{-\infty}^{{+\infty}}Pr(X=x|\theta)\color{orangered}{\ f{(\theta|D)}}\color{b}d\theta$$
 
@@ -208,7 +187,7 @@ Pr(X=1|D)
 & = \int_{0}^{1}\color{dodgerblue}{\theta}\color{orangered}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}\color{orangered}{\theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}}\color{b}{d\theta}\\
 & = \int_{0}^{1}\color{b}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}{\theta^{x+\alpha}(1-\theta)^{n-x+\beta-1}}d{\theta}\\
 & = \color{b}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}\color{violet}{\int_{0}^{1}{\theta^{x+\alpha}(1-\theta)^{n-x+\beta-1}}d{\theta}}\\
-& = \color{b}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}\color{violet}{\text{ Beta}(x+\alpha,n-x+\beta)}\\
+& = \color{b}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}\color{violet}{\text{ Beta}(\alpha,\beta)}\\
 & = \color{b}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}\color{violet}{\frac{(x+\alpha)!(n-x+\beta-1)!}{(n+\alpha+\beta)!}}\\
 & = \frac{x+\alpha}{n+\alpha+\beta}
 \end{aligned}
