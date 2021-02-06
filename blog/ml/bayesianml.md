@@ -103,7 +103,7 @@ $$
 \color{violet}{\text{Beta}(\alpha,\beta)=\int_{0}^{1}{\theta^{\alpha-1}(1-\theta)^{\beta-1}}{d{\theta}}=\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}}
 $$
 
-Above equation is to ensure that integral of $\color{dodgerblue}{g(\theta)\text{ or }\mathcal{B}(\theta|\alpha,\beta)}$ is one.
+Above equation is to ensure that integral of $\color{dodgerblue}{g(\theta)\text{ or }\mathcal{B}(\theta\|\alpha,\beta)}$ is one.
 
 #### **General Cases for Posterior of Binomial Distribution**
 
