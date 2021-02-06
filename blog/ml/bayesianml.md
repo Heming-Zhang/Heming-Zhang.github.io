@@ -115,7 +115,7 @@ $$
 {\color{violet}{\int{Pr(x|n,\theta)g(\theta|\alpha,\beta)}d{\theta}}}}
 $$
 
-First, we can handle the normalization constant $\color{violet}{Pr(x|n,\alpha,\beta)}$:
+First, we can handle the normalization constant $\color{violet}{Pr(x\|n,\alpha,\beta)}$:
 
 $$
 \begin{aligned}
@@ -141,7 +141,7 @@ $$
 $$
 
 
-Hence, $\color{orangered}{f(\theta|x,n,\alpha,\beta)}$ have:
+Hence, $\color{orangered}{f(\theta\|x,n,\alpha,\beta)}$ have:
 
 $$
 \begin{aligned}
@@ -156,7 +156,7 @@ $$
 \end{aligned}
 $$
 
-The posterior $\color{orangered}{f(\theta|x,n,\alpha,\beta)}$ is therefore another beta distribution with parameters $(x+\alpha,n-x+\beta)$. 
+The posterior $\color{orangered}{f(\theta\|x,n,\alpha,\beta)}$ is therefore another beta distribution with parameters $(x+\alpha,n-x+\beta)$. 
 
 And we find out posterior is still beta distribution with different parameters. The interpreatation of parameters are usually considered as **pseudocount**.
 
