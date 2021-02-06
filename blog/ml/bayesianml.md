@@ -20,19 +20,19 @@ Courses Website
 
 The goal of probabilistic inference is to make some statements about $\theta$ given these observations.
 
-> The Rule of Total Probability  
-> 
-> $$Pr(X)=\sum_{i=1}^{N}Pr(X,Y_i)$$
->
-> $$p(x)=\int_{Y}p(x,y)dy$$
+**The Rule of Total Probability** 
 
-> Product Rule  
-> 
-> $$Pr(X,Y)=Pr(Y|X)Pr(X)$$
+$$Pr(X)=\sum_{i=1}^{N}Pr(X,Y_i)$$
 
-> Bayesian Theorem  
-> 
-> $$Pr(Y|X)=\frac{Pr(X|Y)Pr(Y)}{Pr(X)}=\frac{Pr(X|Y)Pr(Y)}{\sum{Pr(X|Y)Pr(Y)}}$$
+$$p(x)=\int_{Y}p(x,y)dy$$
+
+**Product Rule**  
+
+$$Pr(X,Y)=Pr(Y|X)Pr(X)$$
+
+**Bayesian Theorem**  
+
+$$Pr(Y|X)=\frac{Pr(X|Y)Pr(Y)}{Pr(X)}=\frac{Pr(X|Y)Pr(Y)}{\sum{Pr(X|Y)Pr(Y)}}$$
 
 Posterior: $Pr(\theta|D)$  
 Prior: $Pr(\theta)$  
