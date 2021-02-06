@@ -247,7 +247,7 @@ $$
 
 For example,
 
-$$Pr(x_1,x_2,x_3|\theta_1,\theta_2,\theta_3)=\frac{(x_1+x_2+x_3)!}{{x_1}!{x_2}!{x_3}!}{\ \theta_1^{x_1}}{\theta_2^{x_2}}{\theta_3^{x_3}}$$
+$$Pr(x_1,x_2,x_3|\theta_1,\theta_2,\theta_3)=\frac{(x_1+x_2+x_3)!}{x_1!x_2!x_3!}{\ \theta_1^{x_1}}{\theta_2^{x_2}}{\theta_3^{x_3}}$$
 
 
 
