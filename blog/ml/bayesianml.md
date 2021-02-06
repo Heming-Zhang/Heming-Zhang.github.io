@@ -123,7 +123,7 @@ $$
 &= {\int_{0}^{1}{\binom{n}{x}{\theta}^{x}{(1-\theta)}^{n-x}} 
 \color{b}{\times\frac{1}{\text{Beta}(\alpha,\beta)}}{\theta^{\alpha-1}(1-\theta)^{\beta-1}}d{\theta}}\\
 &= \frac{\binom{n}{x}}{\text{Beta}(\alpha,\beta)}\times{\int_{0}^{1}{\theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}}d{\theta}}\\
-&= \frac{\binom{n}{x}}{\text{Beta}(\alpha,\beta)}\times{{\text{Beta}(x+\alpha,n-x+\beta)}}
+&= \frac{\binom{n}{x}}{\text{Beta}(\alpha,\beta)}\times{\text{Beta}(x+\alpha,n-x+\beta)}
 \end{aligned}
 $$
 
@@ -149,9 +149,9 @@ $$
 &= \color{b}{\frac{\color{lightgreen}{Pr(x|n,\theta)}\color{b}{\times}\color{dodgerblue}{g(\theta|\alpha,\beta)}}
 {\color{violet}{\int{Pr(x|n,\theta)g(\theta|\alpha,\beta)}d{\theta}}}}\\
 & = \frac{\frac{\binom{n}{x}}{\text{Beta}(\alpha,\beta)}\times{\theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}}}
-{\frac{\binom{n}{x}}{\text{Beta}(\alpha,\beta)}\times{{\text{Beta}(x+\alpha,n-x+\beta)}}}\\
+{\frac{\binom{n}{x}}{\text{Beta}(\alpha,\beta)}\times{\text{Beta}(x+\alpha,n-x+\beta)}}\\
 &= \frac{1}
-{{\text{Beta}(x+\alpha,n-x+\beta)}}\times{\theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}}\\
+{\text{Beta}(x+\alpha,n-x+\beta)}\times{\theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}}\\
 &= \mathcal{B}(x+\alpha, n-x+\beta)
 \end{aligned}
 $$
