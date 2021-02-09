@@ -51,7 +51,7 @@ $$Pr(D|\theta)=Bin(x|n,\theta)=\binom{n}{x}\theta^x(1-\theta)^{n-x}$$
 $$
 \begin{aligned}
 \hat{\theta}_{MLE}
-&=\arg{\max_{\theta}}{\ Pr(D|\theta)}\\
+&=\arg{\max_{\theta}}{\ Pr(\mathcal{D}|\theta)}\\
 &=\arg{\max_{\theta}}{\text{ Bin}(x|n,\theta)}\\
 &=\arg{\max_{\theta}}{\ \binom{n}{x}\theta^{x}{(1-\theta)^{n-x}}}\\
 &=\arg{\max_{\theta}}{\ x\text{log}{\theta}+(n-x)\text{log}{(1-\theta)}}\\
@@ -63,25 +63,25 @@ $$
 #### **Maximum A Posterior Emstimation**  
 Since we have formula
 
-$$Pr(\theta|D)=\frac{Pr(D|\theta)Pr(\theta)}{Pr(D)}$$
+$$Pr(\theta|\mathcal{D})=\frac{Pr(\mathcal{D}|\theta)Pr(\theta)}{Pr(\mathcal{D})}$$
 
 For a fixed set of observations,
 
-$$Pr(\theta|D) \propto Pr(D|\theta)\times{Pr(\theta)}$$  
+$$Pr(\theta|\mathcal{D}) \propto Pr(\mathcal{D}|\theta)\times{Pr(\theta)}$$  
 
 $$\color{orangered}{\text{Posterior }} \color{b}{\propto} \color{lightgreen}{\text{ Likelihood }}\color{b}{\times}\color{dodgerblue}{{\text{ Prior }}}$$
 
-If $\theta$ is a continuous r.v. with $\color{dodgerblue}{\text{prior p.d.f.}}$ with $\color{dodgerblue}{g(\theta)}$, then its $\color{orangered}{\text{posterior p.d.f.}}$ with $\color{orangered}{f(\theta\|D)}$ is given by
+If $\theta$ is a continuous r.v. with $\color{dodgerblue}{\text{prior p.d.f.}}$ with $\color{dodgerblue}{g(\theta)}$, then its $\color{orangered}{\text{posterior p.d.f.}}$ with $\color{orangered}{f(\theta\|\mathcal{D})}$ is given by
 
-$$\color{orangered}{f(\theta|D)}=\color{b}{\frac{\color{lightgreen}{Pr(D|\theta)}\color{b}{\times}\color{dodgerblue}{g(\theta)}}{Pr(D)}}$$ 
+$$\color{orangered}{f(\theta|\mathcal{D})}=\color{b}{\frac{\color{lightgreen}{Pr(\mathcal{D}|\theta)}\color{b}{\times}\color{dodgerblue}{g(\theta)}}{Pr(\mathcal{D})}}$$ 
 
 Here, for MAP, since we decide likelihood function with binomial, we can choose beta distribution as prior (details told in Conjugate Priors). Therefore, we have following induction:
 
 $$
 \begin{aligned}
 \hat\theta_{MAP}
-& =\arg{\max_{\theta}}{\ Pr(\theta|D)}\\
-& =\arg{\max_{\theta}}{\ Pr(D|\theta)\cdot{Pr(\theta)}}\\
+& =\arg{\max_{\theta}}{\ Pr(\theta|\mathcal{D})}\\
+& =\arg{\max_{\theta}}{\ Pr(\mathcal{D}|\theta)\cdot{Pr(\theta)}}\\
 & =\arg{\max_{\theta}}{\ \theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}}\\
 & =\frac{x+\alpha-1}{n+\alpha+\beta-2}
 \end{aligned}
@@ -135,7 +135,7 @@ $$
 &= \color{lightgreen}{\binom{n}{x}{\theta^{x}}{(1-\theta)^{n-x}}}
 \color{b}{\times}
 \color{dodgerblue}
-{\frac{1}{\text{Beta}(\alpha,\beta)}}{\theta^{\alpha-1}(1-\theta)^{\beta-1}}\\
+{\frac{1}{\text{Beta}(\alpha,\beta)}{\theta^{\alpha-1}(1-\theta)^{\beta-1}}}\\
 &= \frac{\binom{n}{x}}{\text{Beta}(\alpha,\beta)}\times{\theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}}
 \end{aligned}
 $$
@@ -193,9 +193,9 @@ $$
 
 #### **Posterior Predictive Distributions**
 
-With posterior function $\color{orangered}{\textbf{(conjugate priors)}}$ of $\color{orangered}{f(\theta\|D)}$ on parameters $\theta$ given observations $D$, we can compute a distribution on future observations that does not depend on assuming any particular parameter values.
+With posterior function $\color{orangered}{\textbf{(conjugate priors)}}$ of $\color{orangered}{f(\theta\|\mathcal{D})}$ on parameters $\theta$ given observations $\mathcal{D}$, we can compute a distribution on future observations that does not depend on assuming any particular parameter values.
 
-$$Pr(X=x|D)=\int_{-\infty}^{{+\infty}}Pr(X=x|\theta)\color{orangered}{\ f{(\theta|D)}}\color{b}d\theta$$
+$$Pr(X=x|\mathcal{D})=\int_{-\infty}^{{+\infty}}Pr(X=x|\theta)\color{orangered}{\ f{(\theta|\mathcal{D})}}\color{b}d\theta$$
 
 For example:  
 * When the prior on $\theta$ is $\text{beta}(\alpha,\beta)$, $X$ is a binary random variable with $Pr(X=1)=\theta$.  
@@ -203,8 +203,8 @@ For example:
 
 $$
 \begin{aligned}
-Pr(X=1|D)
-& = \int_{0}^{1}\color{dodgerblue}{Pr(X=1|\theta)}\color{orangered}{\ f{(\theta|D)}}\color{b}{d\theta}\\
+Pr(X=1|\mathcal{D})
+& = \int_{0}^{1}\color{dodgerblue}{Pr(X=1|\theta)}\color{orangered}{\ f{(\theta|\mathcal{D})}}\color{b}{d\theta}\\
 & = \int_{0}^{1}\color{dodgerblue}{\theta}\color{orangered}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}\color{orangered}{\theta^{x+\alpha-1}(1-\theta)^{n-x+\beta-1}}\color{b}{d\theta}\\
 & = \int_{0}^{1}\color{b}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}{\theta^{x+\alpha}(1-\theta)^{n-x+\beta-1}}d{\theta}\\
 & = \color{b}{\frac{(n+\alpha+\beta-1)!}{(x+\alpha-1)!(n-x+\beta-1)!}}\color{violet}{\int_{0}^{1}{\theta^{x+\alpha}(1-\theta)^{n-x+\beta-1}}d{\theta}}\\
@@ -220,8 +220,9 @@ $$
 \begin{aligned}
 \color{violet}{\textbf{beta function}}
 &:\color{b}{\text{Beta}(\alpha,\beta)=\int_{0}^{1}{\theta^{\alpha-1}(1-\theta)^{\beta-1}}{d{\theta}}=\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}}\\
+
 \color{violet}{\textbf{beta distribution}}
-&:\color{b}{\text{Beta}(\theta|\alpha,\beta)=\frac{1}{\text{Beta}(\alpha,\beta)}{\theta^{\alpha-1}(1-\theta)^{\beta-1}}}
+&:\color{b}{\mathcal{B}(\theta|\alpha,\beta)=\frac{1}{\text{Beta}(\alpha,\beta)}{\theta^{\alpha-1}(1-\theta)^{\beta-1}}}
 \end{aligned}
 $$
 
@@ -238,7 +239,7 @@ $$Pr(x|\theta)=\text{Mu}(x|\theta)=\prod_{j=1}^{K}{\theta_{j}^{x_j}}$$
 
 $$
 \begin{aligned}
-Pr(D|\theta)
+Pr(\mathcal{D}|\theta)
 &=\prod_{n=1}^{N}\prod_{j=1}^{K}{\theta_{j}^{I(x_{n}=j)}}\ \ \ (D=\{x_1,x_2,\cdots,x_N \})\\
 Pr(N_1,N_2,\cdots,N_k|N)
 &=\text{Mu}(\theta,N)=\binom{N}{N_1,N_2,\cdots,N_k}\prod_{j=1}^{K}{\theta_{j}^{N_j}}
@@ -250,4 +251,135 @@ For example,
 $$Pr(x_1,x_2,x_3|\theta_1,\theta_2,\theta_3)=\frac{(x_1+x_2+x_3)!}{x_1!x_2!x_3!}{\ \theta_1^{x_1}}{\theta_2^{x_2}}{\theta_3^{x_3}}$$
 
 
+### 1.3 Hypothesis Testing and Summarizing Distributions
+
+To measure a problem like *is this coin fair?* or *Does* $\theta=\frac{1}{2}$ *?*, we have following approaches from perspective of ***Bayesian*** or ***Frequentist***.
+
+#### Hypothesis Testing - Bayesian
+
+We first derive the posterior distribution $p(\theta\|\mathcal{D})$ and then may conpute the probability of the hypothesis directly:
+
+$$Pr(\theta\in\mathcal{H}|\mathcal{D})=\int_{\mathcal{H}}{p(\theta|\mathcal{D})}d{\theta}$$
+
+For example, we are interested in the unknown bias of a coin $\theta\in{(0,1)}$, and begin with the uniform prior on the interval $(0,1)$:
+
+$$p(\theta)=\mathcal{U}(\theta;0,1)=\mathcal{B}(\theta;\alpha=1,\beta=1)$$
+
+Then, let's collect some data to further inform our belief about $\theta$. Suppose we flip the coin independently $n=50$ times and observe $x=30$ heads. After gathering this data, we wish to consider the natural question of *is this coin fair?* or *Does* $\theta=\frac{1}{2}$ *?* 
+
+From above experiment, we can compute the posterior distribution easily. It is an updated beta distribution:
+
+$$p(\theta|\mathcal{D})=\mathcal{B}(\theta;31,21)$$
+
+Therefore, we may now computer the posterior probability of the hypothesis that the coin is fair:
+
+$$Pr(\theta=\frac{1}{2}|\mathcal{D})=\int_{\frac{1}{2}}^{\frac{1}{2}}{p(\theta|\mathcal{D})}d{\theta}=0$$
+
+One option would be to consider a parameterized family of hypothesis of the form
+
+$$\mathcal{H}{(\epsilon)}=(\frac{1}{2}-\epsilon, \frac{1}{2}+\epsilon)$$
+
+#### Hypothesis Testing - Frequentist
+
+We will create a so-called "null hypothesis" $\mathcal{H}_0$ that serves to define what "typical" data may look like assuming that hypothesis.  
+
+For example, for reasoning about the fairness of a coin, we may choose the natural null hypothesis $\mathcal{H}_0:\theta=\frac{1}{2}$. Now we can use the likelihood
+
+$$Pr(\mathcal{D}|\theta=\frac{1}{2})=Pr(x|n,\theta=\frac{1}{2})$$
+
+The classical procedure is then to define a statistic summarizing a given dataset $s(\mathcal{D})$ in some way. An example for coin flipping would be the sample mean $s(\mathcal{D})=\hat{\theta}=\frac{x}{n}$. 
+
+We now compute a so-called $\color{orangered}{\textbf{critical set }C(\alpha)}$ with the property
+
+$$Pr(s(\mathcal{D})\in\color{orangered}{C(\alpha)}\color{b}|\mathcal{H}_0)=1-\alpha$$
+
+where $\alpha$ is the $\color{orangered}{\textbf{significance level}}$ of the test. 
+
+The interpretation of the critical set is that the statistic computed from datasets generated assuming the null hypothesis "usually" have values in this range.
+
+***The most critical point*** here is that $\color{orangered}{\textbf{critical set }C(\alpha)}$ can be calculated based on $\mathcal{H}_0$ without any information from given dataset $\mathcal{D}$.
+
+Finally, we can compute the statistic for a particular set of observed data $s(\mathcal{D})$ and determine whether it lay inside the critical set $\color{orangered}{C(\alpha)}$ we have defined.  
+
+
+(1) If so, the dataset $\mathcal{D}$ appears typical for datasets generated from the null hypothesis.
+
+(2) If not, the dataset appears unusual, in the sense that data $\mathcal{D}$ generated assuming the null hypothesis would have such extreme values of the statistic only a small portion of the time $(100\alpha)$%. IN THIS CASE, you "reject" the null hypothesis $\mathcal{H}_0$ with significance $1-\alpha$.
+
+#### Hypothesis Testing - $p$ value
+
+A $p$-value is actually the minimum $\alpha$ for which you would reject the null hypothesis using this procedure.
+
+That is the probability that we would observe results as extreme as those in our dataset, as measured by the chosen statistic, *if the null hypothesis were true!* 
+
+For example, in coin flips example, if we have defined certain $p$-value, then we can know like 15heads/20flips is the boundary. Hence, $p$-value will be calculated based on probability summing up from 16/20, 17/20, 18/20, 19/20, 20/20.
+
+#### Summarizing Distributions - Bayesian
+
+Here, the commonly considered problem is interval summarization, where we provide an interval $(l,u)$ indicating plausible values of the parameter $\theta$ in light of the observed data.  
+
+Then, we introduce the concept $\color{orangered}{\textbf{Credible Interval}}$ such that $\theta\in(l,u)$ is "large" (say, has probability $\alpha$):
+
+$$Pr(\theta\in(l,u)|\mathcal{D})=\int_{l}^{u}p(\theta|\mathcal{D})d{\theta}=\alpha$$
+
+then we call $(l,u)$ an $\color{orangered}{\alpha-\textbf{Credible Interval}}$ for $\theta$. We have that $\mathcal{H}(\epsilon=0.1)=(0.4,0.6)$ is a 50%-creidible interval for the bias of the coin, and $\mathcal{H}(\epsilon=0.2)=(0.3,0.7)$ is a 95%-credible interval.
+
+<center>
+<img class="center large" src=".//bml/002.png" height="50%" width="70%">
+</center>
+
+#### Summarizing Distributions - Frequentist
+
+First we are going to define a function $\text{CI}(\mathcal{D})$ that will map a given dataset $\mathcal{D}$ to an interval $(l,u)=\text{CI}(\mathcal{D})$. Now we consider repeating the following experiment:
+
+* collect data $\mathcal{D}$
+* compute the interval $(l,u)=\text{CI}(\mathcal{D})$
+* state $\theta\in(l,u)$
+
+In the limit of infinitely many repetitions of this experiment, if the final statement is true with probability $\alpha$, then the procedure $\text{CI}(\mathcal{D})$ is called an $\alpha$-confidence interval procedure, and we will write $\text{CI}(\mathcal{D;\alpha})$.
+
+The correct interpretation of above $\color{orangered}{\textbf{confidence interval}}$ is that from so many experiment generated datasets $\mathcal{D}$, there are 100(1-$\alpha$)% $\text{CI}(\mathcal{D;\alpha})$ can contain estimated parameter $\theta$.
+
+
+### 1.4 Decision Theory
+
+#### Point Estimation
+
+In a sense, the posterior contains all information about $\theta$ that we care about. However, the process of inference will often require us to use this posterior to answer various questions. For example, we might be compelled to choose a single value $\hat{\theta}$ to serve as **point estimate** of $\theta$. To a Bayesian, the selection of $\hat{\theta}$, and in different contexts, we might want to select different values to report.
+
+#### Decision Theory - Bayesian
+
+* Parameter Space $\Theta$
+* Sample Space $\mathcal{X}$
+* Action Space $\mathcal{A}=\Theta$
+* Decision Rule as a function $\delta:\mathcal{X}\rightarrow{\mathcal{A}}$
+* Loss Function $L:\Theta\times{\mathcal{A}}\rightarrow{\mathbb{R}}$
+
+The value $L(\theta,a)$ summarizes "how bad" an action $a$ was if the true value of the parameter was revealed to be $\theta$. Larger losses represent worse outcomes.
+
+Given our observed data $\mathcal{D}$, we find the posterior $p(\theta\|\mathcal{D})$, which represents our current belief about the unknown parameter $\theta$. Given a potential action $a$, we may define the **posterior expected loss** of $a$ by averaging the loss function over the unknown parameter:
+
+$${\rho}(p(\theta|\mathcal{D}),a)=\mathbb{E}[L(\theta,a)|\mathcal{D}]=\int_{\Theta}L(\theta,a)p(\theta|\mathcal{D})d{\theta}$$
+
+Hence, we want to minimize the posterior expected loss with
+
+$$\delta^{*}(\mathcal{D})=\arg \min_{a\in{\mathcal{A}}}{\rho}(p(\theta|\mathcal{D}),a)$$
+
+A similar analysis shows that the Bayes estimator for the absolute deviation loss $L(\theta,\hat{\theta})=\|\theta-\hat{\theta}\|$ is the posterior mean.
+
+The Bayes estimators for a relaxed 0-1 loss:
+
+$$
+L(\theta,\hat{\theta};\epsilon)
+\color{b}{
+=
+\begin{cases}
+    0\ \ \ |\theta-\hat{\theta}|<\epsilon \\
+    1\ \ \ |\theta-\hat{\theta}|\geq\epsilon
+\end{cases}}
+$$
+
+converge to the posterior mode for small $\epsilon$.
+
+The posterior mode also called the $\color{orangered}{\textbf{maximum a posterior(MAP)}}$ estimate of $\theta$, which is written as $\hat{\theta}_{\text{MAP}}$.
 
