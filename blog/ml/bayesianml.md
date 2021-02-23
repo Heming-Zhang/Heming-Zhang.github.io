@@ -306,7 +306,7 @@ Finally, we can compute the statistic for a particular set of observed data $s(\
 
 (2) If not, the dataset appears unusual, in the sense that data $\mathcal{D}$ generated assuming the null hypothesis would have such extreme values of the statistic only a small portion of the time $(100\alpha)$%. IN THIS CASE, you "reject" the null hypothesis $\mathcal{H}_0$ with significance $1-\alpha$.
 
-#### Hypothesis Testing - $p$ value
+#### Hypothesis Testing - p value
 
 A $p$-value is actually the minimum $\alpha$ for which you would reject the null hypothesis using this procedure.
 
@@ -382,4 +382,14 @@ $$
 converge to the posterior mode for small $\epsilon$.
 
 The posterior mode also called the $\color{orangered}{\textbf{maximum a posterior(MAP)}}$ estimate of $\theta$, which is written as $\hat{\theta}_{\text{MAP}}$.
+
+
+## 2. Bayesian Approach to Regression
+
+### 2.1 The Gaussain Distribution
+
+#### The Gassian Distribution
+
+
+
 
